@@ -5,3 +5,4 @@ if ( !defined( 'ABSPATH' ) ) exit;
 add_editor_style();
 
 //以下に子テーマ用の関数を書く
+add_filter('theme_description', '__return_false');
