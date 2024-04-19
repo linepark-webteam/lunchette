@@ -26,6 +26,11 @@ body {
 .about {
   width: 1200px;
 }
+.footer {
+  width: 100vw;
+  position: fixed;
+  background-color: #d3ffd1;
+}
 
 .about-text {
   width: 600px;

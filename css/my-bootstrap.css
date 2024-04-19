@@ -1,0 +1,80 @@
+/* my-bootstrap.css */
+/* container-fluidクラスの余白を削除 */
+.container-fluid {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* ハンバーガーメニューのボタンスタイル */
+.navbar-toggler {
+  border: 1px solid #333;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: 10px;
+  background: transparent;
+  position: relative;
+}
+
+/* 中央のバー */
+.navbar-toggler span {
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* アニメーション設定 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* トップバー */
+.navbar-toggler span::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  top: -10px;
+  left: 0;
+  transform-origin: center;
+}
+
+/* ボトムバー */
+.navbar-toggler span::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  top: 10px;
+  left: 0;
+  transform-origin: center;
+}
+
+/* トグルされた時の変形 */
+.navbar-toggler.toggled span {
+  transform: rotate(45deg); /* 中央のバーを45度に回転 */
+}
+
+.navbar-toggler.toggled span::before {
+  transform: translateY(-10px) rotate(90deg); /* 上のバーを90度回転して中央に */
+  opacity: 1;
+}
+
+.navbar-toggler.toggled span::after {
+  transform: translateY(10px) rotate(90deg); /* 下のバーも90度回転して透明に（消すため） */
+  opacity: 0;
+}
+
+

@@ -3,69 +3,109 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ↓完成後に作成 -->
+  <meta name="keywords" content="">
+  <meta name="description" content="">
 
-
-  <!-- google fonts Noto Serif JP -->
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet"> -->
-
-  <!-- google fonts Klee One -->
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet"> -->
+  <!-- リセットCSS -->
+  <link rel="stylesheet" href="./css/ress.css">
 
   <!-- CSS BootStrap CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="./css/my-bootstrap.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/responsive.css">
   <link rel="stylesheet" href="./css/animation.css">
-  <title>Lunchette</title>
+  <title>Lunchette DEMO</title>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 </head>
 
 <body>
-  <nav class="navbar fixed-top bg-white bg-body-tertiary">
-    <div class="container-fluid d-flex justify-content-end">
-      <a class="navbar-brand" href="#">Home</a>
-      <a class="navbar-brand" href="#">About</a>
-      <a class="navbar-brand" href="#">Menu</a>
-      <a class="navbar-brand" href="#">Price</a>
-      <a class="navbar-brand" href="#">FAQ</a>
-      <a class="navbar-brand" href="#">Contact</a>
-    </div>
-  </nav>
 
-  <section class="row container-fluid">
-    <div>
-      <img class="col-12" src="./img/hero.jpg" alt="">
-      <img class="col-2 logo" src="./img/logo.webp" alt="">
-    </div>
-  </section>
-
-  <nav class="navbar sticky-top bg-white bg-body-tertiary">
-    <div class="container-fluid d-flex justify-content-end">
-      <a class="navbar-reserve" href="#">ご予約</a>
-    </div>
-  </nav>
-
-  <section class="about container">
-    <div class="row">
-      <div class="d-flex justyfy-content-center">
-        <div class="about-text">
-          <h2>About</h2>
-          <p>Lunchette(ランシェット)とはスズランの“らん”という音とフランス語で鈴を意味する“クロシェット”を掛け合わせたサロン名です。</p>
-          <p>スズランの花言葉 …再び幸せが訪れる…今がどんなにつらくても必ず幸せになれる。そんなメッセージをサロン名に込めました。</p>
-          <p>当サロンは自分の内面と向き合いありのままの自分を受け入れしなやかに生きるためのメンタルヘルスケアを提供しています。</p>
-          <p>セラピストとともに心の声に耳を傾け傷を癒していくことで自分らしい輝きを取り戻しませんか？</p>
-          <small>※当サロンは医療機関ではございません。病気の診断や薬の処方等をご希望の方は精神科・心療内科の受診をお願いいたします。</small>
+  <header>
+    <nav class="navbar fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span> <!-- 中央の線 -->
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Price</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
         </div>
-        <!-- <div class="d-flex">
-          <img class="col-6" src="./img/IMG_2373.jpeg" alt="">
-          <img class="col-6" src="./img/P8102516.JPG" alt="">
-        </div> -->
       </div>
-    </div>
-  </section>
+    </nav>
+  </header>
+
+
+
+  <main>
+    <section class="row container-fluid">
+      <div id="wrapper">
+        <img src="./img/logo.webp" alt="" class="logo">
+        <p><img src="./img/mainhero.png" alt=""></p>
+        <canvas id="waveCanvas"></canvas>
+        <!--/wrapper-->
+      </div>
+      <!-- <div>
+      <img class="col-12" src="./img/mainhero.png" alt="">
+      <img class="col-2 logo" src="./img/logo.webp" alt="">
+    </div> -->
+    </section>
+
+
+
+    <section class="about container">
+      <div class="row">
+        <div class="d-flex justyfy-content-center">
+          <div class="about-text">
+            <h2>About</h2>
+            <p>Lunchette(ランシェット)とはスズランの“らん”という音とフランス語で鈴を意味する“クロシェット”を掛け合わせたサロン名です。</p>
+            <p>スズランの花言葉 …再び幸せが訪れる…今がどんなにつらくても必ず幸せになれる。そんなメッセージをサロン名に込めました。</p>
+            <p>当サロンは自分の内面と向き合いありのままの自分を受け入れしなやかに生きるためのメンタルヘルスケアを提供しています。</p>
+            <p>セラピストとともに心の声に耳を傾け傷を癒していくことで自分らしい輝きを取り戻しませんか？</p>
+            <small>※当サロンは医療機関ではございません。病気の診断や薬の処方等をご希望の方は精神科・心療内科の受診をお願いいたします。</small>
+          </div>
+          <!-- <div class="d-flex">
+            <img class="col-6" src="./img/IMG_2373.jpeg" alt="">
+            <img class="col-6" src="./img/P8102516.JPG" alt="">
+          </div> -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+
+  </footer>
+
+  <!-- BootStrap CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="./js/script.js"></script>
 </body>
