@@ -1,72 +1,63 @@
-// TOPページ heroセクション
-// 初期化関数。ページのロード時に実行されます。
+// 初期化関数。ページのロード時に実行される
 function init() {
   const canvas = document.getElementById("waveCanvas");  // Canvas要素を取得
   const info = {
-      t: 0,  // 時間変数
-      unit: 100,  // 波の振幅スケール
-      amplitude: 0.5,  // 波の振幅
-      frequency: 0.005,  // 波の周波数
-      phase: 0  // 波の初期位相
+    t: 0,  // 時間変数
+    unit: 100,  // 波の振幅スケール
+    amplitude: 0.5,  // 波の振幅
+    frequency: 0.005,  // 波の周波数
+    phase: 0  // 波の初期位相
   };
 
-  // Canvasのサイズをウィンドウ幅の120%に設定し、波が画面全体に広がるようにします
+  // デバイスの幅に応じてCanvasのサイズと高さを設定
   canvas.width = document.documentElement.clientWidth * 1.3;
-  canvas.height = 500;  // Canvasの高さ
-  canvas.contextCache = canvas.getContext("2d");  // Canvasの2Dコンテキストを取得
+  canvas.height = document.documentElement.clientWidth < 768 ? 150 : 200;  // 小さなデバイスでは高さを減らす
 
-  // GSAPライブラリを使用して位相をアニメーションさせ、波が左から右へ流れるようにします。
+  canvas.contextCache = canvas.getContext("2d");
+
   gsap.to(info, {
-      duration: 900,  // アニメーションの期間
-      repeat: -1,  // アニメーションを無限に繰り返す
-      ease: "none",  // イージングを無効にする（一定速度で動作）
-      phase: "+=360",  // 位相を徐々に増加させる
-      onUpdate: function() { draw(canvas, info); }  // アニメーションの更新ごとにdraw関数を呼び出す
+    duration: 900,
+    repeat: -1,
+    ease: "none",
+    phase: "+=360",
+    onUpdate: function() { draw(canvas, info); }
   });
-
-  animateWave(info);  // 振幅のアニメーションを設定する関数を呼び出す
 }
 
-// Canvasに波を描画する関数
 function draw(canvas, info) {
   const context = canvas.contextCache;
-  context.clearRect(0, 0, canvas.width, canvas.height);  // Canvasをクリア
+  context.clearRect(0, 0, canvas.width, canvas.height);
 
-  // 垂直グラデーションを作成
+  // グラデーションの調整
   var gradient = context.createLinearGradient(0, 0, 0, canvas.height);
-  gradient.addColorStop(0, 'rgba(142, 245, 215, 1)'); // 上部の色
-  gradient.addColorStop(1, 'rgba(253, 253, 253, 1)'); // 下部の色
+  gradient.addColorStop(0, 'rgba(142, 245, 215, 1)');  // 軽い青色
+  gradient.addColorStop(0.7, 'rgba(142, 245, 215, 1)');  // 青色部分を下げる
+  gradient.addColorStop(1, 'rgba(253, 253, 253, 1)');  // 白色
 
-  context.fillStyle = gradient;  // 塗りつぶしスタイルにグラデーションを設定
-  context.beginPath();  // 新しいパスを開始
-  drawSine(canvas, info);  // 正弦波を描画
-  context.lineTo(canvas.width, canvas.height);  // Canvasの右下隅にラインを引く
-  context.lineTo(0, canvas.height);  // Canvasの左下隅にラインを引く
-  context.closePath();  // パスを閉じる
-  context.fill();  // 塗りつぶしを行う
+  context.fillStyle = gradient;
+  context.beginPath();
+  drawSine(canvas, info);
+  context.lineTo(canvas.width, canvas.height);
+  context.lineTo(0, canvas.height);
+  context.closePath();
+  context.fill();
 }
 
-// 正弦波を描画する関数
 function drawSine(canvas, info) {
   const context = canvas.contextCache;
   const xAxis = Math.floor(canvas.height / 2);
-  for (let i = -10; i <= canvas.width + 10; i += 10) {  // 描画範囲を少し広げる
-      const x = (info.t + i) * info.frequency + info.phase;
-      const y = Math.sin(x) * info.amplitude * info.unit;
-      context.lineTo(i, y + xAxis);
+  for (let i = -10; i <= canvas.width + 10; i += 10) {
+    const x = (info.t + i) * info.frequency + info.phase;
+    const y = Math.sin(x) * info.amplitude * info.unit;
+    context.lineTo(i, y + xAxis);
   }
 }
 
-
-init();  // init関数を呼び出して、アニメーション
+init();  // init関数を直接呼び出し
 
 
 // ハンバーガーメニューのtoggle
-document.addEventListener('DOMContentLoaded', function () {
-  var navbarToggler = document.querySelector('.navbar-toggler');
-
-  navbarToggler.addEventListener('click', function () {
-    navbarToggler.classList.toggle('toggled');
-  });
+var navbarToggler = document.querySelector('.navbar-toggler');
+navbarToggler.addEventListener('click', function () {
+  navbarToggler.classList.toggle('toggled');
 });
-

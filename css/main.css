@@ -3,8 +3,6 @@
 
 /* headerの設定 */
 /* ハンバーガーメニュー */
-
-/* 展開されたメニューのテキストの見やすさを向上させるスタイル */
 /* メニュー展開時のスタイル */
 .navbar-nav .nav-link {
   color: #333; /* テキストカラー */
@@ -15,13 +13,13 @@
 /* メニューが右側から展開する設定 */
 .navbar-collapse {
   position: absolute;
-  right: 0; /* 右端から配置 */
-  top: 58px; /* ナビゲーションバーの下から展開 */
-  background: #fff; /* メニュー展開時の背景色 */
+  right: 15px; /* 右端から配置 */
+  top: 65px; /* ナビゲーションバーの下から展開 */
+  background: inherit; /* メニュー展開時の背景色 */
 }
 
 
-/*========= heroセクションのためのCSS ===============*/
+/*========= heroセクションのCSS ===============*/
 
 #wrapper {
   width: 100%;
@@ -40,4 +38,26 @@ canvas {
   bottom: 0;
   left: 0;
   width: 100%;
+}
+
+
+
+/* 追従リンクボタンのスタイル */
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+}
+
+.reserve-btn {
+  display: inline-block; /* ボタン風の配置 */
+  text-decoration: none; /* 下線を削除 */
+  background-color: #ffeb3b; /* 黄色の背景色 */
+  color: #333; /* テキストの色 */
+  padding: 10px 15px; /* パディングを追加 */
+  transition: background-color 0.3s; /* ホバー効果のためのトランジション */
+}
+
+.fixed-bottom a:hover {
+  background-color: #ffd600; /* ホバー時に背景色を濃くする */
+  color: #333; /* テキスト色はそのまま */
 }
