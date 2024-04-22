@@ -30,7 +30,7 @@
     <nav class="navbar fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img src="" alt="Logo">
+          <img src="./img/header-logo.webp" alt="Logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,25 +65,28 @@
 
 
   <main>
-    <section class="row container-fluid">
+    <section class="hero-section row container-fluid">
       <div id="wrapper">
-        <img src="./img/logo.webp" alt="" class="logo">
-        <p><img src="./img/mainhero.png" alt=""></p>
+        <div class="contents col-6">
+          <div class="col-12 d-flex justify-content-end">
+            <img src="./img/hero-logo.webp" alt="" class="hero-logo">
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dicta quaerat possimus saepe, iste
+            quos eveniet fugit natus tempore nostrum fugiat blanditiis earum quia ratione. Quam quidem ullam fugit
+            cupiditate.</p>
+        </div>
+        <div class="contents col-6">
+          <img src="./img/hero.webp" alt="">
+        </div>
         <canvas id="waveCanvas"></canvas>
-        <!--/wrapper-->
       </div>
-      <!-- <div>
-      <img class="col-12" src="./img/mainhero.png" alt="">
-      <img class="col-2 logo" src="./img/logo.webp" alt="">
-    </div> -->
+      <div class="blue-canvas"></div>
     </section>
-
-
 
     <section class="about container">
       <div class="row">
         <div class="d-flex justyfy-content-center">
-          <div class="about-text">
+          <div class="about-text col-5">
             <h2>About</h2>
             <p>Lunchette(ランシェット)とはスズランの“らん”という音とフランス語で鈴を意味する“クロシェット”を掛け合わせたサロン名です。</p>
             <p>スズランの花言葉 …再び幸せが訪れる…今がどんなにつらくても必ず幸せになれる。そんなメッセージをサロン名に込めました。</p>
@@ -91,19 +94,37 @@
             <p>セラピストとともに心の声に耳を傾け傷を癒していくことで自分らしい輝きを取り戻しませんか？</p>
             <small>※当サロンは医療機関ではございません。病気の診断や薬の処方等をご希望の方は精神科・心療内科の受診をお願いいたします。</small>
           </div>
-          <!-- <div class="d-flex">
+          <div class="d-flex col-6">
             <img class="col-6" src="./img/IMG_2373.jpeg" alt="">
             <img class="col-6" src="./img/P8102516.JPG" alt="">
-          </div> -->
+          </div>
         </div>
       </div>
+    </section>
+
+    <section class="menu container">
+      <div class="d-flex justify-content-center">
+        <h2>-Menu-</h2>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-10 col-md-4 border-solid">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil earum sunt eaque eveniet animi dicta totam aliquam quam tenetur pariatur. Voluptatem impedit fugiat consequatur laborum, fugit asperiores delectus quis vel.</div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+      </div>
+
     </section>
   </main>
 
   <footer>
 
   </footer>
-  <section class="fixed-bottom">
+  <section class="container-fluid row">
+    <div class="d-flex justify-content-center">
+      <p>copyright</p>
+    </div>
+  </section>
+
+  <!-- <section class="fixed-bottom">
     <div class="container-fluid">
       <div class="row">
         <div class="col-4">
@@ -118,7 +139,7 @@
         <div class="col-2"></div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- BootStrap CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>

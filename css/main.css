@@ -2,6 +2,13 @@
 
 
 /* headerの設定 */
+@media (min-width: 768px) {
+  .navbar-brand {
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+}
+
 /* ハンバーガーメニュー */
 /* メニュー展開時のスタイル */
 .navbar-nav .nav-link {
@@ -19,7 +26,15 @@
 }
 
 
+
+
 /*========= heroセクションのCSS ===============*/
+
+.hero-logo {
+  width: 500px;
+  text-align: center;
+  margin-top: 50px;
+}
 
 #wrapper {
   width: 100%;
@@ -38,26 +53,13 @@ canvas {
   bottom: 0;
   left: 0;
   width: 100%;
+  height: 30vh;
+}
+
+.blue-canvas {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(142, 245, 215, 1);
 }
 
 
-
-/* 追従リンクボタンのスタイル */
-.fixed-bottom {
-  position: fixed;
-  bottom: 0;
-}
-
-.reserve-btn {
-  display: inline-block; /* ボタン風の配置 */
-  text-decoration: none; /* 下線を削除 */
-  background-color: #ffeb3b; /* 黄色の背景色 */
-  color: #333; /* テキストの色 */
-  padding: 10px 15px; /* パディングを追加 */
-  transition: background-color 0.3s; /* ホバー効果のためのトランジション */
-}
-
-.fixed-bottom a:hover {
-  background-color: #ffd600; /* ホバー時に背景色を濃くする */
-  color: #333; /* テキスト色はそのまま */
-}
