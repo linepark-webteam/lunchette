@@ -1,0 +1,141 @@
+@media (min-width: 768px) {  /* 画面幅768px以上で適用 */
+  .navbar-brand {
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+}
+
+/*========= ヒーローセクションのCSS ===============*/
+.hero-logo {
+  width: 500px;  /* ロゴの幅 */
+  text-align: center;  /* ロゴの配置 */
+  margin-top: 50px;  /* ロゴの上マージン */
+}
+
+#wrapper {
+  width: 100%;  /* ラッパーの全幅 */
+  height: 100vh;  /* ビューポートの高さ */
+  display: flex;  /* フレックスボックス */
+  justify-content: center;  /* 中央寄せ */
+  align-items: center;  /* 縦方向に中央寄せ */
+  overflow: hidden;  /* はみ出しを防ぐ */
+  position: relative;  /* 相対配置 */
+  bottom: 0;
+}
+
+/* 固定コンテンツのスタイル */
+.text-contents, .img-contents {
+  position: fixed;  /* 固定位置 */
+  top: 0px;  /* 上部の位置 */
+  width: 50%;  /* 幅 */
+  height: 100vh;  /* ビューポートの高さ */
+  overflow: hidden;  /* はみ出しを防ぐ */
+  z-index: -1;  /* z-indexの設定 */
+}
+.text-contents {
+  left: 0;
+  margin-left: 100px;
+  z-index: -1;
+}
+.text-contents .hero-logo{
+  margin-right: 190px;
+  width: 550px;
+  height: 100%;
+  object-fit: cover;
+}
+.text-contents .msg{
+  white-space: nowrap;
+  font-size: 36px;
+  margin: 50px 150px 0 0;
+}
+.img-contents {
+  right: 0;
+  top: 10px;
+  margin-right: 100px;
+  z-index: -2;
+}
+.img-contents img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* レイアウト */
+.text-contents {
+  left: 0;  /* 左側に配置 */
+}
+
+.img-contents {
+  right: 0;  /* 右側に配置 */
+}
+
+/*========= Waveを描画するエリア設定 ===============*/
+/* スクロール可能なコンテンツのスタイル */
+#waveCanvas {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30vh;
+  z-index: 10;
+  background: linear-gradient(
+    to top,
+    rgba(142, 245, 215, 1),  上側のグラデーション
+    rgba(142, 245, 215, 0) 50%,  中間点の濃い色
+    rgba(142, 245, 215, 0) 100%  下側のグラデーション
+  );
+}
+
+#blue-canvas {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  width: 100%;
+  height: 120vh;
+  z-index: 10;
+  background: linear-gradient(
+    to top,
+    rgba(142, 245, 215, 0),  /* 上側のグラデーション */
+    rgba(142, 245, 215, 1) 50%,  /* 中間点の濃い色 */
+    rgba(142, 245, 215, 1) 100%  /* 下側のグラデーション */
+  );
+}
+
+
+/* canvas {
+  position: absolute;  絶対配置
+  bottom: 0;  画面下部に配置
+  left: 0;  左端に配置
+  width: 100%;  全幅
+  height: 60vh;  キャンバスの高さ
+} */
+
+/* AboutのCSS */
+.about {
+  margin-top: 120vh;  /* 上の余白 */
+  text-align: left;  /* 中央寄せ */
+}
+
+.about-text {
+  flex-basis: 450px;
+  width: 400px;
+}
+
+.about-img {
+  flex-basis: 400px;
+  width: 400px;
+}
+
+.about-first {
+  width: 300px;
+  height: 400px;
+  margin-left: 50px;
+  margin-right: -60px;
+  z-index: 1;
+}
+.about-second {
+  width: 200px;
+  height: 200px;
+  margin: 350px 0 0 0;
+  z-index: 0;
+}

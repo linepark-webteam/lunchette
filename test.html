@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scroll Hide Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* 水平方向のスクロールを防止 */
+        }
+
+        /* 固定コンテンツ */
+        .fixed-content {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            background-color: white; /* 固定コンテンツの背景色 */
+            z-index: 10; /* 前面に表示 */
+            text-align: center;
+            font-size: 24px;
+            transition: opacity 0.5s; /* 不透明度の変化にアニメーション */
+        }
+
+        /* スクロール可能なコンテンツ */
+        .scrollable-content {
+            padding-top: 60px; /* 固定コンテンツの高さを考慮 */
+            height: 200vh; /* 長いページを作るため */
+            background-color: rgb(202, 36, 36); /* スクロール可能なコンテンツの背景色 */
+        }
+    </style>
+    <script>
+      function updateFixedContentOpacity() {
+          const scrollY = window.scrollY; // スクロール位置
+          const maxScrollHeight = 200; // 固定コンテンツが完全に非表示になる高さ
+          const opacity = 1 - Math.min(1, scrollY / maxScrollHeight); // 不透明度を計算
+  
+          document.querySelector('#fixed').style.opacity = opacity;
+      }
+  
+      // スクロールイベントにリスナーを追加
+      window.addEventListener('scroll', updateFixedContentOpacity);
+  </script>
+  
+</head>
+<body>
+    <!-- 固定コンテンツ -->
+    <div class="fixed-content" id="fixed">
+        Scroll down to see the fixed content disappear.
+    </div>
+
+    <!-- スクロール可能なコンテンツ -->
+    <div class="scrollable-content">
+        This is the scrollable content. Keep scrolling to see the effect.
+    </div>
+</body>

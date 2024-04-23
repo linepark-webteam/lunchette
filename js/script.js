@@ -1,22 +1,23 @@
+let animation;
+
 // 初期化関数。ページのロード時に実行される
 function init() {
-  const canvas = document.getElementById("waveCanvas");  // Canvas要素を取得
+  const canvas = document.getElementById("waveCanvas");
   const info = {
-    t: 0,  // 時間変数
-    unit: 100,  // 波の振幅スケール
-    amplitude: 0.5,  // 波の振幅
-    frequency: 0.005,  // 波の周波数
-    phase: 0  // 波の初期位相
+    t: 0,
+    unit: 200,
+    amplitude: 0.3,
+    frequency: 0.002,
+    phase: 0
   };
 
-  // デバイスの幅に応じてCanvasのサイズと高さを設定
   canvas.width = document.documentElement.clientWidth * 1.3;
-  canvas.height = document.documentElement.clientWidth < 768 ? 150 : 200;  // 小さなデバイスでは高さを減らす
+  canvas.height = document.documentElement.clientWidth < 768 ? 150 : 200;
 
   canvas.contextCache = canvas.getContext("2d");
 
-  gsap.to(info, {
-    duration: 900,
+  animation = gsap.to(info, {
+    duration: 1000,
     repeat: -1,
     ease: "none",
     phase: "+=360",
@@ -24,15 +25,13 @@ function init() {
   });
 }
 
+// 波を描画する関数
 function draw(canvas, info) {
   const context = canvas.contextCache;
   context.clearRect(0, 0, canvas.width, canvas.height);
 
-  // グラデーションの調整
   var gradient = context.createLinearGradient(0, 0, 0, canvas.height);
-  gradient.addColorStop(0, 'rgba(142, 245, 215, 1)');  // 軽い青色
-  gradient.addColorStop(0.7, 'rgba(142, 245, 215, 1)');  // 青色部分を下げる
-  gradient.addColorStop(1, 'rgba(253, 253, 253, 1)');  // 白色
+  gradient.addColorStop(0, 'rgba(142, 245, 215, 1)');
 
   context.fillStyle = gradient;
   context.beginPath();
@@ -43,9 +42,13 @@ function draw(canvas, info) {
   context.fill();
 }
 
+// サイン波を描画する関数
 function drawSine(canvas, info) {
   const context = canvas.contextCache;
   const xAxis = Math.floor(canvas.height / 2);
+
+  context.moveTo(-10, xAxis);
+
   for (let i = -10; i <= canvas.width + 10; i += 10) {
     const x = (info.t + i) * info.frequency + info.phase;
     const y = Math.sin(x) * info.amplitude * info.unit;
@@ -53,12 +56,70 @@ function drawSine(canvas, info) {
   }
 }
 
-init();  // init関数を直接呼び出し
+// スクロール位置に基づいてキャンバスの位置を変える関数
+function updateCanvasPosition() {
+  const scrollY = window.scrollY;
+  const triggerHeight = 300;
+  const maxScroll = 300;
 
+  if (scrollY > triggerHeight) {
+    const moveFraction = (scrollY - triggerHeight) / (maxScroll - triggerHeight);
+    const moveUp = 30 * moveFraction;
+    document.querySelector('#waveCanvas').style.transform = `translateY(-${moveUp}vh)`;
+  } else {
+    document.querySelector('#waveCanvas').style.transform = `translateY(0)`;
+  }
+}
 
-// ハンバーガーメニューのtoggle
-var navbarToggler = document.querySelector('.navbar-toggler');
-navbarToggler.addEventListener('click', function () {
-  navbarToggler.classList.toggle('toggled');
-});
+// スクロール位置に基づいてコンテンツの透明度を更新する関数
+function updateContentOpacity() {
+  const scrollY = window.scrollY;
+  const triggerHeight = 2;
+  const maxScroll = 500;
 
+  const opacity = 1 - Math.min(1, (scrollY - triggerHeight) / (maxScroll - triggerHeight));
+
+  document.querySelector('.text-contents').style.opacity = opacity;
+  document.querySelector('.img-contents').style.opacity = opacity;
+}
+
+// スクロール位置に基づいて透明度を更新する関数
+function updateOpacity() {
+  const scrollY = window.scrollY;
+
+  const waveCanvasTriggerHeight = 0;
+  const waveCanvasMaxScroll = 300;
+  const waveCanvasOpacity = Math.min(1, (scrollY - waveCanvasTriggerHeight) / (waveCanvasMaxScroll - waveCanvasTriggerHeight));
+
+  const blueCanvasTriggerHeight = 0;
+  const blueCanvasMaxScroll = 300;
+  const blueCanvasOpacity = Math.min(1, (scrollY - blueCanvasTriggerHeight) / (blueCanvasMaxScroll - blueCanvasTriggerHeight));
+
+  if (scrollY <= waveCanvasTriggerHeight) {
+    document.querySelector('#waveCanvas').style.opacity = 1;
+    animation.resume();
+  } else {
+    document.querySelector('#waveCanvas').style.opacity = waveCanvasOpacity;
+    document.querySelector('#blue-canvas').style.opacity = blueCanvasOpacity;
+    animation.pause();
+  }
+}
+
+// 初期化関数を呼び出す
+init();
+
+// ハンバーガーメニューのトグルを設定
+toggleNavbar();
+
+// スクロールイベントをリッスン
+window.addEventListener('scroll', updateCanvasPosition);
+window.addEventListener('scroll', updateContentOpacity);
+window.addEventListener('scroll', updateOpacity);
+
+/// ハンバーガーメニューのトグル
+function toggleNavbar() {
+  var navbarToggler = document.querySelector('.navbar-toggler');
+  navbarToggler.addEventListener('click', function() {
+    this.classList.toggle('toggled');
+  });
+}

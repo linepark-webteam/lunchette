@@ -16,7 +16,7 @@
 
   <link rel="stylesheet" href="./css/my-bootstrap.css">
   <link rel="stylesheet" href="./css/main.css">
-  <!-- <link rel="stylesheet" href="./css/responsive.css"> -->
+  <link rel="stylesheet" href="./css/responsive.css">
   <!-- <link rel="stylesheet" href="./css/animation.css"> -->
   <title>Lunchette DEMO</title>
 
@@ -30,7 +30,7 @@
     <nav class="navbar fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img src="./img/header-logo.webp" alt="Logo">
+          <h1><img src="./img/header-logo.webp" alt="Lunchette"></h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,19 +42,19 @@
               <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Menu</a>
+              <a class="nav-link" href="#menu">Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Price</a>
+              <a class="nav-link" href="#price">Price</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">FAQ</a>
+              <a class="nav-link" href="#FAQ">FAQ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="#contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -67,62 +67,318 @@
   <main>
     <section class="hero-section row container-fluid">
       <div id="wrapper">
-        <div class="contents col-6">
+        <div class="text-contents col-6">
           <div class="col-12 d-flex justify-content-end">
-            <img src="./img/hero-logo.webp" alt="" class="hero-logo">
+            <img src="./img/hero-logo.webp" alt="Lunchette" class="hero-logo">
           </div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dicta quaerat possimus saepe, iste
-            quos eveniet fugit natus tempore nostrum fugiat blanditiis earum quia ratione. Quam quidem ullam fugit
-            cupiditate.</p>
+          <div class="col-12 d-flex justify-content-end">
+          <h2 class="msg">
+            お客様にふさわしい色を、<br>
+            Lunchetteは共に決めていきます。
+          </h2>
         </div>
-        <div class="contents col-6">
+        </div>
+        <div class="img-contents col-6">
           <img src="./img/hero.webp" alt="">
         </div>
-        <canvas id="waveCanvas"></canvas>
       </div>
-      <div class="blue-canvas"></div>
     </section>
+    <canvas id="waveCanvas"></canvas>
+    <canvas id="blue-canvas"></canvas>
 
-    <section class="about container">
+    <section id="about" class="about container">
       <div class="row">
-        <div class="d-flex justyfy-content-center">
-          <div class="about-text col-5">
-            <h2>About</h2>
+        <div class="d-flex justify-content-center">
+          <div class="about-text col-6">
+            <h2 class="txt-gold">About</h2>
             <p>Lunchette(ランシェット)とはスズランの“らん”という音とフランス語で鈴を意味する“クロシェット”を掛け合わせたサロン名です。</p>
             <p>スズランの花言葉 …再び幸せが訪れる…今がどんなにつらくても必ず幸せになれる。そんなメッセージをサロン名に込めました。</p>
             <p>当サロンは自分の内面と向き合いありのままの自分を受け入れしなやかに生きるためのメンタルヘルスケアを提供しています。</p>
             <p>セラピストとともに心の声に耳を傾け傷を癒していくことで自分らしい輝きを取り戻しませんか？</p>
             <small>※当サロンは医療機関ではございません。病気の診断や薬の処方等をご希望の方は精神科・心療内科の受診をお願いいたします。</small>
           </div>
-          <div class="d-flex col-6">
-            <img class="col-6" src="./img/IMG_2373.jpeg" alt="">
-            <img class="col-6" src="./img/P8102516.JPG" alt="">
+          <div class="about-img d-flex col-6">
+            <img class="about-first" src="./img/about-01.webp" alt="">
+            <img class="about-second" src="./img/about-02.webp" alt="">
           </div>
         </div>
       </div>
     </section>
 
-    <section class="menu container">
+    <section id="menu" class="menu container mt-5">
       <div class="d-flex justify-content-center">
-        <h2>-Menu-</h2>
+        <h2 class="txt-gold">- Menu -</h2>
       </div>
       <div class="row d-flex justify-content-center">
-        <div class="col-10 col-md-4 border-solid">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil earum sunt eaque eveniet animi dicta totam aliquam quam tenetur pariatur. Voluptatem impedit fugiat consequatur laborum, fugit asperiores delectus quis vel.</div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
+        <div class="menu-card col-10 col-md-4">
+          <h3 class="txt-gold">COLOR THERAPY</h3>
+          <p>
+            10色のカラーボトルの中から<br>
+            気になる色や<br>
+            感じる色のボトルを選び<br>
+            心を見つめるセラピー。
+          </p>
+          <p>
+              色を読み解きながら<br>
+              あなたの支えとなってくれる<br>
+              色を探していきます。
+          </p>
+        </div>
+        <div class="menu-card col-10 col-md-4">
+          <h3 class="txt-gold">COUNSELING</h3>
+          <p>
+            今抱えている問題や悩みの解消を目指すカウンセリング。
+          </p>
+          <p>
+              心の回復とともに<br>
+              自分の内面と向き合うことで<br>
+              あなたの魅力を引き出します。
+          </p>
+        </div>
+        <div class="menu-card col-10 col-md-4">
+          <h3 class="txt-gold">
+            COLOR THERAPY<br>
+            &<br>
+            COUNSELING
+          </h3>
+          <p>
+            カラーセラピーで<br>
+            無意識の中にある思いに気づき<br>
+            カウンセリングで<br>
+            根底にある考え感情と<br>
+            向き合います。
+          </p>
+          <p>
+              気づきから癒しの過程を<br>
+              実感いただけるセットプランです。
+          </p>
+        </div>
       </div>
+    </section>
 
+    <section id="price" class="price container mt-5">
+      <div class="d-flex justify-content-center">
+        <h2  class="txt-gold">- PRICE -</h2>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="img-price col-md-6">
+          <img src="./img/price.webp" alt="">
+        </div>
+        <div class="contents-price col-md-6">
+          <div>
+            <h3 class="txt-gold">COLOR THERAPY</h3>
+            <div class="d-flex">
+              <div class="d-flex">
+                <p></p>
+                <p></p>
+              </div>
+              <div class="d-flex">
+                <p></p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="txt-gold">COUNSELING</h3>
+            <div class="d-flex">
+              <div class="d-flex">
+                <p></p>
+                <p></p>
+              </div>
+              <div class="d-flex">
+                <p></p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="txt-gold">COLOR THERAPY & COUNSELING</h3>
+            <div class="d-flex">
+              <div class="d-flex">
+                <p></p>
+                <p></p>
+              </div>
+              <div class="d-flex">
+                <p></p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <span>
+            <!-- ※ -->
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section  class="is-color container mt-5">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h2 class="txt-gold">- COLOR THERAPY -</h2>
+        <p>カラーセラピーとは</p>
+      </div>
+      <div class="d-flex">
+        <div>
+          <div>
+            <p class="num txt-gold"></p>
+          </div>
+          <h3 class="txt-gold">カラーボトルを選ぶ</h3>
+          <p>
+            
+          </p>
+        </div>
+        <div>
+          <div>
+            <p class="num txt-gold"></p>
+          </div>
+          <h3 class="txt-gold">色を読み解く</h3>
+          <p>
+
+          </p>
+        </div>
+        <div>
+          <div>
+            <p class="num txt-gold"></p>
+          </div>
+          <h3 class="txt-gold">ヒーリングカラーを選ぶ</h3>
+          <p>
+
+          </p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <a href="">READ MORE</a>
+      </div>
+      <div>
+        <div class="d-flex justify-content-center">
+          <h3>What's Color therapy?</h3>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-7">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aspernatur ullam dolorum veritatis quam nulla id! Mollitia laboriosam quasi ad, totam nemo molestiae rem officia iusto ipsa recusandae. Rem, sunt!</p>
+          </div>
+          <div class="col-md-3">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore maiores, debitis fugit porro quaerat vitae adipisci tempora eum assumenda unde sapiente. Officia in blanditiis distinctio iusto pariatur, inventore necessitatibus perferendis?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="is-counseling container mt-5">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h2 class="txt-gold">- COUNSELING -</h2>
+        <p>カウンセリングとは</p>
+      </div>
+      <div class="d-flex">
+        <div>
+          <div>
+            <p class="num txt-gold"></p>
+          </div>
+          <h3 class="txt-gold">ヒアリング</h3>
+          <p>
+            
+          </p>
+        </div>
+        <div>
+          <div>
+            <p class="num txt-gold"></p>
+          </div>
+          <h3 class="txt-gold">カウンセリング</h3>
+          <p>
+
+          </p>
+        </div>
+        <div>
+          <div>
+            <p class="num txt-gold"></p>
+          </div>
+          <h3 class="txt-gold">フィードバック</h3>
+          <p>
+
+          </p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <a href="">READ MORE</a>
+      </div>
+      <div>
+        <div class="d-flex justify-content-center">
+          <h3>What's Counseling?</h3>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-7">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam blanditiis cum repellendus enim libero harum quis veritatis laborum voluptatibus odit reprehenderit perferendis, architecto placeat nihil aperiam doloribus molestiae similique eius?</p>
+          </div>
+          <div class="col-md-3">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, aspernatur? Consectetur reprehenderit accusamus ipsa maiores excepturi facilis dolorem corporis, sapiente itaque est ullam, nihil commodi, minima laborum porro rem distinctio!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="therapist container mt-5">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h2 class="txt-gold">- THERAPIST -</h2>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-10">
+          <div class="col-6">
+            <p>自己紹介</p>
+          </div>
+          <div class="col-6">
+            <img src="./img/therapist.webp" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="FAQ" class="FAQ container mt-5">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h2 class="txt-gold">- FAQ -</h2>
+        <p>ご予約に関して</p>
+      </div>
+      <div class="d-flex flex-column">
+        <div class="d-flex flex-column">
+          <h4><span class="txt-gold">Q.</span></h4>
+          <p>TEXT</p>
+        </div>
+        <div class="d-flex flex-column">
+          <h4><span class="txt-gold">Q.</span></h4>
+          <p>TEXT</p>
+        </div>
+        <div class="d-flex flex-column">
+          <h4><span class="txt-gold">Q.</span></h4>
+          <p>TEXT</p>
+        </div>
+        <div class="d-flex flex-column">
+          <h4><span class="txt-gold">Q.</span></h4>
+          <p>TEXT</p>
+        </div>
+        <div class="d-flex flex-column">
+          <h4><span class="txt-gold">Q.</span></h4>
+          <p>TEXT</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact container mt-5">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h2 class="txt-gold">CONTACT</h2>
+      </div>
+      <div> <!--background green-->
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </section>
   </main>
 
-  <footer>
-
-  </footer>
-  <section class="container-fluid row">
-    <div class="d-flex justify-content-center">
+  <footer class="container-fluid row">
+    <div class="d-flex justify-content-between px-5">
+      <a href="#">Privacy Policy</a>
       <p>copyright</p>
     </div>
-  </section>
+  </footer>
 
   <!-- <section class="fixed-bottom">
     <div class="container-fluid">
