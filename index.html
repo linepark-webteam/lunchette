@@ -42,13 +42,13 @@
               <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
+              <a class="nav-link" href="#abt">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#menu">Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#price">Price</a>
+              <a class="nav-link" href="#prc">Price</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#FAQ">FAQ</a>
@@ -86,20 +86,24 @@
     <canvas id="waveCanvas"></canvas>
     <canvas id="blue-canvas"></canvas>
 
-    <section id="about" class="about container">
+    <section id="abt" class="abt container">
       <div class="row">
         <div class="d-flex justify-content-center">
-          <div class="about-text col-6">
+          <div class="abt-text col-6">
             <h2 class="txt-gold">About</h2>
             <p>Lunchette(ランシェット)とはスズランの“らん”という音とフランス語で鈴を意味する“クロシェット”を掛け合わせたサロン名です。</p>
-            <p>スズランの花言葉 …再び幸せが訪れる…今がどんなにつらくても必ず幸せになれる。そんなメッセージをサロン名に込めました。</p>
+            <p>
+              スズランの花言葉 …再び幸せが訪れる…<br>
+              今がどんなにつらくても必ず幸せになれる。<br>
+              そんなメッセージをサロン名に込めました。
+            </p>
             <p>当サロンは自分の内面と向き合いありのままの自分を受け入れしなやかに生きるためのメンタルヘルスケアを提供しています。</p>
             <p>セラピストとともに心の声に耳を傾け傷を癒していくことで自分らしい輝きを取り戻しませんか？</p>
             <small>※当サロンは医療機関ではございません。病気の診断や薬の処方等をご希望の方は精神科・心療内科の受診をお願いいたします。</small>
           </div>
-          <div class="about-img d-flex col-6">
-            <img class="about-first" src="./img/about-01.webp" alt="">
-            <img class="about-second" src="./img/about-02.webp" alt="">
+          <div class="abt-img d-flex col-6">
+            <img class="abt-img-01" src="./img/abt-01.webp" alt="">
+            <img class="abt-img-02" src="./img/abt-02.webp" alt="">
           </div>
         </div>
       </div>
@@ -109,89 +113,103 @@
       <div class="d-flex justify-content-center">
         <h2 class="txt-gold">- Menu -</h2>
       </div>
-      <div class="row d-flex justify-content-center">
-        <div class="menu-card col-10 col-md-4">
-          <h3 class="txt-gold">COLOR THERAPY</h3>
-          <p>
-            10色のカラーボトルの中から<br>
-            気になる色や<br>
-            感じる色のボトルを選び<br>
-            心を見つめるセラピー。
-          </p>
-          <p>
-              色を読み解きながら<br>
-              あなたの支えとなってくれる<br>
-              色を探していきます。
-          </p>
+      <div class="row d-flex justify-content-around">
+        <div class="card menu-card col-10">
+          <div class="card-body">
+            <div class="d-flex justify-content-center py-5">
+              <h3 class="txt-gold">COLOR THERAPY</h3>
+            </div>
+            <p class="text-center">
+              10色のカラーボトルの中から<br>
+              気になる色や<br>
+              感じる色のボトルを選び<br>
+              心を見つめるセラピー。
+            </p>
+            <p class="text-center">
+                色を読み解きながら<br>
+                あなたの支えとなってくれる<br>
+                色を探していきます。
+            </p>
+          </div>
         </div>
-        <div class="menu-card col-10 col-md-4">
-          <h3 class="txt-gold">COUNSELING</h3>
-          <p>
+        <div class="card menu-card col-10">
+          <div class="card-body">
+            <div class="d-flex justify-content-center py-5">
+              <h3 class="txt-gold">COUNSELING</h3>
+            </div>
+            <p class="text-center">
             今抱えている問題や悩みの解消を目指すカウンセリング。
           </p>
-          <p>
+          <p class="text-center">
               心の回復とともに<br>
               自分の内面と向き合うことで<br>
               あなたの魅力を引き出します。
           </p>
         </div>
-        <div class="menu-card col-10 col-md-4">
-          <h3 class="txt-gold">
-            COLOR THERAPY<br>
-            &<br>
-            COUNSELING
-          </h3>
-          <p>
+        </div>
+        <div class="card menu-card col-10">
+          <div class="card-body">
+            <div class="d-flex justify-content-center align-items-center pt-1 pb-3">
+              <h3 class="txt-gold text-center">
+                COLOR THERAPY<br>
+                &<br>
+                COUNSELING
+              </h3>
+            </div>
+            <p class="text-center">
             カラーセラピーで<br>
             無意識の中にある思いに気づき<br>
             カウンセリングで<br>
             根底にある考え感情と<br>
             向き合います。
           </p>
-          <p>
+          <p class="text-center">
               気づきから癒しの過程を<br>
               実感いただけるセットプランです。
           </p>
         </div>
+        </div>
       </div>
     </section>
 
-    <section id="price" class="price container mt-5">
+    <section id="prc" class="prc container mt-5">
       <div class="d-flex justify-content-center">
         <h2  class="txt-gold">- PRICE -</h2>
       </div>
       <div class="row d-flex justify-content-center">
-        <div class="img-price col-md-6">
-          <img src="./img/price.webp" alt="">
+        <div class="img-prc col-md-6">
+          <img src="./img/prc.webp" alt="">
         </div>
-        <div class="contents-price col-md-6">
-          <div>
-            <h3 class="txt-gold">COLOR THERAPY</h3>
-            <div class="d-flex">
+        <div class="d-flex">
+          <div class="contents-prc col-md-6">
+            <div>
+              <h3 class="txt-gold">COLOR THERAPY</h3>
               <div class="d-flex">
-                <p></p>
-                <p></p>
-              </div>
-              <div class="d-flex">
-                <p></p>
-                <p></p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h3 class="txt-gold">COUNSELING</h3>
-            <div class="d-flex">
-              <div class="d-flex">
-                <p></p>
-                <p></p>
-              </div>
-              <div class="d-flex">
-                <p></p>
-                <p></p>
+                <div class="d-flex">
+                  <p></p>
+                  <p></p>
+                </div>
+                <div class="d-flex">
+                  <p></p>
+                  <p></p>
+                </div>
               </div>
             </div>
-          </div>
-          <div>
+            <div>
+              <h3 class="txt-gold">COUNSELING</h3>
+              <div class="d-flex">
+                <div class="d-flex">
+                  <p></p>
+                  <p></p>
+                </div>
+                <div class="d-flex">
+                  <p></p>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div>
+        </div>
             <h3 class="txt-gold">COLOR THERAPY & COUNSELING</h3>
             <div class="d-flex">
               <div class="d-flex">
@@ -315,7 +333,7 @@
       </div>
     </section>
 
-    <section class="therapist container mt-5">
+    <section class="intro container mt-5">
       <div class="d-flex flex-column align-items-center justify-content-center">
         <h2 class="txt-gold">- THERAPIST -</h2>
       </div>
@@ -324,8 +342,8 @@
           <div class="col-6">
             <p>自己紹介</p>
           </div>
-          <div class="col-6">
-            <img src="./img/therapist.webp" alt="">
+          <div class="col-6 img-intro">
+            <img src="./img/intro.webp" alt="">
           </div>
         </div>
       </div>
