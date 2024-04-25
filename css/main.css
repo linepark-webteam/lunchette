@@ -198,8 +198,8 @@ a {
   background: linear-gradient(
     to top,
     rgba(221,255,245, 1),  上側のグラデーション
-    rgba(142, 245, 215, 0) 50%,  中間点の濃い色
-    rgba(142, 245, 215, 0) 100%  下側のグラデーション
+    rgba(221,255,245, 0) 50%,  中間点の濃い色
+    rgba(221,255,245, 0) 100%  下側のグラデーション
   );
 }
 
@@ -212,7 +212,7 @@ a {
   z-index: 10;
   background: linear-gradient(
     to top,
-    rgba(142, 245, 215, 0),  /* 上側のグラデーション */
+    rgba(221,255,245, 0),  /* 上側のグラデーション */
     rgba(221,255,245, 1) 50%,  /* 中間点の濃い色 */
     rgba(221,255,245, 1) 100%  /* 下側のグラデーション */
   );
@@ -296,6 +296,7 @@ a {
 }
 .wht-card {
   width: 380px;
+  line-height: 1.5;
 }
 .wht-card h3 {
   border-bottom: 1px solid #494746;
@@ -305,34 +306,45 @@ a {
 	display: inline-block;
 	width: 300px;
 	max-width: 100%;
-	border: 1px solid #eee;
+	border: 1px solid #ac9434;
 	border-radius: 0px;
-	padding: 1.8em .8em .8em;
+	padding: 28px 12px 12px;
 	position: relative;
 	text-align: left;
 }
-.rcm-box .rcm-box-ttl{
-	padding: .4em;
-	font-size: 1.2em;
+
+.rcm-box .rcm-box-ttl {
+	padding: 6px;
+	font-size: 19px;
 	font-weight: bold;
 	position: absolute;
-	top: -1.3em;
+	top: -21px;
 	left: 50%;
 	transform: translateX(-50%);
 	background: #fff;
 	white-space: nowrap;
 }
+
 .rcm-box > :last-child {
 	margin-bottom: 0;
 }
 
 
 /* COLOR THERAPYのCSS */
-.colortrp {
+.clrtp {
   max-width: 1300px;
 }
+.clrtp-card {
+  height: 200px;
+}
 
-
+/* COUNSELINGのCSS */
+.cns {
+  max-width: 1300px;
+}
+.cns-card {
+  height: 280px;
+}
 
 
 /* THERAPISTのCSS */

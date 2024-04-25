@@ -31,7 +31,7 @@ function draw(canvas, info) {
   context.clearRect(0, 0, canvas.width, canvas.height);
 
   var gradient = context.createLinearGradient(0, 0, 0, canvas.height);
-  gradient.addColorStop(0, 'rgba(142, 245, 215, 1)');
+  gradient.addColorStop(0, 'rgba(221,255,245, 1)');
 
   context.fillStyle = gradient;
   context.beginPath();
