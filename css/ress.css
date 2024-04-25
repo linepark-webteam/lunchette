@@ -81,6 +81,10 @@ a:hover {
   outline-width: 0;
 }
 
+li {
+  list-style: none;
+}
+
 code,
 kbd,
 pre,

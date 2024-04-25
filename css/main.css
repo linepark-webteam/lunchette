@@ -14,6 +14,10 @@ body {
   text-align: left;  /* テキストの配置 */
 }
 
+section {
+  max-width: 1300px;
+}
+
 p {
   font-size: 1.2rem;
 }
@@ -302,10 +306,16 @@ a {
   border-bottom: 1px solid #494746;
 }
 
-.rcm-box {
+.wht {
+  background-color: #494746;
+  color: #fdfdfd;
+  width: 100%;
+}
+
+.wht-box {
 	display: inline-block;
-	width: 300px;
-	max-width: 100%;
+	width: 450px;
+	/* max-width: 100%; */
 	border: 1px solid #ac9434;
 	border-radius: 0px;
 	padding: 28px 12px 12px;
@@ -313,19 +323,19 @@ a {
 	text-align: left;
 }
 
-.rcm-box .rcm-box-ttl {
-	padding: 6px;
+.wht-box .wht-box-ttl {
+	padding: 4px;
 	font-size: 19px;
 	font-weight: bold;
 	position: absolute;
 	top: -21px;
 	left: 50%;
 	transform: translateX(-50%);
-	background: #fff;
+	background: #494746;
 	white-space: nowrap;
 }
 
-.rcm-box > :last-child {
+.wht-box > :last-child {
 	margin-bottom: 0;
 }
 
