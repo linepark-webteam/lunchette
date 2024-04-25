@@ -32,6 +32,7 @@ a {
   color: #ac9434;
 }
 
+
 /* ヘッダーの設定 */
 /* ブランドロゴのスタイル */
 .navbar-brand {
@@ -187,6 +188,7 @@ a {
 }
 
 .img-contents {
+  top: 0;  /* 上部に配置 */
   right: 0;  /* 右側に配置 */
 }
 
@@ -212,7 +214,7 @@ a {
   top: 100vh;
   left: 0;
   width: 100%;
-  height: 120vh;
+  height: 130vh;
   z-index: 10;
   background: linear-gradient(
     to top,
@@ -235,10 +237,12 @@ a {
 
 .abt-img {
   width: 550px;
+  max-width: 100%;
 }
 
 .abt-img-01 {
   width: 350px;
+  max-width: 100%;
   height: 450px;
   margin-left: 50px;
   margin-right: -60px;
@@ -246,6 +250,7 @@ a {
 }
 .abt-img-02 {
   width: 280px;
+  max-width: 100%;
   height: 280px;
   margin: 350px 0 0 -40px;
   z-index: 0;
@@ -270,11 +275,10 @@ a {
 }
 .img-prc img{
   margin-left: 30px;
-  z-index: 0;
-}
-.img-prc img{
   width: 600px;
+  max-width: 100%;
   height: auto;
+  z-index: 0;
 }
 
 .prc-card {
@@ -292,7 +296,7 @@ a {
 }
 
 /* COLOR THERAPY, COUNSELING 共通のCSS */
-.whatis h2{
+.wht h2{
   margin-bottom: -10px;
 }
 .num {
@@ -306,13 +310,13 @@ a {
   border-bottom: 1px solid #494746;
 }
 
-.wht {
+.whtis {
   background-color: #494746;
   color: #fdfdfd;
   width: 100%;
 }
 
-.wht-box {
+.whtis-box {
 	display: inline-block;
 	width: 450px;
 	/* max-width: 100%; */
@@ -323,7 +327,7 @@ a {
 	text-align: left;
 }
 
-.wht-box .wht-box-ttl {
+.whtis-box .whtis-box-ttl {
 	padding: 4px;
 	font-size: 19px;
 	font-weight: bold;
@@ -335,7 +339,7 @@ a {
 	white-space: nowrap;
 }
 
-.wht-box > :last-child {
+.whtis-box > :last-child {
 	margin-bottom: 0;
 }
 
@@ -359,6 +363,50 @@ a {
 
 /* THERAPISTのCSS */
 .img-intro img{
-  width: 600px;
+  width: 500px;
+  max-width: 100%;
+  height: auto;
   height: 100%;
+}
+
+/* FAQのCSS */
+.FAQ h2{
+  margin-bottom: -10px;
+}
+
+.card-text h4 {
+  border-bottom: 2px solid #ac9434;
+}
+
+/* CONTACTのCSS */
+.cnt-card {
+  border: none;
+  background-color: #ddfff5;
+  line-height: 1.1;
+}
+
+.cnt-btn {
+  height: 60px;
+  position: relative;
+}
+/* 右側の矢印を絶対配置で右端に固定 */
+.cnt-arrow {
+  position: absolute;
+  right: 10px; /* ボタンの右端からの距離を指定 */
+  top: 50%; /* 縦方向の中央位置を指定 */
+  transform: translateY(-50%); /* 縦方向の位置を中央に調整 */
+}
+
+/* footerのCSS */
+.footer {
+  height: 40px; /* フッターの高さ */
+  background-color: #494746; /* 背景色を黒に */
+  color: #fdfdfd; /* 文字色を白に */
+}
+
+/* 中央寄せと左右の余白を指定 */
+.footer .d-flex {
+  justify-content: space-between; /* 左右に配置 */
+  align-items: center; /* 縦方向の中央寄せ */
+  padding: 0 20px; /* 左右の余白 */
 }

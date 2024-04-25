@@ -12,4 +12,9 @@
   border: 1px solid #ac9434;
 }
 
-
+.btn-outline-warning {
+  color: #ac9434;
+  background-color: #fdfdfd;
+  border: 1px solid #ac9434;
+  border-radius: 0;
+}
