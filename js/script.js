@@ -116,7 +116,23 @@ window.addEventListener('scroll', updateCanvasPosition);
 window.addEventListener('scroll', updateContentOpacity);
 window.addEventListener('scroll', updateOpacity);
 
-/// ハンバーガーメニューのトグル
+// フェードイン効果を追加するためのIntersectionObserver
+const fadeElements = document.querySelectorAll(".fd");  // フェードイン対象の要素
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fd-in");  // フェードインさせる
+      observer.unobserve(entry.target);  // 監視を停止
+    }
+  });
+});
+
+// フェードイン対象の要素を監視
+fadeElements.forEach((element) => {
+  observer.observe(element);  // フェードイン効果を監視
+});
+
+// ハンバーガーメニューのトグル
 function toggleNavbar() {
   var navbarToggler = document.querySelector('.navbar-toggler');
   navbarToggler.addEventListener('click', function() {
