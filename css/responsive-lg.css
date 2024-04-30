@@ -1,5 +1,5 @@
 /* タブレットサイズのCSS */
-@media only screen and (max-width: 992px) {
+@media screen and (max-width: 992px) {
 
 /*========= ヒーローセクションのCSS ===============*/
 
@@ -16,6 +16,7 @@
   position: absolute;
   top: 25%;
   left: 25%;
+  overflow: visible;
 }
 .text-contents .msg{
   font-size: 1.5rem;
@@ -74,29 +75,57 @@
   width: 100vw;
 }
 
-.about-first {
-  width: 300px;
-  height: 400px;
-  margin-left: 50px;
-  margin-right: -60px;
-  z-index: 1;
+.abt-img-01 {
+  width: 45vw;
+  height: auto;
+  margin: 0;
 }
-.about-second {
-  width: 200px;
-  height: 200px;
-  margin: 350px 0 0 0;
-  z-index: 0;
+.abt-img-02 {
+  width: 30vw;
+  height: 30vw;
+  margin: 38vw 0 0 -3vw;
 }
 
 .menu-card {
   width: 90vw;
+  height: 55vw;
 }
 
 /* PRICE */
-.img-prc img {
-  d
+.prc-card {
+  width: 80vw;
+}
+.card-body .prc-val {
+  font-size: clamp(22px, 1.5vw, 24px);
+}
+.prc-att {
+  width: 80vw;
 }
 
+/* カラーセラピーとは、カウンセリングとは のCSS */
+.wht-card {
+  width: 90vw;
+  height: auto;
+  max-height: 250px;
+}
+.wht-card h3 {
+  border-bottom: 1px solid #494746;
+}
+.wht-card h3, .whtis-h {
+  font-size: clamp(24px, 1.5vw, 28px);
+}
+.whtis-dtl {
+  width:80vw;
+}
+/* .whtis-dtl p {
+  font-size: clamp(16px, 1vw, 18px);
+} */
+.whtis-box {
+  width: 100vw;
+  max-width: 80vw;
+  height: auto;
+  max-height: 250px;
+}
 
 
 .rcm-box {
