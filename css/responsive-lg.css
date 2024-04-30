@@ -1,5 +1,5 @@
 /* タブレットサイズのCSS */
-@media only screen and (min-width: 481px) and (max-width: 960px) {
+@media only screen and (min-width: 481px) and (max-width: 992px) {
 
 /*========= ヒーローセクションのCSS ===============*/
 
@@ -71,7 +71,6 @@
 }
 
 .abt-img {
-
   width: 100vw;
 }
 
@@ -89,6 +88,14 @@
   z-index: 0;
 }
 
+.menu-card {
+  width: 90vw;
+}
+
+/* PRICE */
+.img-prc img {
+  d
+}
 
 
 

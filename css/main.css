@@ -1,4 +1,4 @@
-@charset "utf-8";  /* 文字セットの指定 */
+@charset "utf-8"; /* 文字セットの指定 */
 
 /* memo 指定カラー*/
 /* #ddfff5; */
@@ -6,12 +6,13 @@
 /* 共通CSS */
 /*========= 全体のスタイル ===============*/
 body {
-  font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro','Noto Sans JP', sans-serif;  /* フォントの指定 */
+  font-family: "游明朝", "Yu Mincho", YuMincho, "Hiragino Mincho Pro",
+    "Noto Sans JP", sans-serif; /* フォントの指定 */
   color: #494746;
-  background-color: #fdfdfd;  /* 背景色 */
-  line-height: 2.1;  /* 行間 */
-  letter-spacing: 0.1em;  /* 文字間 */
-  text-align: left;  /* テキストの配置 */
+  background-color: #fdfdfd; /* 背景色 */
+  line-height: 2.1; /* 行間 */
+  letter-spacing: 0.1em; /* 文字間 */
+  text-align: left; /* テキストの配置 */
 }
 
 section {
@@ -23,8 +24,8 @@ p {
 }
 
 a {
-  color: inherit;  /* リンクのテキストカラー */
-  text-decoration: none;  /* リンクの下線を消す */
+  color: inherit; /* リンクのテキストカラー */
+  text-decoration: none; /* リンクの下線を消す */
 }
 
 h3 {
@@ -34,7 +35,6 @@ h3 {
 .txt-gold {
   color: #ac9434;
 }
-
 
 /* ヘッダーの設定 */
 /* ブランドロゴのスタイル */
@@ -76,7 +76,7 @@ h3 {
 
 /* トップバー */
 .navbar-toggler span::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 1px;
@@ -89,7 +89,7 @@ h3 {
 
 /* ボトムバー */
 .navbar-toggler span::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 1px;
@@ -117,61 +117,62 @@ h3 {
 
 /* ハンバーガーメニューの設定 */
 .navbar-nav .nav-link {
-  color: #494746;  /* リンクのテキストカラー */
-  font-size: 16px;  /* リンクのフォントサイズ */
-  font-weight: bold;  /* リンクのフォントウェイト */
+  color: #494746; /* リンクのテキストカラー */
+  font-size: 16px; /* リンクのフォントサイズ */
+  font-weight: bold; /* リンクのフォントウェイト */
 }
 
 /* メニュー展開の位置 */
 .navbar-collapse {
-  position: absolute;  /* 絶対配置 */
-  right: 15px;  /* 右端から展開 */
-  top: 80px;  /* ナビゲーションバーの下から展開 */
-  background: inherit;  /* メニュー展開時の背景色 */
+  position: absolute; /* 絶対配置 */
+  right: 15px; /* 右端から展開 */
+  top: 80px; /* ナビゲーションバーの下から展開 */
+  background: inherit; /* メニュー展開時の背景色 */
 }
 
 /*========= ヒーローセクションのCSS ===============*/
 .hero-logo {
-  width: 500px;  /* ロゴの幅 */
-  text-align: center;  /* ロゴの配置 */
-  margin-top: 50px;  /* ロゴの上マージン */
+  width: 500px; /* ロゴの幅 */
+  text-align: center; /* ロゴの配置 */
+  margin-top: 50px; /* ロゴの上マージン */
 }
 
 #wrapper {
-  width: 100%;  /* ラッパーの全幅 */
-  height: 100vh;  /* ビューポートの高さ */
-  display: flex;  /* フレックスボックス */
-  justify-content: center;  /* 中央寄せ */
-  align-items: center;  /* 縦方向に中央寄せ */
-  overflow: hidden;  /* はみ出しを防ぐ */
-  position: relative;  /* 相対配置 */
+  width: 100%; /* ラッパーの全幅 */
+  height: 100vh; /* ビューポートの高さ */
+  display: flex; /* フレックスボックス */
+  justify-content: center; /* 中央寄せ */
+  align-items: center; /* 縦方向に中央寄せ */
+  overflow: hidden; /* はみ出しを防ぐ */
+  position: relative; /* 相対配置 */
   bottom: 0;
 }
 
 /* 固定コンテンツのスタイル */
-.text-contents, .img-contents {
-  position: fixed;  /* 固定位置 */
-  top: 0px;  /* 上部の位置 */
-  width: 50%;  /* 幅 */
-  height: 100vh;  /* ビューポートの高さ */
-  overflow: hidden;  /* はみ出しを防ぐ */
-  z-index: -1;  /* z-indexの設定 */
+.text-contents,
+.img-contents {
+  position: fixed; /* 固定位置 */
+  top: 0px; /* 上部の位置 */
+  width: 50%; /* 幅 */
+  height: 100vh; /* ビューポートの高さ */
+  overflow: hidden; /* はみ出しを防ぐ */
+  z-index: -1; /* z-indexの設定 */
 }
 .text-contents {
   left: 0;
   margin-left: 80px;
   z-index: -1;
 }
-.text-contents .hero-logo{
+.text-contents .hero-logo {
   margin-right: 190px;
   width: 30vw;
   height: 100%;
   object-fit: cover;
 }
 .text-contents {
-  left: 0;  /* 左側に配置 */
+  left: 0; /* 左側に配置 */
 }
-.text-contents .msg{
+.text-contents .msg {
   white-space: nowrap;
   font-size: 2vw;
   margin: 50px 150px 0 0;
@@ -199,9 +200,9 @@ h3 {
   z-index: 10;
   background: linear-gradient(
     to top,
-    rgba(221,255,245, 1),  上側のグラデーション
-    rgba(221,255,245, 0) 50%,  中間点の濃い色
-    rgba(221,255,245, 0) 100%  下側のグラデーション
+    rgba(221, 255, 245, 1),
+    上側のグラデーション rgba(221, 255, 245, 0) 50%,
+    中間点の濃い色 rgba(221, 255, 245, 0) 100% 下側のグラデーション
   );
 }
 
@@ -214,21 +215,20 @@ h3 {
   z-index: 10;
   background: linear-gradient(
     to top,
-    rgba(221,255,245, 0),  /* 上側のグラデーション */
-    rgba(221,255,245, 1) 50%,  /* 中間点の濃い色 */
-    rgba(221,255,245, 1) 100%  /* 下側のグラデーション */
+    rgba(221, 255, 245, 0),
+    /* 上側のグラデーション */ rgba(221, 255, 245, 1) 50%,
+    /* 中間点の濃い色 */ rgba(221, 255, 245, 1) 100% /* 下側のグラデーション */
   );
 }
 
 /* AboutのCSS */
 .abt {
-  margin-top: 120vh;  /* 上の余白 */
+  margin-top: 120vh; /* 上の余白 */
   text-align: left;
   max-width: 1200px;
 }
 
 .abt-text {
-
   width: 30vw;
   max-width: 550px;
 }
@@ -262,21 +262,21 @@ h3 {
 }
 .menu-card {
   width: 30vw;
-    max-width: 380px;
-    box-shadow: 15px 15px 0px 5px #ddfff5;
-    border-radius: 0px;
+  max-width: 310px;
+  height: 45vw;
+  box-shadow: 15px 15px 0px 5px #ddfff5;
+  border-radius: 0px;
 }
 /* カラーセラピー＆カウンセリングのみ以下を指定 */
-.menu-card :nth-child(3){
+.menu-card :nth-child(3) {
   white-space: nowrap; /* テキストの折り返しを禁止 */
 }
-
 
 /* PriceのCSS */
 .prc {
   max-width: 1300px;
 }
-.img-prc img{
+.img-prc img {
   margin-left: 30px;
   width: 600px;
   max-width: 100%;
@@ -299,11 +299,11 @@ h3 {
 }
 
 /* COLOR THERAPY, COUNSELING 共通のCSS */
-.wht h2{
+.wht h2 {
   margin-bottom: -10px;
 }
 .num {
-  font-family: 'Snell Roundhand';
+  font-family: "Snell Roundhand";
 }
 .wht-card {
   max-width: 380px;
@@ -354,21 +354,20 @@ h3 {
 }
 
 .whtis-box .whtis-box-ttl {
-	padding: 4px;
-	font-size: 19px;
-	font-weight: bold;
-	position: absolute;
-	top: -21px;
-	left: 50%;
-	transform: translateX(-50%);
-	background: #494746;
-	white-space: nowrap;
+  padding: 4px;
+  font-size: 19px;
+  font-weight: bold;
+  position: absolute;
+  top: -21px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #494746;
+  white-space: nowrap;
 }
 
 .whtis-box > :last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
-
 
 /* COLOR THERAPYのCSS */
 .clrtp {
@@ -390,16 +389,15 @@ h3 {
   max-height: 280px;
 }
 
-
 /* THERAPISTのCSS */
-.img-intro img{
+.img-intro img {
   width: 40vw;
   max-width: 500px;
   height: auto;
 }
 
 /* FAQのCSS */
-.FAQ h2{
+.FAQ h2 {
   margin-bottom: -10px;
 }
 
