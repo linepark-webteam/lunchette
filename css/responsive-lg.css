@@ -132,26 +132,4 @@
   max-width: 80vw;
 }
 
-.rcm-box {
-	display: inline-block;
-	width: 300px;
-	max-width: 100%;
-	border: 1px solid #eee;
-	border-radius: 0px;
-	padding: 1.8em .8em .8em;
-	position: relative;
-	text-align: left;
-}
-.rcm-box .rcm-box-ttl{
-	padding: .4em;
-	font-size: 1.2em;
-	font-weight: bold;
-	position: absolute;
-	top: -1.3em;
-	left: 50%;
-	transform: translateX(-50%);
-	background: #fff;
-	white-space: nowrap;
-}
-
 }

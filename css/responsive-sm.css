@@ -1,0 +1,38 @@
+/* スマホサイズのCSS */
+@media screen and (max-width: 500px) {
+
+  /* 共通のCSS */
+  p {
+    font-size: 1rem;
+  }
+
+  /* heroセクション */
+  .text-contents .msg{
+    font-size: 1rem;
+  }
+  /* AboutのCSS */
+  .abt-content {
+    width: 100vw;
+  }
+  .abt-text {
+    width: 85vw;
+    max-width: 370px;
+  }
+  .abt-img {
+    width: 85vw;
+    max-width: 370px;
+  }
+  .abt-img-01 {
+    width: 45vw;
+    max-width: 300px;
+    height: auto;
+    max-height: 300px;
+  }
+
+  /* MENUのCSS */
+  .menu-card {
+    width: 100vw;
+    height: 100vw;
+}
+
+}
