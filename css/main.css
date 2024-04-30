@@ -168,6 +168,9 @@ h3 {
   height: 100%;
   object-fit: cover;
 }
+.text-contents {
+  left: 0;  /* 左側に配置 */
+}
 .text-contents .msg{
   white-space: nowrap;
   font-size: 2vw;
@@ -175,7 +178,7 @@ h3 {
 }
 .img-contents {
   right: 0;
-  top: 10px;
+  top: 0px;
   margin-right: 80px;
   z-index: -2;
 }
@@ -183,16 +186,6 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-/* レイアウト */
-.text-contents {
-  left: 0;  /* 左側に配置 */
-}
-
-.img-contents {
-  top: 0;  /* 上部に配置 */
-  right: 0;  /* 右側に配置 */
 }
 
 /*========= Waveを描画するエリア設定 ===============*/
