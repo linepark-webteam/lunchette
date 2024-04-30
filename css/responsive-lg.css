@@ -127,6 +127,10 @@
   max-height: 250px;
 }
 
+.img-intro img {
+  width: 60vw;
+  max-width: 80vw;
+}
 
 .rcm-box {
 	display: inline-block;

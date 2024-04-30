@@ -11,13 +11,16 @@
   <!-- リセットCSS -->
   <link rel="stylesheet" href="./css/ress.css">
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <!-- CSS BootStrap -->
   <link rel="stylesheet" href="./css/bootstrap.css">
 
   <link rel="stylesheet" href="./css/my-bootstrap.css">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/responsive-lg.css">
-  <!-- <link rel="stylesheet" href="./css/responsive.css"> -->
+  <link rel="stylesheet" href="./css/responsive-sm.css">
   <!-- <link rel="stylesheet" href="./css/responsive.css"> -->
   <!-- <link rel="stylesheet" href="./css/responsive.css"> -->
   <link rel="stylesheet" href="./css/animation.css">
@@ -310,7 +313,7 @@
       </div>
       <div class="d-flex justify-content-center align-items-center my-5">
         <a class="btn wht-btn" data-bs-toggle="collapse" href="#clrtp-collapse" role="button" aria-expanded="false"
-          aria-controls="collapseExample">READ MORE<span class="wht-pls d-inline-flex justify-content-center ms-2 mb-1">＋</span></a>
+          aria-controls="collapseExample">READ MORE<span class="wht-pls d-inline-flex justify-content-center ms-2 mb-1"><i class="fa-solid fa-plus"></i></span></a>
       </div>
     </section>
     <article class="py-3">
@@ -399,7 +402,7 @@
       </div>
       <div class="d-flex justify-content-center align-items-center my-5">
         <a class="btn wht-btn" data-bs-toggle="collapse" href="#cns-collapse" role="button" aria-expanded="false"
-          aria-controls="collapseExample">READ MORE<span class="wht-pls d-inline-flex justify-content-center ms-2 mb-1">＋</span></a>
+          aria-controls="collapseExample">READ MORE<span class="wht-pls d-inline-flex justify-content-center ms-2 mb-1"><i class="fa-solid fa-plus"></i></span></a>
       </div>
     </section>
     <article>
@@ -438,14 +441,14 @@
         <h2 class="txt-gold mb-3">- THERAPIST -</h2>
       </div>
       <div class="row d-flex justify-content-center">
-        <div class="d-flex col-10">
-          <div class="col-6 me-5">
+        <div class="d-flex flex-column-reverse flex-lg-row col-10">
+          <div class="col-lg-6 col-12 mt-3 mt-lg-0 me-lg-5">
             <p>自己紹介</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi esse magnam molestiae, ipsam
               repellendus commodi itaque architecto sunt praesentium? Optio nulla dignissimos perspiciatis velit
               sapiente quas delectus molestias unde explicabo.</p>
           </div>
-          <div class="col-6 img-intro">
+          <div class="col-lg-6 col-12 img-intro">
             <img src="./img/intro.webp" alt="">
           </div>
         </div>
@@ -457,27 +460,29 @@
         <h2 class="txt-gold">- FAQ -</h2>
         <p>ご予約に関して</p>
       </div>
-      <div class="card d-flex flex-column py-5 px-5">
-        <div class="card-body">
-          <div class="card-text d-flex flex-column mb-3">
-            <h4><span class="txt-gold">Q.</span>予約は当日でもできますか?</h4>
-            <p>大変申し訳ございません。基本的には前日の21時までの受付となります。お時間によって当日対応できる場合もございますのでご相談ください。</p>
-          </div>
-          <div class="card-text d-flex flex-column mb-3">
-            <h4><span class="txt-gold">Q.</span>予約の日程変更はできますか?</h4>
-            <p>予約日の3日前であれば日程変更が可能です。 それ以降で日程変更する場合は予約サイトにて一度キャンセルをしてから予約の取り直しをお願いいたします。</p>
-          </div>
-          <div class="card-text d-flex flex-column mb-3">
-            <h4><span class="txt-gold">Q.</span>キャンセルはいつまで可能ですか?</h4>
-            <p>ご予約前日の12時までに予約サイトにてキャンセルをお願いいたします。</p>
-          </div>
-          <div class="card-text d-flex flex-column mb-3">
-            <h4><span class="txt-gold">Q.</span>キャンセル料金は発生しますか?</h4>
-            <p>当日もしくは無断キャンセルのみ各メニュー料金の100% が発生いたします。体調不良や事情がある場合には配慮いたしますので問い合わせフォーム 公式LINEへご連絡ください。</p>
-          </div>
-          <div class="card-text d-flex flex-column mb-3">
-            <h4><span class="txt-gold">Q.</span>支払方法はどんなものがありますか?</h4>
-            <p>銀行振込・クレジットカード事前決済がございます。なお、銀行振込の際の振込手数料はお客様負担となりますのでご了承ください。</p>
+      <div class="row">
+        <div class="col-12 col-lg-10 card d-flex flex-column py-5 px-3 px-lg-5">
+          <div class="card-body">
+            <div class="card-text d-flex flex-column mb-3">
+              <h4><span class="txt-gold">Q.</span>予約は当日でもできますか?</h4>
+              <p>大変申し訳ございません。基本的には前日の21時までの受付となります。お時間によって当日対応できる場合もございますのでご相談ください。</p>
+            </div>
+            <div class="card-text d-flex flex-column mb-3">
+              <h4><span class="txt-gold">Q.</span>予約の日程変更はできますか?</h4>
+              <p>予約日の3日前であれば日程変更が可能です。 それ以降で日程変更する場合は予約サイトにて一度キャンセルをしてから予約の取り直しをお願いいたします。</p>
+            </div>
+            <div class="card-text d-flex flex-column mb-3">
+              <h4><span class="txt-gold">Q.</span>キャンセルはいつまで可能ですか?</h4>
+              <p>ご予約前日の12時までに予約サイトにてキャンセルをお願いいたします。</p>
+            </div>
+            <div class="card-text d-flex flex-column mb-3">
+              <h4><span class="txt-gold">Q.</span>キャンセル料金は発生しますか?</h4>
+              <p>当日もしくは無断キャンセルのみ各メニュー料金の100% が発生いたします。体調不良や事情がある場合には配慮いたしますので問い合わせフォーム 公式LINEへご連絡ください。</p>
+            </div>
+            <div class="card-text d-flex flex-column mb-3">
+              <h4><span class="txt-gold">Q.</span>支払方法はどんなものがありますか?</h4>
+              <p>銀行振込・クレジットカード事前決済がございます。なお、銀行振込の際の振込手数料はお客様負担となりますのでご了承ください。</p>
+            </div>
           </div>
         </div>
       </div>
@@ -489,8 +494,9 @@
         <h2 class="txt-gold mb-3">CONTACT</h2>
       </div>
       <div class="card cnt-card contents-cnt px-4 py-5 mb-3">
-        <div class="card-body d-flex justify-content-around cnt-card-body">
-          <div class="col-lg-5">
+        <div class="card-body cnt-card-body d-flex
+          flex-lg-row flex-column align-items-center ">
+          <div class="col-lg-5 col-12">
             <div class="mb-5">
               <p class="txt-gold">
                 オーナーセラピストのアカウント
@@ -518,8 +524,8 @@
             </div>
             </div>
 
-          <div class="col-lg-5">
-            <div class="mb-5">
+          <div class="col-lg-5 col-12">
+            <div class="mb-5 mt-lg-0 mt-3">
               <p class="txt-gold">
                 Lunchette公式アカウント
               </p>

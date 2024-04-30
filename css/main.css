@@ -325,6 +325,7 @@ h3 {
   width: 1.2rem;
   height: 1.2rem;
   font-size: 1rem;
+  font-weight: 400;
   color: #fdfdfd;
   border: 1px solid #494746;
   border-radius: 50%;
@@ -332,7 +333,7 @@ h3 {
   text-align: center;
   line-height: 1.2rem;
   vertical-align: middle;
-  padding: 0 0 0 2px;
+  padding: 1px 0 0 2px;
   margin: 0;
 }
 
