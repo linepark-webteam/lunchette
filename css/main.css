@@ -40,8 +40,13 @@ h3 {
 .navbar-brand {
   margin-left: 30px;
   margin-top: 10px;
-  width: 300px;
+  width: 30vw;
+  max-width: 300px;
   height: auto;
+}
+.brand-logo {
+  width: 30vw;
+  max-width: 150px;
 }
 
 /* ハンバーガーメニューのボタンスタイル */
