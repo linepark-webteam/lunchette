@@ -20,11 +20,12 @@
 }
 .text-contents .msg{
   font-size: 1.5rem;
+  font-weight: bold;
 }
 .img-contents {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   margin: 0;
 }
 .img-contents::after {
@@ -45,7 +46,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 20vh;
+  height: 25vh;
 }
 
 #blue-canvas {
