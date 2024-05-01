@@ -12,6 +12,8 @@ body {
   line-height: 2.1; /* 行間 */
   letter-spacing: 0.1em; /* 文字間 */
   text-align: left; /* テキストの配置 */
+  box-sizing: border-box; /* ボックスサイズの指定 */
+  max-width: 100vw; /* 最大幅 */
 }
 
 section {
@@ -20,6 +22,10 @@ section {
 
 p {
   font-size: 1.2rem;
+}
+
+.responsive-fs {
+  font-size: clamp(18px, 1.5vw, 28px);
 }
 
 a {
@@ -295,7 +301,7 @@ h3 {
   border: none;
   background-color: #ddfff5;
   margin-top: 20px;
-  margin-left: -3vw;
+  margin-left: min(-2vw, 20%, 50px);
   z-index: -1;
 }
 .prc-card-body {
@@ -424,6 +430,9 @@ h3 {
   height: 60px;
   position: relative;
 }
+.contact-head {
+  font-size: clamp(24px, 1.5vw, 28px);
+}
 /* 右側の矢印を絶対配置で右端に固定 */
 .cnt-arrow {
   position: absolute;
@@ -446,7 +455,3 @@ h3 {
   align-items: center; /* 縦方向の中央寄せ */
   padding: 0 20px; /* 左右の余白 */
 }
-
-/* .copyright {
-  font-size: clamp(8px, 0.8rem, 12px);
-} */
