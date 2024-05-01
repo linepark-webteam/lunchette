@@ -417,6 +417,7 @@ h3 {
 
 .card-text h4 {
   border-bottom: 2px solid #ac9434;
+  font-size: clamp(16px, 1.5vw, 28px);
 }
 
 /* CONTACTのCSS */
@@ -431,7 +432,7 @@ h3 {
   position: relative;
 }
 .contact-head {
-  font-size: clamp(24px, 1.5vw, 28px);
+  font-size: clamp(16px, 1.5vw, 22px);
 }
 /* 右側の矢印を絶対配置で右端に固定 */
 .cnt-arrow {
