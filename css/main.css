@@ -433,7 +433,8 @@ h3 {
 
 /* footerのCSS */
 .footer {
-  height: 40px; /* フッターの高さ */
+  height: auto;
+  max-height: 80px;
   background-color: #494746; /* 背景色を黒に */
   color: #fdfdfd; /* 文字色を白に */
 }
@@ -444,3 +445,7 @@ h3 {
   align-items: center; /* 縦方向の中央寄せ */
   padding: 0 20px; /* 左右の余白 */
 }
+
+/* .copyright {
+  font-size: clamp(8px, 0.8rem, 12px);
+} */

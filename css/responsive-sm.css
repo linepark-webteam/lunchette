@@ -1,13 +1,12 @@
 /* スマホサイズのCSS */
 @media screen and (max-width: 500px) {
-
   /* 共通のCSS */
   p {
     font-size: 1rem;
   }
 
   /* heroセクション */
-  .text-contents .msg{
+  .text-contents .msg {
     font-size: 1rem;
   }
   /* AboutのCSS */
@@ -25,14 +24,29 @@
   .abt-img-01 {
     width: 45vw;
     max-width: 300px;
-    height: auto;
+    height: 240px;
     max-height: 300px;
   }
 
   /* MENUのCSS */
   .menu-card {
-    width: 100vw;
+    width: 85vw;
     height: 100vw;
-}
+  }
 
+  /* COLOR THERAPY, COUNSELINGの共通CSS */
+  .whtis-box {
+    max-height: 400px;
+    padding: 5vw 0 0 0;
+  }
+  .whtis-box ul {
+    padding: 2vw;
+  }
+
+
+  /* THERAPISTのCSS */
+  .img-intro img {
+    width: 80vw;
+    max-width: 80vw;
+  }
 }
