@@ -147,7 +147,8 @@ h3 {
   display: flex; /* フレックスボックス */
   justify-content: center; /* 中央寄せ */
   align-items: center; /* 縦方向に中央寄せ */
-  overflow: hidden; /* はみ出しを防ぐ */
+  overflow-x: hidden; /* はみ出しを防ぐ */
+  overflow-y: visible; /* 縦方向のはみ出しは許容 */
   position: relative; /* 相対配置 */
   bottom: 0;
 }
