@@ -43,7 +43,7 @@
 /* スクロール可能なコンテンツのスタイル */
 #waveCanvas {
   position: absolute;
-  bottom: -10vh;
+  bottom: -20vh;
   left: 0;
   width: 100%;
   height: 40vh;

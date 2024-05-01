@@ -132,6 +132,33 @@ fadeElements.forEach((element) => {
   observer.observe(element);  // フェードイン効果を監視
 });
 
+// What is …のトグル[+]->[X]へ
+document.addEventListener('DOMContentLoaded', function () {
+  // clrtp-collapseに対する設定
+  const clrtpCollapseElement = document.getElementById('clrtp-collapse');
+  const clrtpToggleIcon = document.querySelector('a[href="#clrtp-collapse"] .wht-pls');
+
+  clrtpCollapseElement.addEventListener('show.bs.collapse', function () {
+    clrtpToggleIcon.textContent = '×';
+  });
+
+  clrtpCollapseElement.addEventListener('hide.bs.collapse', function () {
+    clrtpToggleIcon.textContent = '+';
+  });
+
+  // cns-collapseに対する設定
+  const cnsCollapseElement = document.getElementById('cns-collapse');
+  const cnsToggleIcon = document.querySelector('a[href="#cns-collapse"] .wht-pls');
+
+  cnsCollapseElement.addEventListener('show.bs.collapse', function () {
+    cnsToggleIcon.textContent = '×';
+  });
+
+  cnsCollapseElement.addEventListener('hide.bs.collapse', function () {
+    cnsToggleIcon.textContent = '+';
+  });
+});
+
 // ハンバーガーメニューのトグル
 function toggleNavbar() {
   var navbarToggler = document.querySelector('.navbar-toggler');
