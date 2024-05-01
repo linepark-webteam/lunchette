@@ -210,12 +210,7 @@ h3 {
   width: 100%;
   height: 30vh;
   z-index: 10;
-  background: linear-gradient(
-    to top,
-    rgba(221, 255, 245, 1),
-    上側のグラデーション rgba(221, 255, 245, 0) 50%,
-    中間点の濃い色 rgba(221, 255, 245, 0) 100% 下側のグラデーション
-  );
+  background: linear-gradient(to top, rgba(221, 255, 245, 1));
 }
 
 #blue-canvas {
@@ -224,14 +219,10 @@ h3 {
   left: 0;
   width: 100%;
   height: 130vh;
-  z-index: 10;
-  background: linear-gradient(
-    to top,
-    rgba(221, 255, 245, 0),
-    /* 上側のグラデーション */ rgba(221, 255, 245, 1) 50%,
-    /* 中間点の濃い色 */ rgba(221, 255, 245, 1) 100% /* 下側のグラデーション */
-  );
+  z-index: 9;
+  background: linear-gradient(to top, rgba(221, 255, 245, 0), rgba(221, 255, 245, 1) 50%, rgba(221, 255, 245, 1) 100%);
 }
+
 
 /* AboutのCSS */
 .abt {
