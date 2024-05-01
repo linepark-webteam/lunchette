@@ -6,8 +6,7 @@
 /* 共通CSS */
 /*========= 全体のスタイル ===============*/
 body {
-  font-family: "游明朝", "Yu Mincho", YuMincho, "Hiragino Mincho Pro",
-    "Noto Sans JP", sans-serif; /* フォントの指定 */
+  font-family: "游明朝", "Yu Mincho", YuMincho, "Hiragino Mincho Pro","Noto Sans JP", sans-serif; /* フォントの指定 */
   color: #494746;
   background-color: #fdfdfd; /* 背景色 */
   line-height: 2.1; /* 行間 */
@@ -262,8 +261,9 @@ h3 {
 }
 .menu-card {
   width: 30vw;
-  max-width: 310px;
+  max-width: 360px;
   height: 45vw;
+  max-height: 500px;
   box-shadow: 15px 15px 0px 5px #ddfff5;
   border-radius: 0px;
 }
@@ -277,9 +277,9 @@ h3 {
   max-width: 1300px;
 }
 .img-prc img {
-  margin-left: 30px;
-  width: 600px;
-  max-width: 100%;
+  margin-left: 5vw;
+  width: 45vw;
+  max-width: 550px;
   height: auto;
   z-index: 0;
 }
@@ -288,7 +288,7 @@ h3 {
   border: none;
   background-color: #ddfff5;
   margin-top: 20px;
-  margin-left: -2vw;
+  margin-left: -3vw;
   z-index: -1;
 }
 .prc-card-body {
