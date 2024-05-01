@@ -19,6 +19,9 @@ body {
 section {
   max-width: 1300px;
 }
+article {
+  max-width: 100vw;
+}
 
 p {
   font-size: 1.2rem;
