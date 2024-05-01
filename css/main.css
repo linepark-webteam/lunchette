@@ -225,23 +225,23 @@ h3 {
 
 
 /* AboutのCSS */
-.abt {
+.about {
   margin-top: 120vh; /* 上の余白 */
   text-align: left;
   max-width: 1200px;
 }
 
-.abt-text {
+.about-text {
   width: 30vw;
   max-width: 550px;
 }
 
-.abt-img {
+.about-img {
   width: 30vw;
   max-width: 550px;
 }
 
-.abt-img-01 {
+.about-img-01 {
   width: 30vw;
   max-width: 350px;
   height: 45vw;
@@ -250,7 +250,7 @@ h3 {
   margin-right: -60px;
   z-index: 1;
 }
-.abt-img-02 {
+.about-img-02 {
   width: 25vw;
   max-width: 280px;
   height: 25vw;
@@ -277,10 +277,10 @@ h3 {
 }
 
 /* PriceのCSS */
-.prc {
+.price {
   max-width: 1300px;
 }
-.img-prc img {
+.img-price img {
   margin-left: 5vw;
   width: 45vw;
   max-width: 550px;
@@ -288,17 +288,17 @@ h3 {
   z-index: 0;
 }
 
-.prc-card {
+.price-card {
   border: none;
   background-color: #ddfff5;
   margin-top: 20px;
   margin-left: min(-2vw, 20%, 50px);
   z-index: -1;
 }
-.prc-card-body {
+.price-card-body {
   padding-bottom: 0;
 }
-.prc-ttl {
+.price-ttl {
   border-bottom: 1px solid #ac9434;
 }
 
@@ -335,10 +335,8 @@ h3 {
   border-radius: 50%;
   background-color: #494746;
   text-align: center;
-  line-height: 1.2rem;
+  line-height: 1.1rem;
   vertical-align: middle;
-  padding: 1px 0 0 2px;
-  margin: 0;
 }
 
 .whtis {
@@ -412,13 +410,13 @@ h3 {
 }
 
 /* CONTACTのCSS */
-.cnt-card {
+.contact-card {
   border: none;
   background-color: #ddfff5;
   line-height: 1.1;
 }
 
-.cnt-btn {
+.contact-btn {
   height: 60px;
   position: relative;
 }
@@ -426,7 +424,7 @@ h3 {
   font-size: clamp(16px, 1.5vw, 22px);
 }
 /* 右側の矢印を絶対配置で右端に固定 */
-.cnt-arrow {
+.contact-arrow {
   position: absolute;
   right: 10px; /* ボタンの右端からの距離を指定 */
   top: 50%; /* 縦方向の中央位置を指定 */
