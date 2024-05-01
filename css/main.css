@@ -46,7 +46,8 @@ h3 {
 }
 .brand-logo {
   width: 30vw;
-  max-width: 150px;
+  max-width: 100px;
+  height:auto;
 }
 
 /* ハンバーガーメニューのボタンスタイル */
