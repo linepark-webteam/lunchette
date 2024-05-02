@@ -163,6 +163,56 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// フッター追従ボタンの設定
+// ファーストビュー通過までは非表示
+document.addEventListener('DOMContentLoaded', function() {
+  const heroSection = document.querySelector('.hero-section');
+  const footerButton = document.querySelector('.fixed-bottom');
+
+  function checkHeroSectionPosition() {
+    const heroSectionBottom = heroSection.getBoundingClientRect().bottom;
+    
+    if (window.scrollY > heroSectionBottom) {
+      // ヒーローセクションがビューポートから外れたらフェードイン
+      footerButton.style.opacity = 1;
+    } else {
+      // ヒーローセクションがまだビューポート内にある場合はフェードアウト
+      footerButton.style.opacity = 0;
+    }
+  }
+
+  // スクロールとリサイズイベントで位置をチェック
+  window.addEventListener('scroll', checkHeroSectionPosition);
+  window.addEventListener('resize', checkHeroSectionPosition);
+
+  // 初期読み込み時にも位置をチェック
+  checkHeroSectionPosition();
+});
+
+// Privacy Policy Copyrightと重ならないように調整
+document.addEventListener('DOMContentLoaded', function() {
+  const footer = document.querySelector('.footer');
+  const fixedBottom = document.querySelector('.container-fluid.fixed-bottom');
+
+  function adjustPadding() {
+    const footerHeight = footer.offsetHeight;
+    const footerRect = footer.getBoundingClientRect();
+    const footerVisible = footerRect.top < window.innerHeight;
+
+    if (footerVisible) {
+      fixedBottom.style.paddingBottom = `${footerHeight}px`;
+    } else {
+      fixedBottom.style.paddingBottom = '0px';
+    }
+  }
+
+  // 初期設定
+  adjustPadding();
+
+  // スクロールやウィンドウリサイズ時に調整
+  window.addEventListener('scroll', adjustPadding);
+  window.addEventListener('resize', adjustPadding);
+});
 
 // ハンバーガーメニューのトグル
 function toggleNavbar() {
