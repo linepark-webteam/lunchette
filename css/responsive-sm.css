@@ -92,6 +92,10 @@
   .whtis-box ul {
     padding: 2vw;
   }
+  .wht-card, .clrtp-card, .cns-card {
+    width: 90vw; /* スマホサイズでカードの幅を90vwに設定 */
+    max-height: auto; /* 最大高さを自動に設定 */
+  }
 
   /* THERAPISTのCSS */
   .img-intro img {

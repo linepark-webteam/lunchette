@@ -117,12 +117,14 @@
 .wht-card h3, .whtis-h {
   font-size: clamp(24px, 1.5vw, 28px);
 }
+.whtis-dtl, .whtis-box {
+  width: 100%; /* 小さいスクリーンでの幅を100%に設定 */
+}
+
 .whtis-dtl {
   width:80vw;
 }
-/* .whtis-dtl p {
-  font-size: clamp(16px, 1vw, 18px);
-} */
+
 .whtis-box {
   width: 100vw;
   max-width: 80vw;
