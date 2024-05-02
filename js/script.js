@@ -132,32 +132,37 @@ fadeElements.forEach((element) => {
   observer.observe(element);  // フェードイン効果を監視
 });
 
-// What is …のトグル[+]->[X]へ
+// What is …のトグル(+)->(×)へ
 document.addEventListener('DOMContentLoaded', function () {
-  // clrtp-collapseに対する設定
+  // clrtp-collapseの設定
   const clrtpCollapseElement = document.getElementById('clrtp-collapse');
-  const clrtpToggleIcon = document.querySelector('a[href="#clrtp-collapse"] .wht-pls');
+  const clrtpToggleIcon = document.querySelector('a[href="#clrtp-collapse"] .wht-pls img');
 
   clrtpCollapseElement.addEventListener('show.bs.collapse', function () {
-    clrtpToggleIcon.textContent = '×';
+    clrtpToggleIcon.src = './img/cross.webp';
+    clrtpToggleIcon.alt = 'Close';
   });
 
   clrtpCollapseElement.addEventListener('hide.bs.collapse', function () {
-    clrtpToggleIcon.textContent = '+';
+    clrtpToggleIcon.src = './img/plus.webp';
+    clrtpToggleIcon.alt = 'Open';
   });
 
-  // cns-collapseに対する設定
+  // cns-collapseの設定
   const cnsCollapseElement = document.getElementById('cns-collapse');
-  const cnsToggleIcon = document.querySelector('a[href="#cns-collapse"] .wht-pls');
+  const cnsToggleIcon = document.querySelector('a[href="#cns-collapse"] .wht-pls img');
 
   cnsCollapseElement.addEventListener('show.bs.collapse', function () {
-    cnsToggleIcon.textContent = '×';
+    cnsToggleIcon.src = './img/cross.webp';
+    cnsToggleIcon.alt = 'Close';
   });
 
   cnsCollapseElement.addEventListener('hide.bs.collapse', function () {
-    cnsToggleIcon.textContent = '+';
+    cnsToggleIcon.src = './img/plus.webp';
+    cnsToggleIcon.alt = 'Open';
   });
 });
+
 
 // ハンバーガーメニューのトグル
 function toggleNavbar() {

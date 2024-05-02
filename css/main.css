@@ -179,7 +179,7 @@ h3 {
   z-index: -1;
 }
 .text-contents .hero-logo {
-  margin-right: 190px;
+  margin-right: 150px;
   width: 30vw;
   height: 100%;
   object-fit: cover;
@@ -190,7 +190,7 @@ h3 {
 .text-contents .msg {
   white-space: nowrap;
   font-size: 2vw;
-  margin: 50px 150px 0 0;
+  margin: 50px 100px 0 0;
 }
 .img-contents {
   right: 0;
