@@ -1,33 +1,49 @@
 /* タブレットサイズのCSS */
 @media screen and (max-width: 992px) {
 
-/*========= ヒーローセクションのCSS ===============*/
+ /*========= ヒーローセクションのCSS ===============*/
+ .hero-section {
+  overflow: hidden; /* セクション内のはみ出しを隠す */
+  position: relative; /* 相対位置を指定 */
+  width: 100vw; /* 幅をビューポートの100%に */
+  height: 100vh; /* 高さもビューポートの100%に設定 */
+}
 
-/* 固定コンテンツのスタイル */
-.text-contents .hero-logo{
+.text-contents {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.text-contents .hero-logo {
   width: 50vw;
   height: auto;
-  margin: 0;
+}
 
-}
-.text-contents {
-  margin: 0;
-  height: auto;
-  position: absolute;
-  top: 25%;
-  left: 25%;
-  overflow: visible;
-}
-.text-contents .msg{
+.text-contents .msg {
   font-size: 1.5rem;
   font-weight: bold;
+  text-align: left;
 }
+
 .img-contents {
-  position: relative;
-  width: 100vw;
-  height: 1000px;
-  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; /* ビューポートの幅に合わせる */
+  height: 100vh; /* ビューポートの高さに合わせる */
+  z-index: 1;
+  overflow: hidden; /* はみ出しを切り取る */
 }
+
 .img-contents::after {
   content: "";
   position: absolute;
@@ -36,11 +52,9 @@
   right: 0;
   bottom: 0;
   background: rgba(255, 255, 255, 0.5); /* 薄い白色のマスク */
-  z-index: 1; /* 画像の前面に表示 */
+  z-index: 1;
 }
 
-/*========= Waveを描画するエリア設定 ===============*/
-/* スクロール可能なコンテンツのスタイル */
 #waveCanvas {
   position: absolute;
   bottom: 0;
@@ -58,87 +72,91 @@
   width: 100%;
   height: 130vh;
   z-index: 9;
-  background: linear-gradient(to top, rgba(221, 255, 245, 0), rgba(221, 255, 245, 1) 50%, rgba(221, 255, 245, 1) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(221, 255, 245, 0),
+    rgba(221, 255, 245, 1) 50%,
+    rgba(221, 255, 245, 1) 100%
+  );
 }
 
+  /* AboutのCSS */
+  .about {
+    margin: 120vh 0 0 0; /* 上の余白 */
+    text-align: left; /* 左寄せ */
+  }
 
-/* AboutのCSS */
-.about {
-  margin:120vh 0 0 0;  /* 上の余白 */
-  text-align: left;  /* 左寄せ */
-}
+  .about-content {
+    width: 100vw;
+    align-items: center;
+  }
 
-.about-content {
-  width: 100vw;
-  align-items: center;
-}
+  .about-text {
+    width: 100vw;
+  }
 
-.about-text {
-  width: 100vw;
-}
+  .about-img {
+    width: 100vw;
+  }
 
-.about-img {
-  width: 100vw;
-}
+  .about-img-01 {
+    width: 45vw;
+    height: auto;
+    margin: 0;
+  }
+  .about-img-02 {
+    width: 30vw;
+    height: 30vw;
+    margin: 38vw 0 0 -3vw;
+  }
 
-.about-img-01 {
-  width: 45vw;
-  height: auto;
-  margin: 0;
-}
-.about-img-02 {
-  width: 30vw;
-  height: 30vw;
-  margin: 38vw 0 0 -3vw;
-}
+  .menu-card {
+    width: 90vw;
+    height: 55vw;
+  }
 
-.menu-card {
-  width: 90vw;
-  height: 55vw;
-}
+  /* PRICE */
+  .price-card {
+    width: 90vw;
+  }
+  .price-att {
+    width: 80vw;
+  }
 
-/* PRICE */
-.price-card {
-  width: 90vw;
-}
-.price-att {
-  width: 80vw;
-}
+  /* カラーセラピーとは、カウンセリングとは のCSS */
+  .wht-card {
+    width: 90vw;
+    height: auto;
+    max-height: 250px;
+  }
+  .wht-card h3 {
+    border-bottom: 1px solid #494746;
+  }
+  .wht-card h3,
+  .whtis-h {
+    font-size: clamp(24px, 1.5vw, 28px);
+  }
+  .whtis-dtl,
+  .whtis-box {
+    width: 100%; /* 小さいスクリーンでの幅を100%に設定 */
+  }
 
-/* カラーセラピーとは、カウンセリングとは のCSS */
-.wht-card {
-  width: 90vw;
-  height: auto;
-  max-height: 250px;
-}
-.wht-card h3 {
-  border-bottom: 1px solid #494746;
-}
-.wht-card h3, .whtis-h {
-  font-size: clamp(24px, 1.5vw, 28px);
-}
-.whtis-dtl, .whtis-box {
-  width: 100%; /* 小さいスクリーンでの幅を100%に設定 */
-}
+  .whtis-dtl {
+    width: 80vw;
+  }
 
-.whtis-dtl {
-  width:80vw;
-}
+  .whtis-box {
+    width: 100vw;
+    max-width: 80vw;
+    height: auto;
+    max-height: 250px;
+  }
 
-.whtis-box {
-  width: 100vw;
-  max-width: 80vw;
-  height: auto;
-  max-height: 250px;
-}
+  /* THERAPISTのCSS */
+  .img-intro img {
+    width: 60vw;
+    max-width: 80vw;
+  }
 
-/* THERAPISTのCSS */
-.img-intro img {
-  width: 60vw;
-  max-width: 80vw;
-}
-
-/* CONTACTのCSS */
-
-
+  /* CONTACTのCSS */
 }

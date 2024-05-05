@@ -1,0 +1,161 @@
+/* タブレットサイズのCSS */
+@media screen and (max-width: 992px) {
+
+/*========= ヒーローセクションのCSS ===============*/
+
+/* 固定コンテンツのスタイル */
+.text-contents .hero-logo{
+  width: 50vw;
+  height: auto;
+  margin: 0;
+}
+.text-contents {
+  margin: 0;
+  height: auto;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  overflow: visible;
+}
+.text-contents .msg{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.img-contents {
+  position: relative;
+  width: 100vw;
+  height: 1000px;
+  margin: 0;
+}
+.img-contents::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.5); /* 薄い白色のマスク */
+  z-index: 1; /* 画像の前面に表示 */
+}
+.img-contents {
+  position: relative; /* 位置を相対的に設定 */
+  width: 100%; /* 幅を全体に */
+  height: auto; /* 高さを内容に合わせる */
+  z-index: 1; /* 重ね順序を下に */
+}
+
+.text-contents {
+  position: absolute; /* 絶対位置指定 */
+  top: 0; /* 上端に */
+  left: 0; /* 左端に */
+  width: 100%; /* 幅を全体に */
+  height: 100%; /* 高さを親要素に合わせる */
+  display: flex; /* フレックスボックス */
+  align-items: center; /* 中央寄せ（縦方向） */
+  justify-content: center; /* 中央寄せ（横方向） */
+  z-index: 2; /* 重ね順序を上に */
+}
+
+/*========= Waveを描画するエリア設定 ===============*/
+/* スクロール可能なコンテンツのスタイル */
+#waveCanvas {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30vh;
+  z-index: 10;
+  background: linear-gradient(to top, rgba(221, 255, 245, 1));
+}
+
+#blue-canvas {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  width: 100%;
+  height: 130vh;
+  z-index: 9;
+  background: linear-gradient(to top, rgba(221, 255, 245, 0), rgba(221, 255, 245, 1) 50%, rgba(221, 255, 245, 1) 100%);
+}
+
+
+/* AboutのCSS */
+.about {
+  margin:120vh 0 0 0;  /* 上の余白 */
+  text-align: left;  /* 左寄せ */
+}
+
+.about-content {
+  width: 100vw;
+  align-items: center;
+}
+
+.about-text {
+  width: 100vw;
+}
+
+.about-img {
+  width: 100vw;
+}
+
+.about-img-01 {
+  width: 45vw;
+  height: auto;
+  margin: 0;
+}
+.about-img-02 {
+  width: 30vw;
+  height: 30vw;
+  margin: 38vw 0 0 -3vw;
+}
+
+.menu-card {
+  width: 90vw;
+  height: 55vw;
+}
+
+/* PRICE */
+.price-card {
+  width: 90vw;
+}
+.price-att {
+  width: 80vw;
+}
+
+/* カラーセラピーとは、カウンセリングとは のCSS */
+.wht-card {
+  width: 90vw;
+  height: auto;
+  max-height: 250px;
+}
+.wht-card h3 {
+  border-bottom: 1px solid #494746;
+}
+.wht-card h3, .whtis-h {
+  font-size: clamp(24px, 1.5vw, 28px);
+}
+.whtis-dtl, .whtis-box {
+  width: 100%; /* 小さいスクリーンでの幅を100%に設定 */
+}
+
+.whtis-dtl {
+  width:80vw;
+}
+
+.whtis-box {
+  width: 100vw;
+  max-width: 80vw;
+  height: auto;
+  max-height: 250px;
+}
+
+/* THERAPISTのCSS */
+.img-intro img {
+  width: 60vw;
+  max-width: 80vw;
+}
+
+/* CONTACTのCSS */
+
+
+}

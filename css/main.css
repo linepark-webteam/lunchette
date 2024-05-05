@@ -1,10 +1,19 @@
 @charset "utf-8"; /* 文字セットの指定 */
 
-/* memo 指定カラー*/
-/* #ddfff5; */
-
 /* 共通CSS */
 /*========= 全体のスタイル ===============*/
+* {
+  box-sizing: border-box; /* paddingとborderも要素の大きさに含める */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 横スクロールを防ぐ */
+  width: 100vw;
+  max-width: 100vw;
+}
+
 body {
   font-family: "游明朝", "Yu Mincho", YuMincho, "Hiragino Mincho Pro","Noto Sans JP", sans-serif; /* フォントの指定 */
   color: #494746;
@@ -14,12 +23,6 @@ body {
   text-align: left; /* テキストの配置 */
   box-sizing: border-box; /* ボックスサイズの指定 */
   max-width: 100vw; /* 最大幅 */
-}
-body.num {
-  font-family: "Cormorant", serif;
-  font-optical-sizing: auto;
-  /* font-weight: <weight>; */
-  font-style: normal;
 }
 
 section {
@@ -454,6 +457,7 @@ h3 {
 .fixed-bottom.fade-in {
   transition: opacity 1s ease-out;
   opacity: 0;  /* 初期状態では完全に透明 */
+  z-index: 99;
 }
 
 
@@ -491,11 +495,13 @@ h3 {
 
 /* footerのCSS */
 .footer {
+  position: absolute;
   margin-top: 100px;
   height: auto;
   max-height: 80px;
   background-color: #494746; /* 背景色を黒に */
   color: #fdfdfd; /* 文字色を白に */
+  z-index: 100;
 }
 
 /* 中央寄せと左右の余白を指定 */

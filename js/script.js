@@ -2,7 +2,16 @@ let animation;
 
 // 初期化関数。ページのロード時に実行される
 function init() {
+  setupCanvas();
+  window.addEventListener('resize', setupCanvas);
+}
+
+function setupCanvas() {
   const canvas = document.getElementById("waveCanvas");
+  canvas.width = document.documentElement.clientWidth * 1.3;
+  canvas.height = document.documentElement.clientWidth < 768 ? 150 : 200;
+  canvas.contextCache = canvas.getContext("2d");
+
   const info = {
     t: 0,
     unit: 200,
@@ -11,17 +20,16 @@ function init() {
     phase: 0
   };
 
-  canvas.width = document.documentElement.clientWidth * 1.3;
-  canvas.height = document.documentElement.clientWidth < 768 ? 150 : 200;
-
-  canvas.contextCache = canvas.getContext("2d");
+  if (animation) {
+    animation.kill();  // 既存のアニメーションを停止
+  }
 
   animation = gsap.to(info, {
     duration: 1000,
     repeat: -1,
     ease: "none",
     phase: "+=360",
-    onUpdate: function() { draw(canvas, info); }
+    onUpdate: () => draw(canvas, info)
   });
 }
 
@@ -59,15 +67,15 @@ function drawSine(canvas, info) {
 // スクロール位置に基づいてキャンバスの位置を変える関数
 function updateCanvasPosition() {
   const scrollY = window.scrollY;
-  const triggerHeight = 300;
-  const maxScroll = 300;
+  const heroSection = document.querySelector('.hero-section');
+  const triggerHeight = heroSection.offsetHeight;
 
   if (scrollY > triggerHeight) {
-    const moveFraction = (scrollY - triggerHeight) / (maxScroll - triggerHeight);
-    const moveUp = 30 * moveFraction;
-    document.querySelector('#waveCanvas').style.transform = `translateY(-${moveUp}vh)`;
+    heroSection.style.position = 'fixed';
+    heroSection.style.top = `-${triggerHeight}px`;
   } else {
-    document.querySelector('#waveCanvas').style.transform = `translateY(0)`;
+    heroSection.style.position = 'relative';
+    heroSection.style.top = '0px';
   }
 }
 
@@ -109,12 +117,12 @@ function updateOpacity() {
 init();
 
 // ハンバーガーメニューのトグルを設定
-toggleNavbar();
-
-// スクロールイベントをリッスン
-window.addEventListener('scroll', updateCanvasPosition);
-window.addEventListener('scroll', updateContentOpacity);
-window.addEventListener('scroll', updateOpacity);
+function toggleNavbar() {
+  var navbarToggler = document.querySelector('.navbar-toggler');
+  navbarToggler.addEventListener('click', function() {
+    this.classList.toggle('toggled');
+  });
+}
 
 // フェードイン効果を追加するためのIntersectionObserver
 const fadeElements = document.querySelectorAll(".fd");  // フェードイン対象の要素
