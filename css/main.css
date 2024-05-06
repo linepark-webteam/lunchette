@@ -53,12 +53,12 @@ h3 {
   color: #ac9434;
 }
 
-.num {
-  font-family: "Cormorant", serif;
-}
 
 /* ヘッダーの設定 */
 /* ブランドロゴのスタイル */
+.fixed-top {
+  z-index: 49;
+}
 .navbar-brand {
   margin-left: 30px;
   margin-top: 10px;
@@ -86,6 +86,7 @@ h3 {
   margin-top: 10px;
   background: transparent;
   position: relative;
+  z-index: 50;
 }
 
 /* 中央のバー */
@@ -344,6 +345,7 @@ h3 {
 
 .wht-btn {
   padding: 5px;
+  z-index: 50;
 }
 
 .wht-pls {
@@ -364,6 +366,8 @@ h3 {
   background-color: #494746;
   color: #fdfdfd;
   width: 100%;
+  position: relative;
+  z-index: 30;
 }
 
 .whtis-box {
@@ -463,8 +467,6 @@ h3 {
   opacity: 0;  /* 初期状態では完全に透明 */
   z-index: 99;
 }
-
-
 
 .bottom-text {
   background-color: #ecdc98;
