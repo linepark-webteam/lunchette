@@ -1,5 +1,5 @@
 /* タブレットサイズのCSS */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 996px) {
 
  /*========= ヒーローセクションのCSS ===============*/
  .hero-section {
@@ -29,8 +29,12 @@
   height: auto;
 }
 
+.logo-container, .msg-container {
+  justify-content: center;
+}
+
 .text-contents .msg {
-  font-size: 1.5rem;
+  font-size: 3vw;
   font-weight: bold;
   text-align: left;
 }

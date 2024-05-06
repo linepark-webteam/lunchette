@@ -113,6 +113,21 @@ function updateOpacity() {
   document.querySelector('#blue-canvas').style.opacity = setOpacity(0, 300);  // 青色のキャンバスの透明度を更新
   animation[scrollY <= 0 ? 'resume' : 'pause']();  // アニメーションを再開または一時停止
 }
+// スクロール位置に基づき、キャンバスと青色のキャンバスの透明度を更新します。
+function updateOpacity() {
+  const scrollY = window.scrollY;
+  const setOpacity = (triggerHeight, maxScroll) => Math.min(1, (scrollY - triggerHeight) / (maxScroll - triggerHeight));  // 透明度を計算する関数
+
+  if (scrollY <= 0) {
+    document.querySelector('#waveCanvas').style.opacity = 1;  // 波のキャンバスの透明度を不透明に設定
+    document.querySelector('#blue-canvas').style.opacity = 1;  // 青色のキャンバスの透明度を不透明に設定
+    animation.resume();  // アニメーションを再開
+  } else {
+    document.querySelector('#waveCanvas').style.opacity = setOpacity(0, 300);  // 波のキャンバスの透明度を更新
+    document.querySelector('#blue-canvas').style.opacity = setOpacity(0, 300);  // 青色のキャンバスの透明度を更新
+    animation.pause();  // アニメーションを一時停止
+  }
+}
 
 // フェードイン要素の監視を行います。
 function observeFadeInElements() {

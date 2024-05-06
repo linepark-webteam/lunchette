@@ -180,9 +180,10 @@ h3 {
 .text-contents,
 .img-contents {
   position: fixed; /* 固定位置 */
-  top: 0px; /* 上部の位置 */
+  top: 0%; /* 上部の位置 */
   width: 50%; /* 幅 */
   height: 100vh; /* ビューポートの高さ */
+  /* max-height: 50%; */
   overflow: hidden; /* はみ出しを防ぐ */
   z-index: -1; /* z-indexの設定 */
 }
