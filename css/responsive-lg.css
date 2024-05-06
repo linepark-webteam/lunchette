@@ -35,7 +35,7 @@
 }
 
 .text-contents .msg {
-  font-size: 3vw;
+  font-size: calc(0.8rem + 0.9vw);
   font-weight: bold;
   text-align: left;
   margin-top: 5vw;
