@@ -5,7 +5,13 @@
     font-size: 1rem;
   }
 
-  /*========= ヒーローセクションのCSS ===============*/
+ /*========= ヒーローセクションのCSS ===============*/
+ .hero-section {
+  margin-top: 12vh;
+  margin-top: 12svh;
+  height: 88vh; /* 高さはビューポートの88%に設定 */
+  height: 88svh; /* 高さはビューポートの88%に設定 */
+}
 
 
   /* AboutのCSS */
