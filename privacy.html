@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ↓完成後に作成 -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- GoogleFont -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap&text=0123456789"
+      rel="stylesheet"
+    />
+
+    <!-- リセットCSS -->
+    <link rel="stylesheet" href="./css/ress.css" />
+
+    <!-- CSS BootStrap -->
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+
+    <link rel="stylesheet" href="./css/my-bootstrap.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/responsive-lg.css" />
+    <link rel="stylesheet" href="./css/responsive-sm.css" />
+    <link rel="stylesheet" href="./css/animation.css" />
+    <title>Lunchette DEMO</title>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./">
+            <h1>
+              <img
+                src="./img/hero-img.webp"
+                alt="Lunchette"
+                class="brand-logo"
+              />
+            </h1>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <!-- 中央の線 -->
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav text-center">
+              <li class="nav-item">
+                <a class="nav-link" href="./#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./#menu">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./#price">Price</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./#therapist">Therapist</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./#FAQ">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container mt-5">
+        <h1 class="mt-5 py-5">PrivacyPolicy.</h1>
+        <p class="mb-3">
+          【お客様から取得する情報】<br />
+          当方は、お客様から以下の情報を取得します。
+        </p>
+        <p class="mb-3">
+          氏名(ニックネームやペンネームも含む)<br />
+          年齢または生年月日<br />
+          職業<br />
+          メールアドレス<br />
+          電話番号<br />
+          住所<br />
+          写真や動画<br />
+          銀行口座等のお客様の決済手段に関する情報
+        </p>
+        <p class="mb-3">
+          【お客様の情報を利用する目的】<br />
+          当方は、お客様から取得した情報を以下の目的のために利用します。<br />
+          当方サービスに関する登録の受付、お客様の本人確認、認証のため
+          お客様の当社サービスの利用履歴を管理するため 利用料金の決済のため
+          当方サービスにおけるお客様の行動履歴を分析し、当方サービスの維持改善に役立てるため
+          市場分析、マーケティングのため 当方のサービスに関するご案内をするため
+          お客様からのお問い合わせに対応するため
+          当方の規約や法令に違反する行為に対応するため
+          当方サービスの変更、提供中止、終了、契約解除をご連絡するため
+          当方規約の変更等を通知するため
+          以上の他、当方サービスの提供、維持、保護及び改善のため
+        </p>
+        <p class="mb-3">
+          【第三者提供】<br />
+          当方は、お客様から取得する情報のうち、個人データ（個人情報保護法第２条第６項）に該当するものについては、あらかじめお客様の同意を得ずに、第三者（日本国外にある者を含みます。）に提供しません。
+          但し、次の場合は除きます。
+        </p>
+        <p>
+          【個人データの取扱いを外部に委託する場合】<br />
+          当サロンや当サービスが買収された場合、事業パートナーと共同利用する場合（具体的な共同利用がある場合は、その内容を別途公表します。）その他、法律によって合法的に第三者提供が許されている場合
+        </p>
+        <p>
+          【プライバシーポリシーの変更】<br />
+          当方は、必要に応じて、このプライバシーポリシーの内容を変更します。この場合、変更後のプライバシーポリシーの施行時期と内容を適切な方法により周知または通知します。
+        </p>
+        <p class="mb-3">
+          【お問い合わせ】<br />
+          お客様の情報の開示、情報の訂正、利用停止、削除をご希望の場合は
+          お問い合わせフォームもしくは公式LINEにご連絡ください。
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer container-fluid row">
+      <div class="">
+        <div
+          class="d-flex flex-lg-row flex-column justify-content-between align-items-center px-lg-5"
+        >
+          <a href="#">Privacy Policy</a>
+          <span class="copy">© 2024 Lunchette. All rights reserved. </span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- BootStrap JS -->
+    <script src="./js/bootstrap.js"></script>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
