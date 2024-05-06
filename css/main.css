@@ -325,7 +325,10 @@ h3 {
 }
 .num {
   font-family: "Cormorant", "Snell Roundhand", serif;
-  font-size: 1.5rem;
+  margin-bottom: -2.8vw;
+  z-index: 1;
+  position: relative;
+  font-style: italic;
 }
 .wht-card {
   max-width: 380px;
