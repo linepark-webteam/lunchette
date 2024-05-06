@@ -1,66 +1,65 @@
 let animation;
 
-// 初期化関数。ページのロード時に実行され、必要なセットアップを行います。
+// 初期化関数: ページロード時に実行され、初期設定を行います。
 function init() {
-  setupCanvas();  // キャンバスを設定します
-  window.addEventListener('resize', setupCanvas);  // ウィンドウのリサイズに対応します
-  window.addEventListener('scroll', handleScroll);  // スクロールイベントに対応します
-  observeFadeInElements();  // フェードイン要素の監視を開始します
-  setupCollapseIconChanges();  // 折りたたみセクションのアイコン変更を設定します
-  addEventListeners();  // その他のイベントリスナーを追加します
+  setupCanvas();  // キャンバス設定
+  window.addEventListener('resize', setupCanvas);  // リサイズ時のキャンバス再設定
+  window.addEventListener('scroll', handleScroll);  // スクロールイベントの処理
+  observeFadeInElements();  // フェードイン要素の監視
+  setupCollapseIconChanges();  // 折りたたみアイコンの動作設定
+  addEventListeners();  // 追加のイベントリスナーを設定
 }
 
-// キャンバスの設定とアニメーションの初期化を行います。
+// キャンバス設定と波のアニメーションの初期化
 function setupCanvas() {
   const canvas = document.getElementById("waveCanvas");
-  canvas.width = document.documentElement.clientWidth * 1.3;
-  canvas.height = document.documentElement.clientWidth < 768 ? 150 : 200;
-  canvas.contextCache = canvas.getContext("2d");
+  canvas.width = document.documentElement.clientWidth * 1.3;  // キャンバス幅設定
+  canvas.height = document.documentElement.clientWidth < 768 ? 150 : 200;  // キャンバス高さ設定
+  canvas.contextCache = canvas.getContext("2d");  // コンテキストキャッシング
 
-  const info = {
-    t: 0,
-    unit: 200,
-    amplitude: 0.3,
-    frequency: 0.002,
-    phase: 0
-  };
+  // アニメーションパラメータ
+  const info = { t: 0, unit: 200, amplitude: 0.3, frequency: 0.002, phase: 0 };
 
+  // 既存のアニメーションがあれば停止
   if (animation) {
-    animation.kill();  // 既存のアニメーションを停止します
+    animation.kill();
   }
 
+  // GSAPアニメーションの設定
   animation = gsap.to(info, {
     duration: 1000,
     repeat: -1,
     ease: "none",
     phase: "+=360",
-    onUpdate: () => draw(canvas, info)
+    onUpdate: () => draw(canvas, info)  // 更新時に波形を描画
   });
 }
 
-// キャンバス上に波形を描画するための関数です。
+// 波形の描画
 function draw(canvas, info) {
   const context = canvas.contextCache;
-  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.clearRect(0, 0, canvas.width, canvas.height);  // キャンバスをクリア
 
+  // グラデーション設定
   let gradient = context.createLinearGradient(0, 0, 0, canvas.height);
   gradient.addColorStop(0, 'rgba(221,255,245, 1)');
 
   context.fillStyle = gradient;
   context.beginPath();
-  drawSine(canvas, info);
+  drawSine(canvas, info);  // サイン波を描画
   context.lineTo(canvas.width, canvas.height);
   context.lineTo(0, canvas.height);
   context.closePath();
   context.fill();
 }
 
-// サイン波を描画します。
+// サイン波の描画
 function drawSine(canvas, info) {
   const context = canvas.contextCache;
   const xAxis = Math.floor(canvas.height / 2);
-
   context.moveTo(-10, xAxis);
+
+  // サイン波を描画
   for (let i = -10; i <= canvas.width + 10; i += 10) {
     const x = (info.t + i) * info.frequency + info.phase;
     const y = Math.sin(x) * info.amplitude * info.unit;
@@ -68,25 +67,22 @@ function drawSine(canvas, info) {
   }
 }
 
-// スクロールイベントを処理します。キャンバス位置の更新、コンテンツの透明度更新、透明度の更新を行います。
+// スクロールイベントの処理
 function handleScroll() {
-  updateCanvasPosition();
-  updateContentOpacity();
-  updateOpacity();
+  updateCanvasPosition();  // キャンバス位置の更新
+  updateContentOpacity();  // コンテンツの透明度更新
 }
 
-// キャンバスの位置を更新します。画面幅993px以上では常に表示されません。
+// キャンバスの位置更新: ヒーローセクションの表示状態に基づく
 function updateCanvasPosition() {
   const scrollY = window.scrollY;
   const heroSection = document.querySelector('.hero-section');
-  const screenWidth = window.innerWidth;  // 画面の幅を取得
+  const screenWidth = window.innerWidth;
 
-  // 993px以上の場合、ヒーローセクションを固定表示しないように設定
   if (screenWidth >= 993) {
     heroSection.style.position = 'relative';
     heroSection.style.top = '0px';
   } else {
-    // 993px未満の場合、スクロールに応じてヒーローセクションの位置を動的に変更
     if (scrollY > heroSection.offsetHeight) {
       heroSection.style.position = 'fixed';
       heroSection.style.top = `-${heroSection.offsetHeight}px`;
@@ -97,37 +93,15 @@ function updateCanvasPosition() {
   }
 }
 
-// スクロール位置に応じてコンテンツの透明度を更新します。
+// コンテンツの透明度更新
 function updateContentOpacity() {
   const scrollY = window.scrollY;
-  const opacity = 1 - Math.min(1, (scrollY - 2) / (500 - 2));  // 透明度を計算
-  document.querySelector('.text-contents').style.opacity = opacity;  // テキストコンテンツの透明度を設定
-  document.querySelector('.img-contents').style.opacity = opacity;  // 画像コンテンツの透明度を設定
+  const opacity = 1 - Math.min(1, (scrollY - 2) / (500 - 2));
+  document.querySelector('.text-contents').style.opacity = opacity;
+  document.querySelector('.img-contents').style.opacity = opacity;
 }
 
-// スクロール位置に基づき、キャンバスと青色のキャンバスの透明度を更新します。
-function updateOpacity() {
-  const scrollY = window.scrollY;
-  const setOpacity = (triggerHeight, maxScroll) => Math.min(1, (scrollY - triggerHeight) / (maxScroll - triggerHeight));  // 透明度を計算する関数
-  document.querySelector('#waveCanvas').style.opacity = setOpacity(0, 300);  // 波のキャンバスの透明度を更新
-  document.querySelector('#blue-canvas').style.opacity = setOpacity(0, 300);  // 青色のキャンバスの透明度を更新
-  animation[scrollY <= 0 ? 'resume' : 'pause']();  // アニメーションを再開または一時停止
-}
-// スクロール位置に基づき、青色のキャンバスの透明度を更新します。
-function updateOpacity() {
-  const scrollY = window.scrollY;
-  const setOpacity = (triggerHeight, maxScroll) => Math.min(1, (scrollY - triggerHeight) / (maxScroll - triggerHeight));  // 透明度を計算する関数
-
-  if (scrollY <= 0) {
-    document.querySelector('#blue-canvas').style.opacity = 1;  // 青色のキャンバスの透明度を不透明に設定
-    animation.resume();  // アニメーションを再開
-  } else {
-    document.querySelector('#blue-canvas').style.opacity = setOpacity(0, 300);  // 青色のキャンバスの透明度を更新
-    animation.pause();  // アニメーションを一時停止
-  }
-}
-
-// フェードイン要素の監視を行います。
+// フェードイン要素の監視
 function observeFadeInElements() {
   const fadeElements = document.querySelectorAll(".fd");
   const observer = new IntersectionObserver((entries) => {
@@ -141,26 +115,24 @@ function observeFadeInElements() {
   fadeElements.forEach(element => observer.observe(element));
 }
 
-// 折りたたみ要素のアイコン変更を設定します。
+// 折りたたみセクションのアイコン変更設定
 function setupCollapseIconChanges() {
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggleIcons = [
-      { id: 'clrtp-collapse', selector: 'a[href="#clrtp-collapse"] .wht-pls img', openImg: './img/plus.webp', closeImg: './img/cross.webp' },
-      { id: 'cns-collapse', selector: 'a[href="#cns-collapse"] .wht-pls img', openImg: './img/plus.webp', closeImg: './img/cross.webp' }
-    ];
+  const toggleIcons = [
+    { id: 'clrtp-collapse', selector: 'a[href="#clrtp-collapse"] .wht-pls img', openImg: './img/plus.webp', closeImg: './img/cross.webp' },
+    { id: 'cns-collapse', selector: 'a[href="#cns-collapse"] .wht-pls img', openImg: './img/plus.webp', closeImg: './img/cross.webp' }
+  ];
 
-    toggleIcons.forEach(item => {
-      const element = document.getElementById(item.id);
-      const icon = document.querySelector(item.selector);
+  toggleIcons.forEach(item => {
+    const element = document.getElementById(item.id);
+    const icon = document.querySelector(item.selector);
 
-      element.addEventListener('show.bs.collapse', function () {
-        icon.src = item.closeImg;
-        icon.alt = 'Close';
-      });
-      element.addEventListener('hide.bs.collapse', function () {
-        icon.src = item.openImg;
-        icon.alt = 'Open';
-      });
+    element.addEventListener('show.bs.collapse', function () {
+      icon.src = item.closeImg;
+      icon.alt = 'Close';
+    });
+    element.addEventListener('hide.bs.collapse', function () {
+      icon.src = item.openImg;
+      icon.alt = 'Open';
     });
   });
 }
