@@ -81,6 +81,7 @@
   left: 0;
   width: 100%;
   height: 130vh;
+  height: 130svh;
   z-index: 9;
   background: linear-gradient(
     to top,
