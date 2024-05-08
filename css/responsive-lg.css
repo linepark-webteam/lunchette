@@ -165,6 +165,10 @@
     max-height: 250px;
   }
 
+  .num {
+    margin-bottom: -2.8vw;
+  }
+
   /* THERAPISTのCSS */
   .img-intro img {
     width: 60vw;

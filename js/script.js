@@ -89,24 +89,24 @@ function handleScroll() {
 }
 
 // キャンバスの位置更新: ヒーローセクションの表示状態に基づく
-function updateCanvasPosition() {
-  const scrollY = window.scrollY;
-  const heroSection = document.querySelector('.hero-section');
-  const screenWidth = window.innerWidth;
+// function updateCanvasPosition() {
+//   const scrollY = window.scrollY;
+//   const heroSection = document.querySelector('.hero-section');
+//   const screenWidth = window.innerWidth;
 
-  if (screenWidth >= 993) {
-    heroSection.style.position = 'relative';
-    heroSection.style.top = '0px';
-  } else {
-    if (scrollY > heroSection.offsetHeight) {
-      heroSection.style.position = 'fixed';
-      heroSection.style.top = `-${heroSection.offsetHeight}px`;
-    } else {
-      heroSection.style.position = 'relative';
-      heroSection.style.top = '0px';
-    }
-  }
-}
+//   if (screenWidth >= 993) {
+//     heroSection.style.position = 'relative';
+//     heroSection.style.top = '0px';
+//   } else {
+//     if (scrollY > heroSection.offsetHeight) {
+//       heroSection.style.position = 'fixed';
+//       heroSection.style.top = `-${heroSection.offsetHeight}px`;
+//     } else {
+//       heroSection.style.position = 'relative';
+//       heroSection.style.top = '0px';
+//     }
+//   }
+// }
 
 // コンテンツの透明度更新
 function updateContentOpacity() {
