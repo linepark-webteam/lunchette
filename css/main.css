@@ -60,6 +60,9 @@ h3 {
 .fixed-top {
   z-index: 49;
 }
+/* .navbar {
+
+} */
 .navbar-brand {
   margin-left: 30px;
   margin-top: 10px;
@@ -68,6 +71,7 @@ h3 {
   height: auto;
 }
 .brand-logo {
+  display: none;
   width: 30vw;
   max-width: 100px;
   height:auto;
@@ -462,6 +466,44 @@ h3 {
   transform: translateY(-50%); /* 縦方向の位置を中央に調整 */
 }
 
+/* SNSアイコンのコンテナ */
+.fixed-social-icons {
+  position: fixed;
+  right: 30px; /* 画面右に配置 */
+  bottom: 95px; /* 画面下に配置 */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* 各アイコンの間隔 */
+  opacity: 0; /* 初期状態で非表示 */
+  transition: opacity 1s ease; /* フェードイン/アウトのトランジション */
+  z-index: 1000; /* 他の要素よりも上に表示 */
+}
+
+/* SNSアイコン自体のスタイル */
+.fixed-social-icons a {
+  width: 60px; /* アイコンの幅 */
+  height: 60px; /* アイコンの高さ */
+  /* background-color: #444; 背景色 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; /* リンクの下線を除去 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 軽いシャドウを追加 */
+  transition: background-color 0.3s ease; /* 背景色のトランジション */
+}
+
+/* アイコンのホバー時のエフェクト */
+.fixed-social-icons a:hover {
+  background-color: #666; /* ホバー時の背景色を変更 */
+}
+
+/* アイコン内のイメージスタイル */
+.fixed-social-icons a img {
+  width: 80%; /* アイコン内のイメージサイズ */
+  height: 80%;
+  /* border-radius: 50%; 丸くする */
+}
 
 
 /* ページBottom追従ボタンのCSS */

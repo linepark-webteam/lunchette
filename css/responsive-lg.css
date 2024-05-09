@@ -1,96 +1,96 @@
 /* タブレットサイズのCSS */
 @media screen and (max-width: 996px) {
+  /*========= ヒーローセクションのCSS ===============*/
+  .hero-section {
+    overflow: hidden; /* セクション内のはみ出しを隠す */
+    position: relative; /* 相対位置を指定 */
+    width: 100vw; /* 幅をビューポートの100%に */
+    margin-top: 10vh;
+    margin-top: 10svh;
+    height: 90vh; /* 高さはビューポートの90%に設定 */
+    height: 90svh; /* 高さはビューポートの90%に設定 */
+    margin-bottom: 20vh; /* ヒーローセクションの下にスペースを追加 */
+  }
 
- /*========= ヒーローセクションのCSS ===============*/
- .hero-section {
-  overflow: hidden; /* セクション内のはみ出しを隠す */
-  position: relative; /* 相対位置を指定 */
-  width: 100vw; /* 幅をビューポートの100%に */
-  margin-top: 10vh;
-  margin-top: 10svh;
-  height: 90vh; /* 高さはビューポートの90%に設定 */
-  height: 90svh; /* 高さはビューポートの90%に設定 */
-  margin-bottom: 20vh; /* ヒーローセクションの下にスペースを追加 */
-}
+  .text-contents {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
 
-.text-contents {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
+  .text-contents .hero-logo {
+    width: 50vw;
+    height: auto;
+  }
 
-.text-contents .hero-logo {
-  width: 50vw;
-  height: auto;
-}
+  .logo-container,
+  .msg-container {
+    justify-content: center;
+  }
 
-.logo-container, .msg-container {
-  justify-content: center;
-}
+  .text-contents .msg {
+    font-size: calc(0.8rem + 0.9vw);
+    font-weight: bold;
+    text-align: left;
+    margin-top: 5vw;
+  }
 
-.text-contents .msg {
-  font-size: calc(0.8rem + 0.9vw);
-  font-weight: bold;
-  text-align: left;
-  margin-top: 5vw;
-}
+  .img-contents {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* ビューポートの幅に合わせる */
+    height: 100vh; /* ビューポートの高さに合わせる */
+    z-index: 1;
+    overflow: hidden; /* はみ出しを切り取る */
+  }
 
-.img-contents {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw; /* ビューポートの幅に合わせる */
-  height: 100vh; /* ビューポートの高さに合わせる */
-  z-index: 1;
-  overflow: hidden; /* はみ出しを切り取る */
-}
+  .img-contents::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5); /* 薄い白色のマスク */
+    z-index: 1;
+  }
 
-.img-contents::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.5); /* 薄い白色のマスク */
-  z-index: 1;
-}
+  #waveCanvas {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30vh;
+    height: 30svh;
+    z-index: 10;
+    background: linear-gradient(to top, rgba(221, 255, 245, 1));
+  }
 
-#waveCanvas {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 30vh;
-  height: 30svh;
-  z-index: 10;
-  background: linear-gradient(to top, rgba(221, 255, 245, 1));
-}
-
-#blue-canvas {
-  position: absolute;
-  top: 100vh;
-  top: 100svh;
-  left: 0;
-  width: 100%;
-  height: 130vh;
-  height: 130svh;
-  z-index: 9;
-  background: linear-gradient(
-    to top,
-    rgba(221, 255, 245, 0),
-    rgba(221, 255, 245, 1) 50%,
-    rgba(221, 255, 245, 1) 100%
-  );
-}
+  #blue-canvas {
+    position: absolute;
+    top: 100vh;
+    top: 100svh;
+    left: 0;
+    width: 100%;
+    height: 130vh;
+    height: 130svh;
+    z-index: 9;
+    background: linear-gradient(
+      to top,
+      rgba(221, 255, 245, 0),
+      rgba(221, 255, 245, 1) 50%,
+      rgba(221, 255, 245, 1) 100%
+    );
+  }
 
   /* AboutのCSS */
   .about {
@@ -176,4 +176,19 @@
   }
 
   /* CONTACTのCSS */
+
+  /* SNSアイコンのCSS */
+  .fixed-social-icons {
+    display: flex; /* モバイルデバイスで表示 */
+    opacity: 1;
+    transition: opacity 1s ease 0s;
+    right: 20px; /* 画面右に配置 */
+    bottom: 20%; /* 画面下に配置 */
+  }
+
+  /* SNSアイコン自体のスタイル */
+  .fixed-social-icons a {
+    width: 70px; /* アイコンの幅 */
+    height: 70px; /* アイコンの高さ */
+  }
 }

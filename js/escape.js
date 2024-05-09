@@ -36,3 +36,28 @@ function setupCollapseIconChanges() {
 // }
 
   //updateHeaderSpacing();  // 初期ロード時にも実行
+
+// SNSアイコンのフェードイン
+document.addEventListener('DOMContentLoaded', function () {
+  // ヒーローセクションとSNSアイコンの要素を取得
+  const heroSection = document.querySelector('.hero-section');
+  const socialIcons = document.querySelector('.fixed-social-icons');
+
+  // 初期状態で隠す
+  socialIcons.style.opacity = 0;
+  socialIcons.style.transition = 'opacity 1s ease';
+
+  // IntersectionObserverを使用してヒーローセクションが画面から消えたときにSNSアイコンをフェードイン
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        socialIcons.style.opacity = 1; // フェードイン
+      } else {
+        socialIcons.style.opacity = 0; // フェードアウト
+      }
+    });
+  }, { threshold: 0 });
+
+  // 監視する要素を設定
+  observer.observe(heroSection);
+});
