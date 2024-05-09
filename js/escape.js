@@ -21,3 +21,18 @@ function setupCollapseIconChanges() {
     });
   });
 }
+
+// ヘッダーの高さに基づく余白の調整
+// function updateHeaderSpacing() {
+//   const header = document.querySelector('.fixed-top');
+//   const heroSection = document.querySelector('.hero-section');
+
+//   if (window.innerWidth < 993) {
+//     const headerHeight = header ? header.offsetHeight : 0;
+//     heroSection.style.marginTop = `${headerHeight}px`;
+//   } else {
+//     heroSection.style.marginTop = '0px';
+//   }
+// }
+
+  //updateHeaderSpacing();  // 初期ロード時にも実行

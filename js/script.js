@@ -6,24 +6,24 @@ function init() {
   window.addEventListener('resize', setupCanvas);  // リサイズ時のキャンバス再設定
   window.addEventListener('scroll', handleScroll);  // スクロールイベントの処理
   window.addEventListener('resize', updateHeaderSpacing);  // リサイズ時のヘッダー高さ調整
-  //updateHeaderSpacing();  // 初期ロード時にも実行
+  updateHeaderSpacing();  // 初期ロード時にも実行
   observeFadeInElements();  // フェードイン要素の監視
   setupCollapseIconChanges();  // 折りたたみアイコンの動作設定
   addEventListeners();  // 追加のイベントリスナーを設定
 }
 
 // ヘッダーの高さに基づく余白の調整
-// function updateHeaderSpacing() {
-//   const header = document.querySelector('.fixed-top');
-//   const heroSection = document.querySelector('.hero-section');
+function updateHeaderSpacing() {
+  const header = document.querySelector('.fixed-top');
+  const heroSection = document.querySelector('.hero-section');
 
-//   if (window.innerWidth < 993) {
-//     const headerHeight = header ? header.offsetHeight : 0;
-//     heroSection.style.marginTop = `${headerHeight}px`;
-//   } else {
-//     heroSection.style.marginTop = '0px';
-//   }
-// }
+  if (window.innerWidth < 993) {
+    const headerHeight = header ? header.offsetHeight : 0;
+    heroSection.style.marginTop = `${headerHeight}px`;
+  } else {
+    heroSection.style.marginTop = '0px';
+  }
+}
 
 // キャンバス設定と波のアニメーションの初期化
 function setupCanvas() {

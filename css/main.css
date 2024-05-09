@@ -462,6 +462,8 @@ h3 {
   transform: translateY(-50%); /* 縦方向の位置を中央に調整 */
 }
 
+
+
 /* ページBottom追従ボタンのCSS */
 .fixed-bottom.fade-in {
   transition: opacity 1s ease-out;
