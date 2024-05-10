@@ -9,8 +9,8 @@
  .hero-section {
   margin-top: 14vh;
   margin-top: 14svh;
-  height: 86vh; /* 高さはビューポートの88%に設定 */
-  height: 86svh; /* 高さはビューポートの88%に設定 */
+  height: 100vh; /* 高さはビューポートの88%に設定 */
+  height: 100svh; /* 高さはビューポートの88%に設定 */
 }
 
 

@@ -5,25 +5,32 @@ function init() {
   setupCanvas();  // キャンバス設定
   window.addEventListener('resize', setupCanvas);  // リサイズ時のキャンバス再設定
   window.addEventListener('scroll', handleScroll);  // スクロールイベントの処理
-  window.addEventListener('resize', updateHeaderSpacing);  // リサイズ時のヘッダー高さ調整
-  updateHeaderSpacing();  // 初期ロード時にも実行
+  // updateHeaderSpacing();  // ヘッダーの高さに基づく余白の調整
   observeFadeInElements();  // フェードイン要素の監視
   setupCollapseIconChanges();  // 折りたたみアイコンの動作設定
   addEventListeners();  // 追加のイベントリスナーを設定
+  positionSocialIconsAboveFooter();  // フッターの高さに基づくSNSアイコンの位置調整
 }
 
 // ヘッダーの高さに基づく余白の調整
-function updateHeaderSpacing() {
-  const header = document.querySelector('.fixed-top');
-  const heroSection = document.querySelector('.hero-section');
+// function updateHeaderSpacing() {
+//   const header = document.querySelector('.fixed-top');
+//   const heroSection = document.querySelector('.hero-section');
 
-  if (window.innerWidth < 993) {
-    const headerHeight = header ? header.offsetHeight : 0;
-    heroSection.style.marginTop = `${headerHeight}px`;
-  } else {
-    heroSection.style.marginTop = '0px';
-  }
+//   if (window.innerWidth < 993) {
+//     const headerHeight = header ? header.offsetHeight : 0;
+//     heroSection.style.marginTop = `${headerHeight}px`;
+//   } else {
+//     heroSection.style.marginTop = '0px';
+//   }
+// }
+// ヘッダーの高さに基づく余白の調整
+function updateHeaderSpacing() {
+  const heroSection = document.querySelector('.hero-section');
+  // 常に余白なし
+  heroSection.style.marginTop = '0px';
 }
+
 
 // キャンバス設定と波のアニメーションの初期化
 function setupCanvas() {
@@ -144,8 +151,49 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+// フッターおよび固定ボタンの高さに基づいてSNSアイコンの位置を調整する
+function positionMobileSocialIconsAboveFooterAndBottomButton() {
+  const socialIcons = document.querySelector('.fixed-social-icons');
+  const footer = document.querySelector('.footer');
+  const fixedBottom = document.querySelector('.container-fluid.fixed-bottom');
 
+  // スクロールまたはリサイズ時にフッターや固定ボタンとの位置を確認して調整
+  function updateSocialIconPosition() {
+    const footerRect = footer.getBoundingClientRect();
+    const fixedBottomRect = fixedBottom.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
+    // アイコンを配置する最小の高さ（フッターと固定ボタンのどちらも考慮）
+    const overlapHeight = windowHeight - Math.min(footerRect.top, fixedBottomRect.top);
+
+    // アイコンの位置を調整（15px のマージンを追加）
+    if (overlapHeight > 0) {
+      socialIcons.style.bottom = `${overlapHeight + 15}px`;
+    } else {
+      // 通常の位置に戻す
+      socialIcons.style.bottom = '18svh';
+    }
+  }
+
+  window.addEventListener('scroll', updateSocialIconPosition);
+  window.addEventListener('resize', updateSocialIconPosition);
+  updateSocialIconPosition(); // 初期ロード時にも位置を更新
+}
+
+// 初期化関数：ページロード時に実行
+function init() {
+  setupCanvas(); // キャンバス設定
+  window.addEventListener('resize', setupCanvas); // リサイズ時のキャンバス再設定
+  window.addEventListener('scroll', handleScroll); // スクロールイベントの処理
+  observeFadeInElements(); // フェードイン要素の監視
+  setupCollapseIconChanges(); // 折りたたみアイコンの動作設定
+  addEventListeners(); // 追加のイベントリスナーを設定
+
+  // 画面幅992px以下のときにフッターや固定ボタンの高さを考慮してアイコン位置を調整
+  if (window.innerWidth < 993) {
+    positionMobileSocialIconsAboveFooterAndBottomButton();
+  }
+}
 
 // コンテンツの透明度更新
 function updateContentOpacity() {
