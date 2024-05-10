@@ -183,7 +183,7 @@
     opacity: 1;
     transition: opacity 1s ease 0s;
     right: 20px; /* 画面右に配置 */
-    bottom: 20%; /* 画面下に配置 */
+    bottom: 18svh; /* 画面下に配置 */
   }
 
   /* SNSアイコン自体のスタイル */

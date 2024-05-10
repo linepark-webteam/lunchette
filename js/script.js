@@ -108,7 +108,6 @@ function updateCanvasPosition() {
   }
 }
 
-// SNSアイコンのフェードイン
 document.addEventListener('DOMContentLoaded', function () {
   // ヒーローセクションとSNSアイコンの要素を取得
   const heroSection = document.querySelector('.hero-section');
@@ -118,20 +117,34 @@ document.addEventListener('DOMContentLoaded', function () {
   socialIcons.style.opacity = 0;
   socialIcons.style.transition = 'opacity 1s ease';
 
-  // IntersectionObserverを使用してヒーローセクションが画面から消えたときにSNSアイコンをフェードイン
+  // IntersectionObserverの設定（992px以上の場合のみ）
   const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        socialIcons.style.opacity = 1; // フェードイン
-      } else {
-        socialIcons.style.opacity = 0; // フェードアウト
+      if (window.innerWidth >= 993) {
+        if (!entry.isIntersecting) {
+          socialIcons.style.opacity = 1; // フェードイン
+        } else {
+          socialIcons.style.opacity = 0; // フェードアウト
+        }
       }
     });
   }, { threshold: 0 });
 
-  // 監視する要素を設定
-  observer.observe(heroSection);
+  // 992px以上の場合はIntersectionObserverを利用
+  if (window.innerWidth >= 993) {
+    observer.observe(heroSection);
+  } else {
+    // 992px以下の場合はスクロールイベントで制御
+    window.addEventListener('scroll', function () {
+      const scrollY = window.scrollY;
+      const targetScrollY = window.innerHeight; // 100svhに対応
+
+      // 100svhスクロールしたら表示
+      socialIcons.style.opacity = scrollY > targetScrollY ? 1 : 0;
+    });
+  }
 });
+
 
 
 // コンテンツの透明度更新
