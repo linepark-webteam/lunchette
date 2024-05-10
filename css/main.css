@@ -491,12 +491,12 @@ h3 {
   justify-content: center;
   text-decoration: none; /* リンクの下線を除去 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 軽いシャドウを追加 */
-  transition: background-color 0.3s ease; /* 背景色のトランジション */
+  transition: background-color 0.8s ease; /* 背景色のトランジション */
 }
 
 /* アイコンのホバー時のエフェクト */
 .fixed-social-icons a:hover {
-  background-color: #666; /* ホバー時の背景色を変更 */
+  background-color: #7ee1c4; /* ホバー時の背景色を変更 */
 }
 
 /* アイコン内のイメージスタイル */

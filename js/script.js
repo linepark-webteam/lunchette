@@ -12,7 +12,7 @@ function init() {
   positionSocialIconsAboveFooter();  // フッターの高さに基づくSNSアイコンの位置調整
 }
 
-// ヘッダーの高さに基づく余白の調整
+// ヘッダーの高さに基づく余白の調整（余白有り）
 // function updateHeaderSpacing() {
 //   const header = document.querySelector('.fixed-top');
 //   const heroSection = document.querySelector('.hero-section');
@@ -24,7 +24,7 @@ function init() {
 //     heroSection.style.marginTop = '0px';
 //   }
 // }
-// ヘッダーの高さに基づく余白の調整
+// ヘッダーの高さに基づく余白の調整（余白無し）
 function updateHeaderSpacing() {
   const heroSection = document.querySelector('.hero-section');
   // 常に余白なし
@@ -99,19 +99,14 @@ function handleScroll() {
 function updateCanvasPosition() {
   const scrollY = window.scrollY;
   const heroSection = document.querySelector('.hero-section');
-  const screenWidth = window.innerWidth;
 
-  if (screenWidth >= 993) {
-    heroSection.style.position = 'relative';
-    heroSection.style.top = '0px';
+  // ヒーローセクションを常に固定
+  if (scrollY > heroSection.offsetHeight) {
+    heroSection.style.position = 'fixed';
+    heroSection.style.top = `-${heroSection.offsetHeight}px`;
   } else {
-    if (scrollY > heroSection.offsetHeight) {
-      heroSection.style.position = 'fixed';
-      heroSection.style.top = `-${heroSection.offsetHeight}px`;
-    } else {
-      heroSection.style.position = 'relative';
-      heroSection.style.top = '0px';
-    }
+    heroSection.style.position = 'fixed';
+    heroSection.style.top = '0px';
   }
 }
 
@@ -152,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
 // フッターおよび固定ボタンの高さに基づいてSNSアイコンの位置を調整する
 function positionMobileSocialIconsAboveFooterAndBottomButton() {
   const socialIcons = document.querySelector('.fixed-social-icons');
@@ -196,7 +192,7 @@ function init() {
   }
 }
 
-// コンテンツの透明度更新
+// ヒーローセクションの透明度更新
 function updateContentOpacity() {
   const scrollY = window.scrollY;
   const opacity = 1 - Math.min(1, (scrollY - 2) / (500 - 2));
