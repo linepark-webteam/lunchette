@@ -115,6 +115,7 @@ function updateCanvasPosition() {
   }
 }
 
+
 document.addEventListener('DOMContentLoaded', function () {
   // ヒーローセクションとSNSアイコンの要素を取得
   const heroSection = document.querySelector('.hero-section');

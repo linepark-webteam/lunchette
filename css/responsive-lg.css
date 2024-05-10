@@ -5,10 +5,9 @@
     overflow: hidden; /* セクション内のはみ出しを隠す */
     position: relative; /* 相対位置を指定 */
     width: 100vw; /* 幅をビューポートの100%に */
-    margin-top: 10vh;
-    margin-top: 10svh;
-    height: 100vh; /* 高さはビューポートの90%に設定 */
-    height: 100svh; /* 高さはビューポートの90%に設定 */
+    margin-top: 0; /* TOPの余白*/
+    height: 100vh; /* 高さはビューポートの100%に設定 */
+    height: 100svh; /* 高さはビューポートの100%に設定 */
     margin-bottom: 20vh; /* ヒーローセクションの下にスペースを追加 */
   }
 
