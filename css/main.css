@@ -268,8 +268,8 @@ h3 {
 .about-img-01 {
   width: 30vw;
   max-width: 350px;
-  height: 45vw;
-  max-height: 450px;
+  height: 40.0125vw;
+  max-height: 466.8125px;
   margin-left: 50px;
   margin-right: -60px;
   z-index: 1;
@@ -277,8 +277,8 @@ h3 {
 .about-img-02 {
   width: 25vw;
   max-width: 280px;
-  height: 25vw;
-  max-height: 280px;
+  height: 24.0417vw;
+  max-height: 269.27px;
   margin: 350px 0 0 -40px;
   z-index: 0;
 }
