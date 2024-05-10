@@ -166,7 +166,7 @@
   }
 
   .num {
-    margin-bottom: -2.8vw;
+    margin-bottom: -4vw;
   }
 
   /* THERAPISTのCSS */
@@ -188,7 +188,7 @@
 
   /* SNSアイコン自体のスタイル */
   .fixed-social-icons a {
-    width: 70px; /* アイコンの幅 */
-    height: 70px; /* アイコンの高さ */
+    width: 10vw;
+    height: 10vw;
   }
 }

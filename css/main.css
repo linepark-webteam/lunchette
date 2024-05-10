@@ -160,7 +160,8 @@ h3 {
   position: absolute; /* 絶対配置 */
   right: 15px; /* 右端から展開 */
   top: 80px; /* ナビゲーションバーの下から展開 */
-  background: inherit; /* メニュー展開時の背景色 */
+  /* background: inherit; メニュー展開時の背景色 */
+  background-color: rgba(255, 255, 255, 0.5); /* メニュー展開時の背景色 */
 }
 
 /*========= ヒーローセクションのCSS ===============*/

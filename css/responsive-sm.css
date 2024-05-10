@@ -52,9 +52,28 @@
     max-height: auto; /* 最大高さを自動に設定 */
   }
 
+  .num {
+    margin-bottom: -6vw;
+  }
+
   /* THERAPISTのCSS */
   .img-intro img {
     width: 80vw;
     max-width: 80vw;
   }
+
+    /* SNSアイコンのCSS */
+    .fixed-social-icons {
+      display: flex; /* モバイルデバイスで表示 */
+      opacity: 1;
+      transition: opacity 1s ease 0s;
+      right: 3vw; /* 画面右に配置 */
+      bottom: 18svh; /* 画面下に配置 */
+    }
+
+    /* SNSアイコン自体のスタイル */
+    .fixed-social-icons a {
+      width: 12vw;
+      height: 12vw;
+    }
 }
