@@ -250,7 +250,7 @@ h3 {
 
 /* AboutのCSS */
 .about {
-  margin-top: 120vh; /* 上の余白 */
+  margin-top: 220vh; /* 上の余白 */
   text-align: left;
   max-width: 1200px;
 }
@@ -440,7 +440,7 @@ h3 {
   margin-bottom: -10px;
 }
 
-.card-text h4 {
+.card-text h3 {
   border-bottom: 2px solid #ac9434;
   font-size: clamp(16px, 1.5vw, 28px);
 }
