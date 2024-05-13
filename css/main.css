@@ -60,21 +60,24 @@ h3 {
 .fixed-top {
   z-index: 49;
 }
-/* .navbar {
 
-} */
 .navbar-brand {
   margin-left: 30px;
-  margin-top: 10px;
+  margin-top: 0;
   width: 30vw;
   max-width: 300px;
   height: auto;
 }
 .brand-logo {
-  display: none;
+  display: block; /* 要素を表示するが、初期状態では透明にする */
+  opacity: 0; /* 完全に透明 */
+  transition: opacity 0.2s ease; /* フェードイン/フェードアウトのアニメーションを追加 */
   width: 30vw;
   max-width: 100px;
   height:auto;
+}
+.brand-logo.visible {
+  opacity: 1; /* 完全に不透明に */
 }
 
 /* ハンバーガーメニューのボタンスタイル */

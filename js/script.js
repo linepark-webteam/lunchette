@@ -93,6 +93,7 @@ function drawSine(canvas, info) {
 function handleScroll() {
   updateCanvasPosition();  // キャンバス位置の更新
   updateContentOpacity();  // コンテンツの透明度更新
+  toggleNavbarBrandVisibility(); // .navbar-brandの表示切替
 }
 
 // キャンバスの位置更新: ヒーローセクションの表示状態に基づく
@@ -200,19 +201,53 @@ function updateContentOpacity() {
   document.querySelector('.img-contents').style.opacity = opacity;
 }
 
-// フェードイン要素の監視
+// .navbar-brandの表示切替
+function toggleNavbarBrandVisibility() {
+  const heroSection = document.querySelector('.hero-section');
+  const navbarBrand = document.querySelector('.brand-logo ');
+  const scrollY = window.scrollY;
+  const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+
+  // ヒーローセクションを通過したら.navbar-brandを表示
+  if (scrollY > heroBottom) {
+    navbarBrand.classList.add('visible');
+  } else {
+    navbarBrand.classList.remove('visible')
+  }
+}
+
+// フェードイン要素の監視 一度だけ実行
+// function observeFadeInElements() {
+//   const fadeElements = document.querySelectorAll(".fd");
+//   const observer = new IntersectionObserver((entries) => {
+//     entries.forEach(entry => {
+//       if (entry.isIntersecting) {
+//         entry.target.classList.add("fd-in");
+//         observer.unobserve(entry.target);
+//       }
+//     });
+//   });
+//   fadeElements.forEach(element => observer.observe(element));
+// }
+
+// フェードイン要素の監視 ビューポートに入る度にアニメーションを実行
 function observeFadeInElements() {
   const fadeElements = document.querySelectorAll(".fd");
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        // 要素がビューポートに入るときにクラスを追加
         entry.target.classList.add("fd-in");
-        observer.unobserve(entry.target);
+      } else {
+        // 要素がビューポートから出るときにクラスを削除
+        entry.target.classList.remove("fd-in");
       }
     });
-  });
+  }, { threshold: 0.1 }); // しきい値を調整して観察の感度を変更可能
+
   fadeElements.forEach(element => observer.observe(element));
 }
+
 
 // 折りたたみセクションのアイコン変更設定
 function setupCollapseIconChanges() {

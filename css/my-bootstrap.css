@@ -7,6 +7,11 @@
   padding-right: 0 !important;
 }
 
+/* navbarのalign-itemsをcenterから変更（ブランドロゴの表示非表示でメニューボタンが上下にカクつく為） */
+.navbar > .container-fluid {
+  align-items: flex-start;
+}
+
 .card {
   border-radius: 0;
   border: 1px solid #ac9434;
