@@ -1,56 +1,660 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
+
 <head>
-    <title>Scroll Hide Animation</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* 水平方向のスクロールを防止 */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* 固定コンテンツ */
-        .fixed-content {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px;
-            background-color: white; /* 固定コンテンツの背景色 */
-            z-index: 10; /* 前面に表示 */
-            text-align: center;
-            font-size: 24px;
-            transition: opacity 0.5s; /* 不透明度の変化にアニメーション */
-        }
+  <meta name="description"
+  content="カラーセラピー＆心理カウンセリングを提供するメンタルヘルスサロンです。恋愛・職場・家族などの人間関係の悩みに丁寧に向き合います。1人で抱えているつらい気持ちを話してみませんか？ネット予約は２４時間受付中。">
+  <!-- ↓完成後に作成 -->
+  <meta name="keywords" content="">
 
-        /* スクロール可能なコンテンツ */
-        .scrollable-content {
-            padding-top: 60px; /* 固定コンテンツの高さを考慮 */
-            height: 200vh; /* 長いページを作るため */
-            background-color: rgb(202, 36, 36); /* スクロール可能なコンテンツの背景色 */
-        }
-    </style>
-    <script>
-      function updateFixedContentOpacity() {
-          const scrollY = window.scrollY; // スクロール位置
-          const maxScrollHeight = 200; // 固定コンテンツが完全に非表示になる高さ
-          const opacity = 1 - Math.min(1, scrollY / maxScrollHeight); // 不透明度を計算
-  
-          document.querySelector('#fixed').style.opacity = opacity;
-      }
-  
-      // スクロールイベントにリスナーを追加
-      window.addEventListener('scroll', updateFixedContentOpacity);
-  </script>
-  
+  <link rel="icon" href="./img/icon-sm.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="./img/icon-md.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" sizes="180x180">
+
+  <!-- GoogleFont 0123の数字のみ使用 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Pinyon+Script&display=swap&text=0123"
+    rel="stylesheet">
+
+  <!-- リセットCSS -->
+  <link rel="stylesheet" href="./css/ress.css">
+
+  <!-- BootStrap CSS -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+
+  <link rel="stylesheet" href="./css/my-bootstrap.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/responsive-lg.css">
+  <link rel="stylesheet" href="./css/responsive-sm.css">
+  <link rel="stylesheet" href="./css/animation.css">
+  <title>Lunchette DEMO</title>
+
+  <!-- ↓完成後に削除 -->
+  <meta name="robots" content="noindex" />
+
+  <!-- GSAP CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 </head>
+
 <body>
-    <!-- 固定コンテンツ -->
-    <div class="fixed-content" id="fixed">
-        Scroll down to see the fixed content disappear.
+
+  <header>
+    <nav class="navbar fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <h1><img src="./img/brand-logo.webp" alt="Lunchette" class="brand-logo"></h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span> <!-- 中央の線 -->
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#menu">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#price">Price</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#therapist">Therapist</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#FAQ">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section row container-fluid">
+      <div id="wrapper">
+        <div class="text-contents col-12 col-lg-6">
+          <div class="logo-container col-12 d-flex justify-content-lg-end justify-content-center">
+            <img src="./img/brand-logo.webp" alt="Lunchette" class="hero-logo">
+          </div>
+          <div
+            class="msg-container col-12 d-flex justify-content-lg-end justify-content-sm-center justify-content-start">
+            <h2 class="msg">
+              お客様にふさわしい色を、<br>
+              Lunchetteは共に決めていきます。
+            </h2>
+          </div>
+        </div>
+        <div class="img-contents col-6">
+          <img src="./img/hero.webp" alt="">
+        </div>
+      </div>
+    </section>
+    <canvas id="waveCanvas"></canvas>
+    <canvas id="blue-canvas"></canvas>
+
+
+
+    <section id="about" class="about container">
+      <div class="row">
+        <div class="about-content d-flex justify-content-center flex-lg-row flex-column align-items-center">
+          <div class="about-text col-12 col-lg-6">
+            <h2 class="txt-gold fd">About</h2>
+            <div class="fd">
+              <p>Lunchette(ランシェット)とはスズランの“らん”という音とフランス語で鈴を意味する“クロシェット”を掛け合わせたサロン名です。</p>
+              <p>
+                スズランの花言葉 …再び幸せが訪れる…<br>
+                今がどんなにつらくても必ず幸せになれる。<br>
+                そんなメッセージをサロン名に込めました。
+              </p>
+              <div class="pc d-none d-lg-block fd">
+                <p>当サロンは自分の内面と向き合いありのままの自分を受け入れしなやかに生きるためのメンタルヘルスケアを提供しています。</p>
+                <p>セラピストとともに心の声に耳を傾け傷を癒していくことで自分らしい輝きを取り戻しませんか？</p>
+                <small>※当サロンは医療機関ではございません。病気の診断や薬の処方等をご希望の方は精神科・心療内科の受診をお願いいたします。</small>
+              </div>
+            </div>
+          </div>
+          <div class="about-img d-flex col-12 col-lg-6 fd">
+            <img class="about-img-01" src="./img/about-01.webp" alt="">
+            <img class="about-img-02" src="./img/about-02.webp" alt="">
+          </div>
+          <div class="about-text col-12 col-lg-6 d-lg-none mt-3">
+            <div class="mobile fd">
+              <p>当サロンは自分の内面と向き合いありのままの自分を受け入れしなやかに生きるためのメンタルヘルスケアを提供しています。</p>
+              <p>セラピストとともに心の声に耳を傾け傷を癒していくことで自分らしい輝きを取り戻しませんか？</p>
+              <small>※当サロンは医療機関ではございません。病気の診断や薬の処方等をご希望の方は精神科・心療内科の受診をお願いいたします。</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="menu container mt-5">
+      <div class="d-flex justify-content-center fd">
+        <h2 class="txt-gold">- MENU -</h2>
+      </div>
+      <div class="row d-flex justify-content-around flex-lg-row flex-column align-items-lg-start align-items-center">
+        <div class="card menu-card col-12 mt-3 mt-lg-0 fd">
+          <div class="card-body">
+            <div class="d-flex justify-content-center py-lg-5 py-2">
+              <h3 class="txt-gold card-title">COLOR THERAPY</h3>
+            </div>
+            <p class="text-center">
+              10色のカラーボトルの中から<br>
+              気になる色や<br>
+              感じる色のボトルを選び<br>
+              心を見つめるセラピー。
+            </p>
+            <p class="text-center">
+              色を読み解きながら<br>
+              あなたの支えとなってくれる<br>
+              色を探していきます。
+            </p>
+          </div>
+        </div>
+        <div class="card menu-card col-10 mt-5 mt-lg-0 fd">
+          <div class="card-body">
+            <div class="d-flex justify-content-center py-lg-5 py-2">
+              <h3 class="txt-gold card-title">COUNSELING</h3>
+            </div>
+            <p class="text-center">
+              今抱えている問題や悩みの解消を目指すカウンセリング。
+            </p>
+            <p class="text-center">
+              心の回復とともに<br>
+              自分の内面と向き合うことで<br>
+              あなたの魅力を引き出します。
+            </p>
+          </div>
+        </div>
+        <div class="card menu-card col-10 mt-5 mt-lg-0 fd">
+          <div class="card-body">
+            <div class="d-flex justify-content-center align-items-center pt-1 pb-3">
+              <h3 class="txt-gold text-center card-title">
+                COLOR THERAPY<br>
+                &<br>
+                COUNSELING
+              </h3>
+            </div>
+            <p class="text-center">
+              カラーセラピーで<br>
+              無意識の中にある思いに気づき<br>
+              カウンセリングで<br>
+              根底にある考え感情と<br>
+              向き合います。
+            </p>
+            <p class="text-center">
+              気づきから癒しの過程を<br>
+              実感いただけるセットプランです。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="price" class="price container mt-5">
+      <div class="d-flex justify-content-center fd">
+        <h2 class="txt-gold">- PRICE -</h2>
+      </div>
+      <div class="row d-flex justify-content-center fd">
+        <div class="img-price col-lg-6 d-none d-lg-block">
+          <img src="./img/price.webp" alt="">
+        </div>
+        <div class="d-flex d-lg-block flex-column align-items-center col-lg-6">
+          <div class="card price-card contents-price ps-4 mb-3">
+            <div class="card-body price-card-body">
+
+              <div class="mt-2">
+                <h3 class="txt-gold price-ttl fs-5 mb-3">COLOR THERAPY</h3>
+                <div class="row d-flex flex-column">
+                  <div class="d-flex align-items-baseline">
+                    <p class="col-5">30分コース</p>
+                    <span class="txt-gold price-val responsive-fs fs-4 ms-lg-5">￥3,000</span>
+                    <p class="">(税込)</p>
+                  </div>
+                  <div class="d-flex align-items-baseline">
+                    <p class="col-5">60分コース</p>
+                    <span class="txt-gold price-val responsive-fs fs-4 ms-lg-5">￥6,000</span>
+                    <p class="">(税込)</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <h3 class="txt-gold price-ttl fs-5 mb-3">COUNSELING</h3>
+                <div class="row d-flex flex-column">
+                  <div class="d-flex align-items-baseline">
+                    <p class="col-5">30分コース</p>
+                    <span class="txt-gold price-val responsive-fs fs-4 ms-lg-5">￥5,000</span>
+                    <p class="">(税込)</p>
+                  </div>
+                  <div class="d-flex align-items-baseline">
+                    <p class="col-5">30分コース</p>
+                    <span class="txt-gold price-val responsive-fs fs-4 ms-lg-5">￥8,000</span>
+                    <p class="">(税込)</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <h3 class="txt-gold price-ttl fs-6 mb-3">COLOR THERAPY & COUNSELING</h3>
+                <div class="row d-flex flex-column">
+                  <div class="d-flex align-items-baseline">
+                    <p class="col-5">30分コース</p>
+                    <span class="txt-gold price-val responsive-fs fs-4 ms-lg-5">￥7,000</span>
+                    <p class="">(税込)</p>
+                  </div>
+                  <div class="d-flex align-items-baseline">
+                    <p class="col-5">60分コース</p>
+                    <span class="txt-gold price-val responsive-fs fs-4 ms-lg-5">￥10,000</span>
+                    <p class="">(税込)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="price-att">
+            <p class="fs-6">
+              ※ZOOMでのオンラインセラピーも承っております（オンラインセラピーは基本料金のみとなります。）
+            </p>
+            <p class="fs-6">
+              ※東京・神奈川・千葉・埼玉にて出張セラピーを行なっております（別途交通費、レンタルオフィス使用料が発生いたします）。出張セラピーをご希望の方は、下記、お問い合わせフォームよりご連絡ください。
+            </p>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="clrtp wht container mt-5 fd">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h2 class="txt-gold">- COLOR THERAPY -</h2>
+        <p>カラーセラピーとは</p>
+      </div>
+      <div class="d-flex flex-lg-row flex-column  justify-content-around align-items-center">
+        <div>
+          <p class="num txt-gold display-1">01</p>
+          <div class="card wht-card clrtp-card">
+            <div class="card-body">
+              <h3 class="card-title txt-gold fw-normal text-center pt-3 pb-1">カラーボトルを選ぶ</h3>
+              <p class="card-text text-center mb-0">
+                カラーボトルから<br>
+                気になる色を<br>
+                6本選んでいただきます。
+              </p>
+              <p class="fs-6 text-center">※(30分コースは3本)</p>
+              <p class="card-text text-center">
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="num txt-gold  display-1">02</p>
+          <div class="card wht-card clrtp-card">
+            <div class="card-body">
+              <h3 class="card-title txt-gold fw-normal text-center pt-3 pb-1">色を読み解く</h3>
+              <p class="card-text text-center">
+                過去(性格)・現在・<br>
+                未来(望む姿)を<br>
+                探っていきます。
+              </p>
+              <p class="card-text text-center">
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="num txt-gold  display-1">03</p>
+          <div class="card wht-card clrtp-card">
+            <div class="card-body">
+              <h3 class="card-title txt-gold fw-normal text-center pt-3 pb-1">ヒーリングカラーを選ぶ</h3>
+              <p class="card-text text-center">
+                希望や望みを実現するために<br>
+                どんな色が支えとなるかを<br>
+                決めていきます。
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="d-flex justify-content-center align-items-center my-5">
+        <a class="btn wht-btn" data-bs-toggle="collapse" href="#clrtp-collapse" role="button" aria-expanded="false"
+          aria-controls="collapseExample">
+          READ MORE<span class="wht-pls d-inline-flex justify-content-center ms-2 mb-1"><img src="./img/plus.webp"
+              alt="Open"></span>
+        </a>
+      </div>
+    </section>
+    <article class="container-fluid">
+      <div class="whtis collapse px-2 py-3" id="clrtp-collapse">
+        <div class="d-flex justify-content-center">
+          <h3 class="txt-gold whtis-h mb-3">What's Color Therapy?</h3>
+        </div>
+        <div class="row whtis-txt d-flex justify-content-center">
+          <div class="whtis-dtl col-lg-6">
+            <p>10本のカラーボトルを使ってカウンセリング&ヒーリングを行うシステム。<br>
+              直感的に選んだ色はあなたの中にある思いを映し出してくれます。 色のメッセージを受け取って自分を見つめ直しませんか?</p>
+            <p class="fs-6">
+              ※センセーション・カラーセラピーについて。
+              1995年カナダのカラーセラピスト、ステファニー・ファレルによって設立。10色のアロマオイルを使った色と香りによる新しいセラピーは、欧米で人気のシステム。選んだ色を読み解くことで現在の心理状態や性格、心理分析を行っていきます。また、その色の中から今の自分に必要な色や心を静めてくれる色がわかります。
+            </p>
+          </div>
+          <div class="col-12 col-lg-3 d-flex d-lg-block justify-content-center">
+            <div class="whtis-box mt-3">
+              <div class="whtis-box-ttl">こんな人におすすめ!</div>
+              <ul>
+                <li>◇話を聞いて欲しいけれど、話すのが苦手...。</li>
+                <li>◇今後どうしていけばいいのかわからない。</li>
+                <li>◇好きなことややりたいことが見つからない。</li>
+                <li>◇自分の持っている能力や強みが知りたい。</li>
+                <li>◇美しいカラーボトルに癒されたい!</li>
+                <li></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="cns wht container mt-5 fd">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h2 class="txt-gold">- COUNSELING -</h2>
+        <p>カウンセリングとは</p>
+      </div>
+      <div class="d-flex flex-lg-row flex-column  justify-content-around align-items-center">
+        <div>
+          <p class="num txt-gold  display-1">01</p>
+          <div class="card wht-card cns-card">
+            <div class="card-body">
+              <h3 class="card-title txt-gold fw-normal text-center pt-3 pb-1">ヒアリング</h3>
+              <p class="card-text text-center">
+                現在抱えている悩みや問題を<br>
+                丁寧に受容・共感しながら<br>
+                お話をお聴きいたします。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="num txt-gold  display-1">02</p>
+          <div class="card wht-card cns-card">
+            <div class="card-body">
+              <h3 class="card-title txt-gold fw-normal text-center pt-3 pb-1">カウンセリング</h3>
+              <p class="card-text text-center">
+                会話を通して心の整理を<br>
+                していきます。<br>
+                話すだけでなく、<br>
+                ワークシートに書き出したり<br>
+                絵を描いたりして心と向き<br>
+                合っていきます。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="num txt-gold  display-1">03</p>
+          <div class="card wht-card cns-card">
+            <div class="card-body">
+              <h3 class="card-title txt-gold fw-normal text-center pt-3 pb-1">フィードバック</h3>
+              <p class="card-text text-center">
+                最後にカウンセリング内容の<br>
+                まとめや<br>
+                今後の方向性について<br>
+                フィードバックいたします。
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center my-5">
+        <a class="btn wht-btn" data-bs-toggle="collapse" href="#cns-collapse" role="button" aria-expanded="false"
+          aria-controls="collapseExample">READ MORE<span
+            class="wht-pls d-inline-flex justify-content-center ms-2 mb-1"><img src="./img/plus.webp" alt="Open"></span>
+        </a>
+      </div>
+    </section>
+    <article class="container-fluid">
+      <div class="whtis collapse px-2 py-3" id="cns-collapse">
+        <div class="d-flex justify-content-center">
+          <h3 class="txt-gold whtis-h mb-3">What's Counseling?</h3>
+        </div>
+        <div class="row whtis-txt d-flex justify-content-center">
+          <div class="whtis-dtl col-lg-6">
+            <p>
+              つらい気持ち、1人で抱えていませんか?<br>
+              カウンセリングはその気持ちや考えを話したり、書いたり、アートで表現したものをカウンセラーに受け入れてもらうことで、心の傷を癒していくものです。<br>
+              実際に起きている問題にどう対処していけばいいのか...。<br>
+              心理学の知識を取り入れながらどういった方法で問題にアプローチをしていくか、カウンセラーと一緒に悩み、考えることで解決へのステップを歩んでいきます。
+            </p>
+          </div>
+          <div class="col-12 col-lg-3 d-flex d-lg-block justify-content-center">
+            <div class="whtis-box mt-3 me-3">
+              <div class="whtis-box-ttl">こんな人におすすめ!</div>
+              <ul>
+                <li>◇誰かに悩みを聞いて欲しい。</li>
+                <li>◇何かわからないけどモヤモヤしてる。</li>
+                <li>◇人間関係で悩んでいる。</li>
+                <li>◇自信を持ちたい! もっと成長したい!</li>
+                <li>◇ストレスに対処できるようになりたい。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+
+    <section id="therapist" class="intro container mt-5 fd">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h2 class="txt-gold mb-3">- THERAPIST -</h2>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="d-flex flex-column-reverse flex-lg-row col-10">
+          <div class="col-lg-6 col-12 mt-3 mt-lg-0 me-lg-5">
+            <p>自己紹介</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi esse magnam molestiae, ipsam
+              repellendus commodi itaque architecto sunt praesentium? Optio nulla dignissimos perspiciatis velit
+              sapiente quas delectus molestias unde explicabo.</p>
+          </div>
+          <div class="d-flex justify-content-center col-lg-6 col-12 img-intro">
+            <img src="./img/intro.webp" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="FAQ" class="FAQ container mt-5 fd">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h2 class="txt-gold">- FAQ -</h2>
+        <p>ご予約に関して</p>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <div class="col-12 col-lg-10 card d-flex flex-column py-5 px-1 px-lg-5">
+            <div class="card-body px-2">
+              <div class="card-text d-flex flex-column mb-3">
+                <h3 class="responsive-fs"><span class="txt-gold">Q.</span>予約は当日でもできますか?</h3>
+                <p>大変申し訳ございません。基本的には前日の21時までの受付となります。お時間によって当日対応できる場合もございますのでご相談ください。</p>
+              </div>
+              <div class="card-text d-flex flex-column mb-3">
+                <h3 class="responsive-fs"><span class="txt-gold">Q.</span>予約の日程変更はできますか?</h3>
+                <p>予約日の3日前であれば日程変更が可能です。それ以降で日程変更する場合は予約サイトにて一度キャンセルをしてから予約の取り直しをお願いいたします。</p>
+              </div>
+              <div class="card-text d-flex flex-column mb-3">
+                <h3 class="responsive-fs"><span class="txt-gold">Q.</span>キャンセルはいつまで可能ですか?</h3>
+                <p>ご予約前日の12時までに予約サイトにてキャンセルをお願いいたします。</p>
+              </div>
+              <div class="card-text d-flex flex-column mb-3">
+                <h3 class="responsive-fs"><span class="txt-gold">Q.</span>キャンセル料金は発生しますか?</h3>
+                <p>当日もしくは無断キャンセルのみ各メニュー料金の100%が発生いたします。体調不良や事情がある場合には配慮いたしますので問い合わせフォーム・公式LINEへご連絡ください。</p>
+              </div>
+              <div class="card-text d-flex flex-column mb-3">
+                <h3 class="responsive-fs"><span class="txt-gold">Q.</span>支払方法はどんなものがありますか?</h3>
+                <p>銀行振込・クレジットカード事前決済がございます。なお、銀行振込の際の振込手数料はお客様負担となりますのでご了承ください。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contact" class="contact container mt-5 fd">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h2 class="txt-gold mb-3">CONTACT</h2>
+      </div>
+      <div class="card contact-card contents-contact px-4 py-5 mb-3">
+        <div class="card-body contact-card-body d-flex
+          flex-lg-row flex-column justify-content-around align-items-center ">
+          <div class="col-lg-5 col-12">
+            <div class="mb-5 mt-lg-0 mt-3">
+              <h3 class="txt-gold contact-head text-center responsive-fs mb-2">
+                オーナーセラピストのアカウント
+              </h3>
+              <p class="text-lg-center text-left mb-3">
+                心理学&セルフメンタルケアを発信中!
+              </p>
+              <a href="https://www.instagram.com/chihiro_suzumiya/" target="_blank">
+                <button type="button"
+                  class="btn btn-outline-warning col-12 fs-4 contact-btn mb-1 d-flex justify-content-center align-items-center position-relative">
+                  <span>Instagram</span>
+                  <span class="contact-arrow">></span>
+                </button>
+              </a>
+            </div>
+            <div>
+              <a href="https://reserva.be/lunchette" target="_blank">
+                <button type="button"
+                  class="btn btn-outline-warning col-12 fs-4 contact-btn mb-1 d-flex justify-content-center align-items-center position-relative">
+                  <span>RESERVE</span>
+                  <span class="contact-arrow">></span>
+                </button>
+              </a>
+              <p>
+                こちらからご希望のコースをお選びいただけます。<br>
+                <br>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-12">
+            <div class="mb-5 mt-lg-0 mt-3">
+              <h3 class="txt-gold contact-head text-center mb-2">
+                Lunchette公式アカウント
+              </h3>
+              <p class="text-lg-center text-left mb-3">
+                ご予約・お問い合わせはこちらでもOK!
+              </p>
+              <a href="https://line.me/R/ti/p/@650eoaoi?oat_content=url" target="_blank">
+                <button type="button"
+                  class="btn btn-outline-warning col-12 fs-4 contact-btn mb-1 d-flex justify-content-center align-items-center position-relative">
+                  <span>LINE</span>
+                  <span class="contact-arrow">></span>
+                </button>
+              </a>
+            </div>
+            <div>
+              <a href="https://reserva.be/lunchette/contact?mode=edit" target="_blank">
+                <button type="button"
+                  class="btn btn-outline-warning col-12 fs-4 contact-btn mb-1 d-flex justify-content-center align-items-center position-relative">
+                  <span>MAIL</span>
+                  <span class="contact-arrow">></span>
+                </button>
+              </a>
+            </div>
+            <span class="fs-6">
+              ※3日以内にメールが届かない場合はお手数ですが お問い合せフォームへご連絡ください。
+            </span>
+          </div>
+        </div>
+    </section>
+
+    <!-- SNSアイコン追従用の固定ボタン -->
+    <div class="fixed-social-icons fd">
+      <a href="https://www.instagram.com/chihiro_suzumiya/" target="_blank" class="icon-instagram"
+        aria-label="Instagram">
+        <!-- <img src="./img/instagram_color_icon.svg" alt="Instagram"> -->
+        <img src="./img/instagram_mono_icon.svg" alt="Instagram">
+      </a>
+      <a href="https://line.me/R/ti/p/@650eoaoi?oat_content=url" target="_blank" class="icon-facebook"
+        aria-label="LINE">
+        <!-- <img src="./img/line_color_icon.svg" alt="LINE"> -->
+        <img src="./img/line_mono_icon.svg" alt="LINE">
+      </a>
     </div>
 
-    <!-- スクロール可能なコンテンツ -->
-    <div class="scrollable-content">
-        This is the scrollable content. Keep scrolling to see the effect.
+
+    <!-- フッター追従ボタン -->
+    <section class="">
+      <div class="container-fluid fixed-bottom fade-in">
+        <div class="row">
+          <div class="bottom-text col-lg-5 col-12 px-3 py-lg-2">
+            <p>RESERVATION</p>
+          </div>
+          <div class="bottom-btn col-lg-3 col-12">
+            <button class="col-12 py-lg-2">
+              <a href="https://reserva.be/lunchette" target="_blank">
+                <div class="d-flex justify-content-lg-around justify-content-center">
+                  <span>ご予約はこちらから</span>
+                  <span>　>></span>
+                </div>
+              </a>
+            </button>
+          </div>
+          <div class="bottom-btn col-lg-3 col-12">
+            <button class="col-12 py-lg-2">
+              <a href="https://reserva.be/lunchette/contact?mode=edit" target="_blank">
+                <div class="d-flex justify-content-lg-around justify-content-center">
+                  <span>お問い合わせ</span>
+                  <span>　>></span>
+                </div>
+              </a>
+            </button>
+          </div>
+          <div class="bottom-text col-lg-1 col-0"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="logo-container col-12 d-flex justify-content-lg-end justify-content-center">
+      <!-- SVGファイルをオブジェクトとして読み込む場合 -->
+      <object type="image/svg+xml" data="./img/brand-logo.svg" class="hero-logo">Your browser does not support SVG</object>
     </div>
+
+  </main>
+
+  <footer class="footer container-fluid row">
+    <div class="">
+      <div class="d-flex flex-lg-row flex-column justify-content-between align-items-center px-lg-5">
+        <a href="./privacy.html">Privacy Policy</a>
+        <span class="copy">© 2024 Lunchette. All rights reserved.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  <!-- BootStrap JS -->
+  <script src="./js/bootstrap.js"></script>
+
+  <script src="./js/script.js"></script>
 </body>
