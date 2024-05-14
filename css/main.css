@@ -28,6 +28,10 @@ body {
 section {
   max-width: 1300px;
 }
+/* section:not(:first-child) {
+  padding-top: 5svh;
+} */
+
 article {
   max-width: 100vw;
 }
