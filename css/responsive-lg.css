@@ -166,6 +166,7 @@
   .img-intro img {
     width: 60vw;
     max-width: 80vw;
+    height: auto;
   }
 
   /* CONTACTのCSS */
