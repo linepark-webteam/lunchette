@@ -253,7 +253,7 @@ h3 {
 
 /* AboutのCSS */
 .about {
-  margin-top: 220svh; /* 上の余白 */
+  margin-top: 200svh; /* 上の余白 */
   text-align: left;
   max-width: 1200px;
 }

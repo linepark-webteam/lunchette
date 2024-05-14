@@ -93,7 +93,7 @@
 
   /* AboutのCSS */
   .about {
-    margin-top: 230svh; /* ヒーローセクションの高さと追加のスペースを加味 */
+    margin-top: 200svh; /* ヒーローセクションの高さと追加のスペースを加味 */
     text-align: left;
   }
 
