@@ -235,17 +235,17 @@ h3 {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 30vh;
+  height: 30svh;
   z-index: 10;
   background: linear-gradient(to top, rgba(221, 255, 245, 1));
 }
 
 #blue-canvas {
   position: absolute;
-  top: 100vh;
+  top: 100svh;
   left: 0;
   width: 100%;
-  height: 130vh;
+  height: 130svh;
   z-index: 9;
   background: linear-gradient(to top, rgba(221, 255, 245, 0), rgba(221, 255, 245, 1) 50%, rgba(221, 255, 245, 1) 100%);
 }
@@ -253,7 +253,7 @@ h3 {
 
 /* AboutのCSS */
 .about {
-  margin-top: 220vh; /* 上の余白 */
+  margin-top: 220svh; /* 上の余白 */
   text-align: left;
   max-width: 1200px;
 }
