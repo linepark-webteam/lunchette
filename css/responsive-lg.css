@@ -65,7 +65,7 @@
 
   #waveCanvas {
     position: absolute;
-    bottom: -10svh;
+    bottom: 10svh;
     left: 0;
     width: 100%;
     /* height: 40vh; */
