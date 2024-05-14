@@ -176,7 +176,7 @@ h3 {
 
 #wrapper {
   width: 100%; /* ラッパーの全幅 */
-  height: 100vh; /* ビューポートの高さ */
+  height: 100svh; /* ビューポートの高さ */
   display: flex; /* フレックスボックス */
   justify-content: center; /* 中央寄せ */
   align-items: center; /* 縦方向に中央寄せ */
@@ -192,7 +192,7 @@ h3 {
   position: fixed; /* 固定位置 */
   top: 0%; /* 上部の位置 */
   width: 50%; /* 幅 */
-  height: 100vh; /* ビューポートの高さ */
+  height: 100svh; /* ビューポートの高さ */
   /* max-height: 50%; */
   overflow: hidden; /* はみ出しを防ぐ */
   z-index: -1; /* z-indexの設定 */

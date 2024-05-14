@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.lunchette-counseling\.com$ [NC]
+RewriteRule ^(.*)$ https://lunchette-counseling.com/$1 [L,R=301]

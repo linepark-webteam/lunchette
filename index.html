@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="description"
-  content="カラーセラピー＆心理カウンセリングを提供するメンタルヘルスサロンです。恋愛・職場・家族などの人間関係の悩みに丁寧に向き合います。1人で抱えているつらい気持ちを話してみませんか？ネット予約は２４時間受付中。">
+    content="カラーセラピー＆心理カウンセリングを提供するメンタルヘルスサロンです。恋愛・職場・家族などの人間関係の悩みに丁寧に向き合います。1人で抱えているつらい気持ちを話してみませんか？ネット予約は２４時間受付中。">
   <!-- ↓完成後に作成 -->
   <meta name="keywords" content="">
 
@@ -31,14 +31,21 @@
   <link rel="stylesheet" href="./css/responsive-lg.css">
   <link rel="stylesheet" href="./css/responsive-sm.css">
   <link rel="stylesheet" href="./css/animation.css">
-  <title>Lunchette DEMO</title>
-
-  <!-- ↓完成後に削除 -->
-  <meta name="robots" content="noindex" />
+  <title>Lunchette Official Site</title>
 
   <!-- GSAP CDN -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VPGV0REMLQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VPGV0REMLQ');
+</script>
 
 <body>
 
@@ -468,10 +475,19 @@
       <div class="row d-flex justify-content-center">
         <div class="d-flex flex-column-reverse flex-lg-row col-10">
           <div class="col-lg-6 col-12 mt-3 mt-lg-0 me-lg-5">
-            <p>自己紹介</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi esse magnam molestiae, ipsam
-              repellendus commodi itaque architecto sunt praesentium? Optio nulla dignissimos perspiciatis velit
-              sapiente quas delectus molestias unde explicabo.</p>
+            <p>認定心理カウンセラー1級</p>
+            <p>カラーセラピスト(センセーション)</p>
+            <p>アートセラピスト</p>
+            <br>
+            <p>
+              山梨県出身　神奈川県在住。
+              学生時代に音楽療法を学んだのち幼稚園教諭、保育士資格を取得。
+              卒業後は保育園や発達障害児向けの学習塾にて、児童福祉に携わる。
+            </p>
+            <p>
+              その後、心理カウンセラーとして独立。
+              対面やオンラインでのカウンセリングや、イベント主催など活動の場を広げている。
+            </p>
           </div>
           <div class="d-flex justify-content-center col-lg-6 col-12 img-intro">
             <img src="./img/intro.webp" alt="">
@@ -587,7 +603,7 @@
     </section>
 
     <!-- SNSアイコン追従用の固定ボタン -->
-    <div class="fixed-social-icons fd">
+    <div class="fixed-social-icons">
       <a href="https://www.instagram.com/chihiro_suzumiya/" target="_blank" class="icon-instagram"
         aria-label="Instagram">
         <!-- <img src="./img/instagram_color_icon.svg" alt="Instagram"> -->
@@ -653,3 +669,4 @@
 
   <script src="./js/script.js"></script>
 </body>
+</html>
