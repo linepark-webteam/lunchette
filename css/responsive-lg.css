@@ -47,7 +47,7 @@
     top: 0;
     left: 0;
     width: 100vw; /* ビューポートの幅に合わせる */
-    height: 98svh; /* ビューポートの高さに合わせる */
+    height: 100svh; /* ビューポートの高さに合わせる */
     z-index: 1;
     overflow: hidden; /* はみ出しを切り取る */
   }
@@ -69,7 +69,7 @@
     left: 0;
     width: 100%;
     /* height: 40vh; */
-    height: 40svh;
+    height: 50svh;
     z-index: 10;
     background: linear-gradient(to top, rgba(221, 255, 245, 1));
   }
