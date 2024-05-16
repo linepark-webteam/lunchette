@@ -232,18 +232,29 @@ h3 {
   object-fit: cover;
 }
 
-
 /*========= Waveを描画するエリア設定 ===============*/
 /* スクロール可能なコンテンツのスタイル */
 #waveCanvas {
   position: absolute;
-  top: -130svh;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 400svh;
+  height: 30svh;
   z-index: 10;
-  pointer-events: none;  /* キャンバスがクリックを受け付けないようにする */
+  background: linear-gradient(to top, rgba(221, 255, 245, 1));
 }
+
+#blue-canvas {
+  position: absolute;
+  top: 100svh;
+  left: 0;
+  width: 100%;
+  height: 130svh;
+  z-index: 9;
+  background: linear-gradient(to top, rgba(221, 255, 245, 0), rgba(221, 255, 245, 1) 50%, rgba(221, 255, 245, 1) 100%);
+}
+
+
 /* AboutのCSS */
 .about {
   margin-top: 220svh; /* 上の余白 */

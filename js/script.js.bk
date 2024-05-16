@@ -3,7 +3,6 @@ let animation;
 // 初期化関数: ページロード時に実行され、初期設定を行います。
 function init() {
   setupCanvas();  // キャンバス設定
-  setupBlueCanvas(); // #blueCanvasの設定
   window.addEventListener('resize', setupCanvas);  // リサイズ時のキャンバス再設定
   window.addEventListener('scroll', handleScroll);  // スクロールイベントの処理
   // updateHeaderSpacing();  // ヘッダーの高さに基づく余白の調整
@@ -32,16 +31,15 @@ function updateHeaderSpacing() {
   heroSection.style.marginTop = '0px';
 }
 
-
 // キャンバス設定と波のアニメーションの初期化
 function setupCanvas() {
   const canvas = document.getElementById("waveCanvas");
-  canvas.width = document.documentElement.clientWidth * 1.3;  // キャンバス幅設定
-  canvas.height = document.documentElement.clientWidth < 768 ? 150 : 200;  // キャンバス高さ設定
+  canvas.width = document.documentElement.clientWidth;  // キャンバス幅設定
+  canvas.height = document.documentElement.clientHeight * 2;  // キャンバス高さを2倍に設定
   canvas.contextCache = canvas.getContext("2d");  // コンテキストキャッシング
 
   // アニメーションパラメータ
-  const info = { t: 0, unit: 200, amplitude: 0.3, frequency: 0.002, phase: 0 };
+  const info = { t: 0, unit: 50, amplitude: 1, frequency: 0.01, phase: 1 };
 
   // 既存のアニメーションがあれば停止
   if (animation) {
@@ -65,7 +63,8 @@ function draw(canvas, info) {
 
   // グラデーション設定
   let gradient = context.createLinearGradient(0, 0, 0, canvas.height);
-  gradient.addColorStop(0, 'rgba(221,255,245, 1)');
+  gradient.addColorStop(0, 'rgba(221,255,245, 1)'); // 上部の色
+  gradient.addColorStop(1, 'rgba(221,255,245, 0)'); // 下部の透明度設定
 
   context.fillStyle = gradient;
   context.beginPath();
@@ -88,29 +87,6 @@ function drawSine(canvas, info) {
     const y = Math.sin(x) * info.amplitude * info.unit;
     context.lineTo(i, y + xAxis);
   }
-}
-
-// #blueCanvasの設定
-function setupBlueCanvas() {
-  const heroSection = document.querySelector('.hero-section');
-  const blueCanvas = document.getElementById('blueCanvas');
-
-  const heroHeight = heroSection.offsetHeight;
-  const viewportHeight = window.innerHeight;
-
-  blueCanvas.style.position = 'absolute';
-  blueCanvas.style.top = `${heroHeight}px`;
-  blueCanvas.height = viewportHeight;
-  blueCanvas.width = window.innerWidth;
-
-  window.addEventListener('resize', () => {
-    const heroHeight = heroSection.offsetHeight;
-    const viewportHeight = window.innerHeight;
-
-    blueCanvas.style.top = `${heroHeight}px`;
-    blueCanvas.height = viewportHeight;
-    blueCanvas.width = window.innerWidth;
-  });
 }
 
 // スクロールイベントの処理

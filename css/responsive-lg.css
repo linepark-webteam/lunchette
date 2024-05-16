@@ -64,35 +64,18 @@
 
   #waveCanvas {
     position: absolute;
-    bottom: 0;
+    top: -125svh;
     left: 0;
     width: 100%;
-    /* height: 40vh; */
-    height: 50svh;
+    height: 400svh;
     z-index: 10;
-    background: linear-gradient(to top, rgba(221, 255, 245, 1));
-  }
-
-  #blue-canvas {
-    position: absolute;
-    /* top: 100vh; */
-    top: 98svh;
-    left: 0;
-    width: 100%;
-    /* height: 120vh; */
-    height: 105svh;
-    z-index: 9;
-    background: linear-gradient(
-      to top,
-      rgba(221, 255, 245, 0),
-      rgba(221, 255, 245, 1) 50%,
-      rgba(221, 255, 245, 1) 100%
-    );
+    pointer-events: none;  /* キャンバスがクリックを受け付けないようにする */
   }
 
   /* AboutのCSS */
   .about {
-    margin-top: 200svh; /* ヒーローセクションの高さと追加のスペースを加味 */
+    /* ヒーローセクションの高さと追加のスペースを加味してmargin-topを指定 */
+    margin-top: 255svh;
     text-align: left;
   }
 

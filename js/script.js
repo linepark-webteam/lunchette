@@ -1,4 +1,5 @@
 let animation;
+// let waveInfo;
 
 // 初期化関数: ページロード時に実行され、初期設定を行います。
 function init() {
@@ -31,16 +32,19 @@ function updateHeaderSpacing() {
   heroSection.style.marginTop = '0px';
 }
 
-
+// 以下、波のアニメーション
 // キャンバス設定と波のアニメーションの初期化
 function setupCanvas() {
   const canvas = document.getElementById("waveCanvas");
-  canvas.width = document.documentElement.clientWidth * 1.3;  // キャンバス幅設定
-  canvas.height = document.documentElement.clientWidth < 768 ? 150 : 200;  // キャンバス高さ設定
-  canvas.contextCache = canvas.getContext("2d");  // コンテキストキャッシング
+   // キャンバス幅設定
+  canvas.width = document.documentElement.clientWidth;
+  // キャンバス高さを2倍に設定
+  canvas.height = document.documentElement.clientHeight * 2;
+  // コンテキストキャッシング
+  canvas.contextCache = canvas.getContext("2d");
 
   // アニメーションパラメータ
-  const info = { t: 0, unit: 200, amplitude: 0.3, frequency: 0.002, phase: 0 };
+  const info = { t: 0, unit: 30, amplitude: 1, frequency: 0.0035, phase: 1 };
 
   // 既存のアニメーションがあれば停止
   if (animation) {
@@ -53,7 +57,8 @@ function setupCanvas() {
     repeat: -1,
     ease: "none",
     phase: "+=360",
-    onUpdate: () => draw(canvas, info)  // 更新時に波形を描画
+    // 更新時に波形を描画
+    onUpdate: () => draw(canvas, info)
   });
 }
 
@@ -62,9 +67,12 @@ function draw(canvas, info) {
   const context = canvas.contextCache;
   context.clearRect(0, 0, canvas.width, canvas.height);  // キャンバスをクリア
 
+
   // グラデーション設定
   let gradient = context.createLinearGradient(0, 0, 0, canvas.height);
-  gradient.addColorStop(0, 'rgba(221,255,245, 1)');
+  gradient.addColorStop(0, 'rgba(221,255,245, 1)'); // 上部の色（不透明）
+  gradient.addColorStop(0.8, 'rgba(221,255,245, 1)'); // 中部の色（不透明）
+  gradient.addColorStop(1, 'rgba(221,255,245, 0)'); // 下部の透明度設定
 
   context.fillStyle = gradient;
   context.beginPath();
@@ -88,6 +96,7 @@ function drawSine(canvas, info) {
     context.lineTo(i, y + xAxis);
   }
 }
+// 以上、波のアニメーション
 
 // スクロールイベントの処理
 function handleScroll() {
