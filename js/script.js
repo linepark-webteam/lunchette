@@ -120,9 +120,8 @@ function updateCanvasPosition() {
   }
 }
 
-
+// 以下、SNSアイコンの制御
 document.addEventListener('DOMContentLoaded', function () {
-  // ヒーローセクションとSNSアイコンの要素を取得
   const heroSection = document.querySelector('.hero-section');
   const socialIcons = document.querySelector('.fixed-social-icons');
 
@@ -130,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
   socialIcons.style.opacity = 0;
   socialIcons.style.transition = 'opacity 1s ease';
 
-  // IntersectionObserverの設定（992px以上の場合のみ）
+  // IntersectionObserverの設定
   const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
       if (window.innerWidth >= 993) {
@@ -143,19 +142,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }, { threshold: 0 });
 
-  // 992px以上の場合はIntersectionObserverを利用
-  if (window.innerWidth >= 993) {
-    observer.observe(heroSection);
-  } else {
-    // 992px以下の場合はスクロールイベントで制御
-    window.addEventListener('scroll', function () {
-      const scrollY = window.scrollY;
-      const targetScrollY = window.innerHeight; // 100svhに対応
-
-      // 100svhスクロールしたら表示
-      socialIcons.style.opacity = scrollY > targetScrollY ? 1 : 0;
-    });
+  // 画面幅に応じて適切なイベントを設定
+  function setupObserver() {
+    if (window.innerWidth >= 993) {
+      observer.observe(heroSection);
+    } else {
+      window.removeEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll);
+    }
   }
+
+  // スクロールイベントの処理
+  function handleScroll() {
+    const scrollY = window.scrollY;
+    const targetScrollY = window.innerHeight; // 100svhに対応
+    socialIcons.style.opacity = scrollY > targetScrollY ? 1 : 0;
+  }
+
+  // 初期ロード時にイベント設定を実行
+  setupObserver();
+
+  // リサイズ時にイベント設定を更新
+  window.addEventListener('resize', setupObserver);
 });
 
 // フッターおよび固定ボタンの高さに基づいてSNSアイコンの位置を調整する
@@ -201,6 +209,7 @@ function init() {
     positionMobileSocialIconsAboveFooterAndBottomButton();
   }
 }
+// 以上SNSアイコンの制御
 
 // ヒーローセクションの透明度更新
 function updateContentOpacity() {
@@ -224,20 +233,6 @@ function toggleNavbarBrandVisibility() {
     navbarBrand.classList.remove('visible')
   }
 }
-
-// フェードイン要素の監視 一度だけ実行
-// function observeFadeInElements() {
-//   const fadeElements = document.querySelectorAll(".fd");
-//   const observer = new IntersectionObserver((entries) => {
-//     entries.forEach(entry => {
-//       if (entry.isIntersecting) {
-//         entry.target.classList.add("fd-in");
-//         observer.unobserve(entry.target);
-//       }
-//     });
-//   });
-//   fadeElements.forEach(element => observer.observe(element));
-// }
 
 // フェードイン要素の監視 ビューポートに入る度にアニメーションを実行
 function observeFadeInElements() {

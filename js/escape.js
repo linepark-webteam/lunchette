@@ -81,3 +81,17 @@ document.addEventListener('DOMContentLoaded', function () {
 //     }
 //   }
 // }
+
+// フェードイン要素の監視 一度だけ実行
+// function observeFadeInElements() {
+//   const fadeElements = document.querySelectorAll(".fd");
+//   const observer = new IntersectionObserver((entries) => {
+//     entries.forEach(entry => {
+//       if (entry.isIntersecting) {
+//         entry.target.classList.add("fd-in");
+//         observer.unobserve(entry.target);
+//       }
+//     });
+//   });
+//   fadeElements.forEach(element => observer.observe(element));
+// }
