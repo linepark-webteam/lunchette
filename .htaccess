@@ -8,3 +8,13 @@ RewriteRule ^(.*)$ https://lunchette-counseling.com/$1 [L,R=301]
 # HTTPSを強制する
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# .htmlファイルの拡張子を隠す
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html$ -f
+RewriteRule ^([^/]+)$ $1.html [L]
+
+# .phpファイルの拡張子を隠す
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php$ -f
+RewriteRule ^([^/]+)$ $1.php [L]
