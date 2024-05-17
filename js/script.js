@@ -1,30 +1,16 @@
 let animation;
-// let waveInfo;
 
 // 初期化関数: ページロード時に実行され、初期設定を行います。
 function init() {
   setupCanvas();  // キャンバス設定
   window.addEventListener('resize', setupCanvas);  // リサイズ時のキャンバス再設定
   window.addEventListener('scroll', handleScroll);  // スクロールイベントの処理
-  // updateHeaderSpacing();  // ヘッダーの高さに基づく余白の調整
   observeFadeInElements();  // フェードイン要素の監視
   setupCollapseIconChanges();  // 折りたたみアイコンの動作設定
   addEventListeners();  // 追加のイベントリスナーを設定
-  positionSocialIconsAboveFooter();  // フッターの高さに基づくSNSアイコンの位置調整
+  positionMobileSocialIconsAboveFooterAndBottomButton();  // フッターの高さに基づくSNSアイコンの位置調整
 }
 
-// ヘッダーの高さに基づく余白の調整（余白有り）
-// function updateHeaderSpacing() {
-//   const header = document.querySelector('.fixed-top');
-//   const heroSection = document.querySelector('.hero-section');
-
-//   if (window.innerWidth < 993) {
-//     const headerHeight = header ? header.offsetHeight : 0;
-//     heroSection.style.marginTop = `${headerHeight}px`;
-//   } else {
-//     heroSection.style.marginTop = '0px';
-//   }
-// }
 // ヘッダーの高さに基づく余白の調整（余白無し）
 function updateHeaderSpacing() {
   const heroSection = document.querySelector('.hero-section');
@@ -32,16 +18,12 @@ function updateHeaderSpacing() {
   heroSection.style.marginTop = '0px';
 }
 
-// 以下、波のアニメーション
 // キャンバス設定と波のアニメーションの初期化
 function setupCanvas() {
   const canvas = document.getElementById("waveCanvas");
-   // キャンバス幅設定
-  canvas.width = document.documentElement.clientWidth;
-  // キャンバス高さを2倍に設定
-  canvas.height = document.documentElement.clientHeight * 2;
-  // コンテキストキャッシング
-  canvas.contextCache = canvas.getContext("2d");
+  canvas.width = document.documentElement.clientWidth;  // キャンバス幅設定
+  canvas.height = document.documentElement.clientHeight * 2;  // キャンバス高さを2倍に設定
+  canvas.contextCache = canvas.getContext("2d");  // コンテキストキャッシング
 
   // アニメーションパラメータ
   const info = { t: 0, unit: 30, amplitude: 1, frequency: 0.0035, phase: 1 };
@@ -57,8 +39,7 @@ function setupCanvas() {
     repeat: -1,
     ease: "none",
     phase: "+=360",
-    // 更新時に波形を描画
-    onUpdate: () => draw(canvas, info)
+    onUpdate: () => draw(canvas, info)  // 更新時に波形を描画
   });
 }
 
@@ -66,7 +47,6 @@ function setupCanvas() {
 function draw(canvas, info) {
   const context = canvas.contextCache;
   context.clearRect(0, 0, canvas.width, canvas.height);  // キャンバスをクリア
-
 
   // グラデーション設定
   let gradient = context.createLinearGradient(0, 0, 0, canvas.height);
@@ -90,13 +70,12 @@ function drawSine(canvas, info) {
   context.moveTo(-10, xAxis);
 
   // サイン波を描画
-  for (let i = -10; i <= canvas.width + 10; i += 10) {
+  for (let i = -10; i <= canvas.width + 10; i += 1) {  // サンプル間隔を小さくして滑らかに描画
     const x = (info.t + i) * info.frequency + info.phase;
     const y = Math.sin(x) * info.amplitude * info.unit;
     context.lineTo(i, y + xAxis);
   }
 }
-// 以上、波のアニメーション
 
 // スクロールイベントの処理
 function handleScroll() {
@@ -120,10 +99,10 @@ function updateCanvasPosition() {
   }
 }
 
-// 以下、SNSアイコンの制御
+// SNSアイコンの制御
 document.addEventListener('DOMContentLoaded', function () {
-  const heroSection = document.querySelector('.hero-section');
   const socialIcons = document.querySelector('.fixed-social-icons');
+  const heroSection = document.querySelector('.hero-section');
 
   // 初期状態で隠す
   socialIcons.style.opacity = 0;
@@ -132,38 +111,29 @@ document.addEventListener('DOMContentLoaded', function () {
   // IntersectionObserverの設定
   const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
-      if (window.innerWidth >= 993) {
-        if (!entry.isIntersecting) {
-          socialIcons.style.opacity = 1; // フェードイン
-        } else {
-          socialIcons.style.opacity = 0; // フェードアウト
-        }
+      if (entry.isIntersecting) {
+        socialIcons.style.opacity = 0; // フェードアウト
+      } else {
+        socialIcons.style.opacity = 1; // フェードイン
       }
     });
   }, { threshold: 0 });
 
-  // 画面幅に応じて適切なイベントを設定
-  function setupObserver() {
-    if (window.innerWidth >= 993) {
-      observer.observe(heroSection);
-    } else {
-      window.removeEventListener('scroll', handleScroll);
-      window.addEventListener('scroll', handleScroll);
-    }
-  }
+  observer.observe(heroSection);
 
-  // スクロールイベントの処理
-  function handleScroll() {
+  // 初期ロード時にスクロールイベントの設定
+  window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     const targetScrollY = window.innerHeight; // 100svhに対応
     socialIcons.style.opacity = scrollY > targetScrollY ? 1 : 0;
-  }
+  });
 
-  // 初期ロード時にイベント設定を実行
-  setupObserver();
-
-  // リサイズ時にイベント設定を更新
-  window.addEventListener('resize', setupObserver);
+  // リサイズ時にスクロールイベントの設定を更新
+  window.addEventListener('resize', () => {
+    const scrollY = window.scrollY;
+    const targetScrollY = window.innerHeight; // 100svhに対応
+    socialIcons.style.opacity = scrollY > targetScrollY ? 1 : 0;
+  });
 });
 
 // フッターおよび固定ボタンの高さに基づいてSNSアイコンの位置を調整する
@@ -195,22 +165,6 @@ function positionMobileSocialIconsAboveFooterAndBottomButton() {
   updateSocialIconPosition(); // 初期ロード時にも位置を更新
 }
 
-// 初期化関数：ページロード時に実行
-function init() {
-  setupCanvas(); // キャンバス設定
-  window.addEventListener('resize', setupCanvas); // リサイズ時のキャンバス再設定
-  window.addEventListener('scroll', handleScroll); // スクロールイベントの処理
-  observeFadeInElements(); // フェードイン要素の監視
-  setupCollapseIconChanges(); // 折りたたみアイコンの動作設定
-  addEventListeners(); // 追加のイベントリスナーを設定
-
-  // 画面幅992px以下のときにフッターや固定ボタンの高さを考慮してアイコン位置を調整
-  if (window.innerWidth < 993) {
-    positionMobileSocialIconsAboveFooterAndBottomButton();
-  }
-}
-// 以上SNSアイコンの制御
-
 // ヒーローセクションの透明度更新
 function updateContentOpacity() {
   const scrollY = window.scrollY;
@@ -222,7 +176,7 @@ function updateContentOpacity() {
 // .navbar-brandの表示切替
 function toggleNavbarBrandVisibility() {
   const heroSection = document.querySelector('.hero-section');
-  const navbarBrand = document.querySelector('.brand-logo ');
+  const navbarBrand = document.querySelector('.brand-logo');
   const scrollY = window.scrollY;
   const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
 
@@ -230,7 +184,7 @@ function toggleNavbarBrandVisibility() {
   if (scrollY > heroBottom) {
     navbarBrand.classList.add('visible');
   } else {
-    navbarBrand.classList.remove('visible')
+    navbarBrand.classList.remove('visible');
   }
 }
 
@@ -251,7 +205,6 @@ function observeFadeInElements() {
 
   fadeElements.forEach(element => observer.observe(element));
 }
-
 
 // 折りたたみセクションのアイコン変更設定
 function setupCollapseIconChanges() {
@@ -275,7 +228,7 @@ function setupCollapseIconChanges() {
   });
 }
 
-// ハンバーガーメニューのトグル機能とフッターの追従ボタン設定を行います。
+// ハンバーガーメニューのトグル機能とフッターの追従ボタン設定
 function addEventListeners() {
   let navbarToggler = document.querySelector('.navbar-toggler');
   navbarToggler.addEventListener('click', function() {
@@ -310,5 +263,5 @@ window.addEventListener('resize', adjustFooterPadding);
 // 初期設定で一度実行しておく
 adjustFooterPadding();
 
-
-init();  // 初期化関数を呼び出します。
+// 初期化関数の呼び出し
+init();

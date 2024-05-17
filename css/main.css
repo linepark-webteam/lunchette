@@ -2,10 +2,6 @@
 
 /* 共通CSS */
 /*========= 全体のスタイル ===============*/
-* {
-  box-sizing: border-box; /* paddingとborderも要素の大きさに含める */
-}
-
 html, body {
   margin: 0;
   padding: 0;

@@ -1,4 +1,5 @@
 let animation;
+// let waveInfo;
 
 // 初期化関数: ページロード時に実行され、初期設定を行います。
 function init() {
@@ -31,15 +32,19 @@ function updateHeaderSpacing() {
   heroSection.style.marginTop = '0px';
 }
 
+// 以下、波のアニメーション
 // キャンバス設定と波のアニメーションの初期化
 function setupCanvas() {
   const canvas = document.getElementById("waveCanvas");
-  canvas.width = document.documentElement.clientWidth;  // キャンバス幅設定
-  canvas.height = document.documentElement.clientHeight * 2;  // キャンバス高さを2倍に設定
-  canvas.contextCache = canvas.getContext("2d");  // コンテキストキャッシング
+   // キャンバス幅設定
+  canvas.width = document.documentElement.clientWidth;
+  // キャンバス高さを2倍に設定
+  canvas.height = document.documentElement.clientHeight * 2;
+  // コンテキストキャッシング
+  canvas.contextCache = canvas.getContext("2d");
 
   // アニメーションパラメータ
-  const info = { t: 0, unit: 50, amplitude: 1, frequency: 0.01, phase: 1 };
+  const info = { t: 0, unit: 30, amplitude: 1, frequency: 0.0035, phase: 1 };
 
   // 既存のアニメーションがあれば停止
   if (animation) {
@@ -52,7 +57,8 @@ function setupCanvas() {
     repeat: -1,
     ease: "none",
     phase: "+=360",
-    onUpdate: () => draw(canvas, info)  // 更新時に波形を描画
+    // 更新時に波形を描画
+    onUpdate: () => draw(canvas, info)
   });
 }
 
@@ -61,9 +67,11 @@ function draw(canvas, info) {
   const context = canvas.contextCache;
   context.clearRect(0, 0, canvas.width, canvas.height);  // キャンバスをクリア
 
+
   // グラデーション設定
   let gradient = context.createLinearGradient(0, 0, 0, canvas.height);
-  gradient.addColorStop(0, 'rgba(221,255,245, 1)'); // 上部の色
+  gradient.addColorStop(0, 'rgba(221,255,245, 1)'); // 上部の色（不透明）
+  gradient.addColorStop(0.8, 'rgba(221,255,245, 1)'); // 中部の色（不透明）
   gradient.addColorStop(1, 'rgba(221,255,245, 0)'); // 下部の透明度設定
 
   context.fillStyle = gradient;
@@ -88,6 +96,7 @@ function drawSine(canvas, info) {
     context.lineTo(i, y + xAxis);
   }
 }
+// 以上、波のアニメーション
 
 // スクロールイベントの処理
 function handleScroll() {
@@ -111,9 +120,9 @@ function updateCanvasPosition() {
   }
 }
 
-
+// 以下、SNSアイコンの制御
+// SNSアイコンの制御
 document.addEventListener('DOMContentLoaded', function () {
-  // ヒーローセクションとSNSアイコンの要素を取得
   const heroSection = document.querySelector('.hero-section');
   const socialIcons = document.querySelector('.fixed-social-icons');
 
@@ -121,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
   socialIcons.style.opacity = 0;
   socialIcons.style.transition = 'opacity 1s ease';
 
-  // IntersectionObserverの設定（992px以上の場合のみ）
+  // IntersectionObserverの設定
   const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
       if (window.innerWidth >= 993) {
@@ -134,19 +143,30 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }, { threshold: 0 });
 
-  // 992px以上の場合はIntersectionObserverを利用
-  if (window.innerWidth >= 993) {
-    observer.observe(heroSection);
-  } else {
-    // 992px以下の場合はスクロールイベントで制御
-    window.addEventListener('scroll', function () {
-      const scrollY = window.scrollY;
-      const targetScrollY = window.innerHeight; // 100svhに対応
-
-      // 100svhスクロールしたら表示
-      socialIcons.style.opacity = scrollY > targetScrollY ? 1 : 0;
-    });
+  // 画面幅に応じて適切なイベントを設定
+  function setupObserver() {
+    if (window.innerWidth >= 993) {
+      observer.observe(heroSection);
+    } else {
+      window.addEventListener('scroll', handleScroll);
+    }
   }
+
+  // スクロールイベントの処理
+  function handleScroll() {
+    const scrollY = window.scrollY;
+    const targetScrollY = window.innerHeight; // 100svhに対応
+    socialIcons.style.opacity = scrollY > targetScrollY ? 1 : 0;
+  }
+
+  // 初期ロード時にイベント設定を実行
+  setupObserver();
+
+  // リサイズ時にイベント設定を更新
+  window.addEventListener('resize', () => {
+    observer.disconnect(); // 既存のオブザーバーを切断
+    setupObserver();
+  });
 });
 
 // フッターおよび固定ボタンの高さに基づいてSNSアイコンの位置を調整する
@@ -193,6 +213,8 @@ function init() {
   }
 }
 
+// 以上SNSアイコンの制御
+
 // ヒーローセクションの透明度更新
 function updateContentOpacity() {
   const scrollY = window.scrollY;
@@ -215,20 +237,6 @@ function toggleNavbarBrandVisibility() {
     navbarBrand.classList.remove('visible')
   }
 }
-
-// フェードイン要素の監視 一度だけ実行
-// function observeFadeInElements() {
-//   const fadeElements = document.querySelectorAll(".fd");
-//   const observer = new IntersectionObserver((entries) => {
-//     entries.forEach(entry => {
-//       if (entry.isIntersecting) {
-//         entry.target.classList.add("fd-in");
-//         observer.unobserve(entry.target);
-//       }
-//     });
-//   });
-//   fadeElements.forEach(element => observer.observe(element));
-// }
 
 // フェードイン要素の監視 ビューポートに入る度にアニメーションを実行
 function observeFadeInElements() {
